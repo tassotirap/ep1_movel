@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="map_settingsTitle">Configuracoes do Mapa</string>
+    
+    <string name="map_settingsUSPCenter">Centro da USP</string>
+    <string name="map_settingsBusStop">Pontos de Onibus</string>
+    <string name="map_settingsRestaurant">Bandejao</string>
+    <string name="map_settingsUniversity">Universidade</string>
+    <string name="map_settingsMyLocation">Meu Local</string>
+    <string name="map_settingsRefresh">Atualizar</string>
+    <string name="map_settingsAddOVerlay">Adicionar Pontos</string>
+       
+    <string name="map_addOverlayName">Tipo da Marcação</string>
+    <string name="map_addOverlayTypes">Tipo</string>
+    
+    <string-array name="map_addOverlayTypes">
+        <item>Ponto de Onibus</item>
+        <item>Universidade</item>
+        <item>Restaurante</item>        
+    </string-array>
+    
+</resources>

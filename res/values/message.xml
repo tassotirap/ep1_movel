@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msgLoadingTitle">Aguarde</string>
+    <string name="msgLoadingMsg">Sincronizando com o servidor!</string>
+    <string name="msgErrorTitle">Erro</string>
+    <string name="msgErrorMsg">Erro ao conectar com o Servidor!</string>
+    <string name="msgLocalErrorMsg">Local não encotrado!</string>
+</resources>

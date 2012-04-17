@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="restaurants_ids">
+        <item>Fisica</item>
+        <item>Quimica</item>
+        <item>Central</item>
+    </string-array>
+    
+    <string-array name="restaurants_status">
+        <item>Sem Fila</item>
+        <item>Pequena</item>
+        <item>Media</item>
+        <item>Grande</item>
+        <item>Muito Grande</item>
+    </string-array> 
+    <string name="restaurant_status_init">Selecione um local</string>
+    <string name="restaurants_ids_init">Selecione o tamanho da fila</string>
+    <string name="restaurant_send">Enviar Comentario</string>
+</resources>

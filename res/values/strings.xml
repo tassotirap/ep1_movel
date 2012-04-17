@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EP1</string>
+    <string name="btn_map">Mapa da USP</string>
+    <string name="btn_retaurant">Bandejão</string>
+    <string name="btn_gate">Portão</string>
+    <string name="lbl_maps">Mapa da USP</string>
+    <string name="lbl_restaurant">Bandejão</string>
+    <string name="lbl_gate">Portões da USP</string>
+    <string name="lbl_settings">Configurar</string>
+    <string name="btnSettings">Configuracoes</string>
+    
+   
+</resources>

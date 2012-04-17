@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" 
+        android:background="#DDDDDD"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/map_btnBusStop"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/busstop_enable"
+                android:contentDescription="@string/map_settingsBusStop" />
+
+            <ImageButton
+                android:id="@+id/map_btnRestaurant"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/restaurant_enable"
+                android:contentDescription="@string/map_settingsRestaurant" />
+
+            <ImageButton
+                android:id="@+id/map_btnUniversity"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/university_enable"
+                android:contentDescription="@string/map_settingsUniversity" />
+
+            <ImageButton
+                android:id="@+id/map_btnUSPCenter"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home"
+                android:contentDescription="@string/map_settingsUSPCenter" />
+
+            <ImageButton
+                android:id="@+id/map_btnMyLocation"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/location"
+                android:contentDescription="@string/map_settingsMyLocation" />
+
+            <ImageButton
+                android:id="@+id/map_btnRefresh"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@drawable/refresh"
+                android:contentDescription="@string/map_settingsRefresh" />
+
+            <ImageButton
+                android:id="@+id/map_btnAddOverlay"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home"
+                android:contentDescription="@string/map_settingsAddOVerlay" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <com.google.android.maps.MapView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:apiKey="0y9kaLBmZWpFdHI1vIY9sr6wSud5uFJZ2OyyRsA"
+        android:clickable="true" />
+
+</LinearLayout>
