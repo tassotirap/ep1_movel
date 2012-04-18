@@ -68,12 +68,14 @@ public final class R {
         public static final int map_btnUSPCenter=0x7f08000f;
         public static final int map_btnUniversity=0x7f08000e;
         public static final int mapview=0x7f080013;
-        public static final int restaurant_btnRefresh=0x7f08001d;
+        public static final int restaurant_BtnRefresh2=0x7f08001d;
+        public static final int restaurant_btnRefresh=0x7f08001c;
         public static final int restaurant_btnSend=0x7f08001b;
         public static final int restaurant_comment=0x7f08001a;
         public static final int restaurant_ids=0x7f080018;
         public static final int restaurant_status=0x7f080019;
-        public static final int retaurant_text=0x7f08001c;
+        public static final int scrollView1=0x7f08001e;
+        public static final int textLayout=0x7f08001f;
         public static final int textView1=0x7f080004;
         public static final int textView2=0x7f080006;
         public static final int textView3=0x7f080008;

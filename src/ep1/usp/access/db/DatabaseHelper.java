@@ -24,6 +24,7 @@ abstract class DatabaseHelper extends SQLiteOpenHelper
 			CreateMapConfigsView(bd);
 			CreateOverlay(bd);			
 			CreateRestaurants(bd);
+			CreateRestaurantCommets(bd);
 		}
 		catch (Exception e)
 		{
@@ -102,6 +103,16 @@ abstract class DatabaseHelper extends SQLiteOpenHelper
 	{
 		bd.execSQL("CREATE TABLE RESTAURANTS (id INTEGER PRIMARY KEY, name TEXT NOT NULL, status INTEGER NOT NULL);");
 	}
+	
+	private void DropRestaurantCommets(SQLiteDatabase bd)
+	{
+		bd.execSQL("DROP TABLE RESTAURANT_COMMENTS;");
+	}
+	
+	private void CreateRestaurantCommets(SQLiteDatabase bd)
+	{
+		bd.execSQL("CREATE TABLE RESTAURANT_COMMENTS (idRestaurant INTEGER NOT NULL, comment TEXT NOT NULL, date TEXT NOT NULL);");
+	}
 
 	public void onUpgrade(SQLiteDatabase bd, int versaoAnterior, int versaoNova)
 	{
@@ -119,6 +130,9 @@ abstract class DatabaseHelper extends SQLiteOpenHelper
 			
 			DropRestaurants(bd);
 			CreateRestaurants(bd);
+			
+			DropRestaurantCommets(bd);
+			CreateRestaurantCommets(bd);
 		}
 		catch (Exception e)
 		{

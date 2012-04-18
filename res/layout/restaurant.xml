@@ -41,17 +41,6 @@
         android:layout_below="@+id/restaurant_comment"
         android:text="@string/restaurant_send" />
 
-    <TextSwitcher
-        android:id="@+id/retaurant_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/restaurant_btnSend"
-        android:layout_weight="0.71" >
-
-    </TextSwitcher>
-
     <Button
         android:id="@+id/restaurant_btnRefresh"
         android:layout_width="wrap_content"
@@ -59,5 +48,31 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/restaurant_comment"
         android:text="Refresh" />
+
+    <Button
+        android:id="@+id/restaurant_BtnRefresh2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/restaurant_comment"
+        android:layout_toRightOf="@+id/restaurant_btnRefresh"
+        android:text="Button" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/restaurant_btnSend" >
+
+        <LinearLayout
+            android:id="@+id/textLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

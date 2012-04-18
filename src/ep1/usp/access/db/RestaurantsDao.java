@@ -66,6 +66,21 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 
 		return names;			
 	}
+	
+	public int getIdByName(String name)
+	{
+
+		Cursor c = getWritableDatabase().query(TABLE_NAME, new String[]{ COLUMNS[0] }, COLUMNS[1] + "=?", new String[]{name}, null, null, null);
+
+		while (c.moveToNext())
+		{
+			int id = c.getInt(0);
+			c.close();
+			return id;
+		}
+		c.close();
+		return -1;			
+	}
 
 	@Override
 	public void set(RestaurantInfo object)

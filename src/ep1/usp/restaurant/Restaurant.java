@@ -2,9 +2,6 @@ package ep1.usp.restaurant;
 
 import java.util.ArrayList;
 
-import ep1.usp.R;
-import ep1.usp.access.JSON.ParseJSON;
-import ep1.usp.access.db.RestaurantsDao;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -17,16 +14,86 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextSwitcher;
+import android.widget.TextView;
+import ep1.usp.R;
+import ep1.usp.access.db.RestaurantCommentDao;
+import ep1.usp.access.db.RestaurantsDao;
 
 public class Restaurant extends Activity
 {
+	
+	private RestaurantCommentDao restaurantCommentDao = null;
+	public RestaurantCommentDao getRestaurantCommentDao()
+	{
+		if(restaurantCommentDao == null)
+			restaurantCommentDao = new RestaurantCommentDao(getApplicationContext());
+		return restaurantCommentDao;	
+		
+	}
 
-	protected Spinner spnIds, spnStatus;
+	private LinearLayout txtComments = null;
+	public LinearLayout getTxtComments()
+	{
+		if(txtComment == null)
+			txtComments = (LinearLayout)findViewById(R.id.textLayout);
+		return txtComments;		
+	}
+	
+	
+	public void fillComments()
+	{
+		
+		ArrayList<MessageInfo> msgs = getRestaurantCommentDao().getAll();
+		getTxtComments().removeAllViews();
+		for(MessageInfo msg : msgs)
+		{
+			TextView txt = new TextView(this);
+			txt.setText(msg.getMessage()+ " - " + msg.getDate());
+			getTxtComments().addView(txt);			
+		}		
+	}
+	
+	protected Spinner spnRestaurants = null;
+	public Spinner getSpnRestaurants()
+	{
+		if(spnRestaurants == null)
+			spnRestaurants = (Spinner) findViewById(R.id.restaurant_ids);
+		return spnRestaurants;
+	
+	}
+	protected Spinner spnStatus = null;
+	public Spinner getSpnStatus()
+	{
+		if(spnStatus == null)
+			spnStatus = (Spinner) findViewById(R.id.restaurant_status);
+		return spnStatus;
+	
+	}
+	
+	
 	protected ArrayAdapter<String> mAdapterIds;
 	protected ArrayAdapter<CharSequence> mAdapterStatus;
-	private Button btnRefresh = null;
 	
+	private TextView txtComment = null;
+	public TextView getTxtComment()
+	{
+		if(txtComment == null)
+			txtComment = (TextView)findViewById(R.id.restaurant_comment);
+		return txtComment;
+	}
+	
+	private Button btnRefresh2 = null;	
+	public Button getBtnRefresh2()
+	{
+		if(btnRefresh2 == null)
+			btnRefresh2 = (Button)findViewById(R.id.restaurant_BtnRefresh2);
+		return btnRefresh2;
+	}
+	
+	private Button btnRefresh = null;	
 	public Button getBtnRefresh()
 	{
 		if(btnRefresh == null)
@@ -46,6 +113,12 @@ public class Restaurant extends Activity
 	
 	
 	private RestaurantsDao restaurantsDao = null;
+	public RestaurantsDao getRestaurantsDao()
+	{
+		if (restaurantsDao == null)
+			restaurantsDao = new RestaurantsDao(getApplicationContext());
+		return restaurantsDao;
+	}
 
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -63,11 +136,29 @@ public class Restaurant extends Activity
 		LoadingRestaurants load = new LoadingRestaurants(this);
 		load.Show();
 	}
+	
+	private void refreshMsg()
+	{
+		int restaurantPosition = getSpnRestaurants().getSelectedItemPosition();
+		int restaurantId = restaurantsDao.getIdByName(mAdapterIds.getItem(restaurantPosition));
+		LoadingGetMsg load = new LoadingGetMsg(this, restaurantId);
+		load.Show();		
+	}
 
 	public void bindElements()
 	{
-		spnIds = (Spinner) findViewById(R.id.restaurant_ids);
+		
 		spnStatus = (Spinner) findViewById(R.id.restaurant_status);
+		
+		getBtnRefresh2().setOnClickListener(new OnClickListener()
+		{
+			
+			@Override
+			public void onClick(View v)
+			{
+				refreshMsg();				
+			}
+		});
 		
 		getBtnRefresh().setOnClickListener(new OnClickListener()
 		{
@@ -85,11 +176,20 @@ public class Restaurant extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				new ParseJSON().setRestaurantComment(2, "teste", 2);
-				
+				AddMessageClick();				
 			}
 		});
 		
+	}
+	
+	private void AddMessageClick()
+	{
+		int restaurantPosition = getSpnRestaurants().getSelectedItemPosition();
+		int restaurantId = restaurantsDao.getIdByName(mAdapterIds.getItem(restaurantPosition));
+		String comment = getTxtComment().getText().toString();
+		int statusId = getSpnStatus().getSelectedItemPosition() + 1;
+		LoadingSendMsg loading = new LoadingSendMsg(this, restaurantId, comment, statusId);
+		loading.Show();		
 	}
 	
 	public Handler handler = new Handler()
@@ -99,13 +199,17 @@ public class Restaurant extends Activity
 		{
 			super.handleMessage(msg);
 			if(msg.what == 0)
-				showErrorDialog(getApplicationContext().getString(R.string.msgErrorTitle), getApplicationContext().getString(R.string.msgErrorMsg));
-			else
+				showDialog(getApplicationContext().getString(R.string.msgErrorTitle), getApplicationContext().getString(R.string.msgErrorMsg));
+			else if(msg.what == 1)
 				refreshAdapterIds();
+			else if(msg.what == 2)
+				showDialog("OK", "OK");
+			else if(msg.what == 3)
+				fillComments();
 		}
 	};
 	
-	public void showErrorDialog(String title, String message)
+	public void showDialog(String title, String message)
 	{
 		Builder alert = new AlertDialog.Builder(this);
 		alert.setTitle(title);
@@ -136,7 +240,7 @@ public class Restaurant extends Activity
 		refreshAdapterIds();
 		getAdapterIds().setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		
-		spnIds.setAdapter(getAdapterIds());
+		getSpnRestaurants().setAdapter(getAdapterIds());
 		
 		mAdapterStatus = ArrayAdapter.createFromResource(this, R.array.restaurants_status, android.R.layout.simple_spinner_item);
 
@@ -144,7 +248,7 @@ public class Restaurant extends Activity
 
 		spnStatus.setAdapter(mAdapterStatus);
 
-		spnIds.setOnItemSelectedListener(new OnItemSelectedListener()
+		getSpnRestaurants().setOnItemSelectedListener(new OnItemSelectedListener()
 		{
 
 			@Override
@@ -161,10 +265,5 @@ public class Restaurant extends Activity
 		});
 	}
 
-	public RestaurantsDao getRestaurantsDao()
-	{
-		if (restaurantsDao == null)
-			restaurantsDao = new RestaurantsDao(getApplicationContext());
-		return restaurantsDao;
-	}
+
 }
