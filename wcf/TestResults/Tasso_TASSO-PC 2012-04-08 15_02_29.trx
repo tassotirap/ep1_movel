@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b4eeba3f-3e71-4e7f-95fe-faab29823e90" name="Tasso@TASSO-PC 2012-04-08 15:02:29" runUser="Tasso-PC\Tasso" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="e60a1083-80d1-4050-956f-90a72980e567">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Tasso_TASSO-PC 2012-04-08 15_02_29">
+      <DeploymentItem filename="C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1\bin\wcfEp1.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\MySQL\MySQL Connector Net 6.5.4\Assemblies\v4.0\MySql.Data.Entity.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\MySQL\MySQL Connector Net 6.5.4\Assemblies\v4.0\MySql.Data.dll" />
+      <DeploymentItem filename="C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\Ep1Dao\bin\Debug\Ep1Dao.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-08T15:02:29.3465303-03:00" queuing="2012-04-08T15:02:31.8186703-03:00" start="2012-04-08T15:02:31.9676788-03:00" finish="2012-04-08T15:02:55.9710144-03:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="TASSO-PC" outcome="Warning" timestamp="2012-04-08T15:02:29.5795436-03:00">
+        <Text>Deployment is currently disabled. The deployment item 'wcfEp1.dll' on test 'wcfEp1Test.Ep1ServiceTest.CalcularDistanciaTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CalcularDistanciaTest" storage="c:\users\tasso\documents\visual studio 2010\projects\wcfep1\wcfep1test\bin\debug\wcfep1test.dll" id="0741f2d6-0821-547a-57f7-e87072313c5c">
+      <DeploymentItems>
+        <DeploymentItem filename="wcfEp1.dll" />
+      </DeploymentItems>
+      <Execution id="30fd918f-ba26-4a88-b730-de1a1e582d6d" />
+      <TestMethod codeBase="C:/Users/Tasso/documents/visual studio 2010/Projects/wcfEp1/wcfEp1Test/bin/Debug/wcfEp1Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="wcfEp1Test.Ep1ServiceTest, wcfEp1Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CalcularDistanciaTest" />
+      <AspNet webSiteUrl="http://localhost:38330/">
+        <Host pathToWebApp="C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1" webAppRoot="/" />
+      </AspNet>
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0741f2d6-0821-547a-57f7-e87072313c5c" executionId="30fd918f-ba26-4a88-b730-de1a1e582d6d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="30fd918f-ba26-4a88-b730-de1a1e582d6d" testId="0741f2d6-0821-547a-57f7-e87072313c5c" testName="CalcularDistanciaTest" computerName="TASSO-PC" startTime="2012-04-08T15:02:32.4697076-03:00" endTime="2012-04-08T15:02:55.7950057-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="30fd918f-ba26-4a88-b730-de1a1e582d6d">
+      <Output>
+        <ErrorInfo>
+          <Message>The Web request 'http://localhost:38330/' completed successfully without running the test. This can occur when configuring the Web application for testing fails (an ASP.NET server error occurs when processing the request), or when no ASP.NET page is executed (the URL may point to an HTML page, a Web service, or a directory listing). Running tests in ASP.NET requires the URL to resolve to an ASP.NET page and for the page to execute properly up to the Load event. The response from the request is stored in the file 'WebRequestResponse_CalcularDistanciaTes.html' with the test results; typically this file can be opened with a Web browser to view its contents.</Message>
+        </ErrorInfo>
+      </Output>
+      <ResultFiles>
+        <ResultFile path="TASSO-PC\WebRequestResponse_CalcularDistanciaTes.html" />
+      </ResultFiles>
+    </UnitTestResult>
+  </Results>
+</TestRun>

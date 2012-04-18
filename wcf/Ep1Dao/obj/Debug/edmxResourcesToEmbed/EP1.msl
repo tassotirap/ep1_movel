@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Ep1ModelStoreContainer" CdmEntityContainer="Ep1Entities">
+    <EntitySetMapping Name="gates">
+      <EntityTypeMapping TypeName="Ep1Model.gate">
+        <MappingFragment StoreEntitySet="gate">
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gate_posts">
+      <EntityTypeMapping TypeName="Ep1Model.gate_posts">
+        <MappingFragment StoreEntitySet="gate_posts">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="gate_id" ColumnName="gate_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gate_status">
+      <EntityTypeMapping TypeName="Ep1Model.gate_status">
+        <MappingFragment StoreEntitySet="gate_status">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="Ep1Model.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="item_type">
+      <EntityTypeMapping TypeName="Ep1Model.item_type">
+        <MappingFragment StoreEntitySet="item_type">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menus">
+      <EntityTypeMapping TypeName="Ep1Model.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="overlays">
+      <EntityTypeMapping TypeName="Ep1Model.overlay">
+        <MappingFragment StoreEntitySet="overlay">
+          <ScalarProperty Name="enable" ColumnName="enable" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="overlay_type">
+      <EntityTypeMapping TypeName="Ep1Model.overlay_type">
+        <MappingFragment StoreEntitySet="overlay_type">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurant_menu">
+      <EntityTypeMapping TypeName="Ep1Model.restaurant_menu">
+        <MappingFragment StoreEntitySet="restaurant_menu">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+          <ScalarProperty Name="restaurant_id" ColumnName="restaurant_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurants">
+      <EntityTypeMapping TypeName="Ep1Model.restaurant">
+        <MappingFragment StoreEntitySet="restaurants">
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurants_posts">
+      <EntityTypeMapping TypeName="Ep1Model.restaurants_posts">
+        <MappingFragment StoreEntitySet="restaurants_posts">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="restaurant_id" ColumnName="restaurant_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurants_status">
+      <EntityTypeMapping TypeName="Ep1Model.restaurants_status">
+        <MappingFragment StoreEntitySet="restaurants_status">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="settings">
+      <EntityTypeMapping TypeName="Ep1Model.setting">
+        <MappingFragment StoreEntitySet="settings">
+          <ScalarProperty Name="usp_gate3_longitude" ColumnName="usp_gate3_longitude" />
+          <ScalarProperty Name="usp_gate3_latitude" ColumnName="usp_gate3_latitude" />
+          <ScalarProperty Name="usp_gate2_longitude" ColumnName="usp_gate2_longitude" />
+          <ScalarProperty Name="usp_gate2_latitude" ColumnName="usp_gate2_latitude" />
+          <ScalarProperty Name="usp_gate1_longitude" ColumnName="usp_gate1_longitude" />
+          <ScalarProperty Name="usp_gate1_latitude" ColumnName="usp_gate1_latitude" />
+          <ScalarProperty Name="usp_longitude" ColumnName="usp_longitude" />
+          <ScalarProperty Name="usp_latitude" ColumnName="usp_latitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="menu_item" TypeName="Ep1Model.menu_item" StoreEntitySet="menu_item">
+      <EndProperty Name="item">
+        <ScalarProperty Name="id" ColumnName="item_id" />
+      </EndProperty>
+      <EndProperty Name="menu">
+        <ScalarProperty Name="id" ColumnName="menu_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
