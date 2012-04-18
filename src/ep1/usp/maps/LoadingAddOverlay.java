@@ -1,19 +1,26 @@
 package ep1.usp.maps;
-import java.util.ArrayList;
 
 import android.app.ProgressDialog;
 import ep1.usp.R;
 import ep1.usp.access.JSON.ParseJSON;
-import ep1.usp.maps.Overlay.OverlayInfo;
 
-
-public class LoadingOverlays
+public class LoadingAddOverlay
 {
 	private ProgressDialog progressDialog;
 	private Maps mActivity;
+	private int latitude;
+	private int longitude;
+	private String name;
+	private int type;
+	private MapsAddOverlay dialog;
 	
-	public LoadingOverlays(Maps mActivity)
+	public LoadingAddOverlay(Maps mActivity, int latitude, int longitude, String name, int type, MapsAddOverlay dialog)
 	{
+		this.dialog = dialog;
+		this.name = name;
+		this.type = type;
+		this.latitude = latitude;
+		this.longitude = longitude;				
 		this.mActivity = mActivity;
 	}
 
@@ -26,24 +33,16 @@ public class LoadingOverlays
 			{
 				try
 				{
-
 					ParseJSON parseJSON = new ParseJSON();
-					ArrayList<OverlayInfo> lstOverlayInfo = parseJSON.getOverlayInfo();
-
-					if (lstOverlayInfo.size() > 0)
-					{
-						mActivity.getOverlayDao().clear();
-						mActivity.getOverlayDao().setList(lstOverlayInfo);
-						mActivity.getMapsMenus().drawOverlays();
-					}
-					else
-					{
-						throw new Exception();
-					}
+					parseJSON.setOverlay(latitude, longitude, name, type);
+					dialog.handler.sendEmptyMessage(0);
+					mActivity.handler.sendEmptyMessage(1);
+					
 				}
 				catch (Exception e)
 				{
 					mActivity.handler.sendEmptyMessage(0);
+					dialog.handler.sendEmptyMessage(0);
 				}
 				finally
 				{
@@ -56,4 +55,6 @@ public class LoadingOverlays
 		t.start();
 	}
 	
+	
+
 }

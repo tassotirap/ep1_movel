@@ -10,7 +10,7 @@
     <string name="map_settingsRefresh">Atualizar</string>
     <string name="map_settingsAddOVerlay">Adicionar Pontos</string>
        
-    <string name="map_addOverlayName">Tipo da Marcação</string>
+    <string name="map_addOverlayName">Nome do Ponto</string>
     <string name="map_addOverlayTypes">Tipo</string>
     
     <string-array name="map_addOverlayTypes">

@@ -8,10 +8,19 @@ import android.os.Message;
 
 import com.google.android.maps.MapActivity;
 import ep1.usp.R;
+import ep1.usp.access.db.OverlayDao;
 
 public class Maps extends MapActivity
 {
 	private MapsMenu mapsMenus = null;
+	
+	private OverlayDao overlayDao;
+	public OverlayDao getOverlayDao()
+	{
+		if(overlayDao == null)
+			overlayDao = new OverlayDao(getApplicationContext());
+		return overlayDao;				
+	}
 	
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -34,7 +43,11 @@ public class Maps extends MapActivity
 		public void handleMessage(Message msg)
 		{
 			super.handleMessage(msg);
-			showErrorDialog(getApplicationContext().getString(R.string.msgErrorTitle), getApplicationContext().getString(R.string.msgErrorMsg));
+			
+			if(msg.what == 0)
+				showDialog(getApplicationContext().getString(R.string.msgErrorTitle), getApplicationContext().getString(R.string.msgErrorMsg));
+			else
+				showDialog("Sucesso", "Ponto adicionado com sucesso!");
 		}
 	};
 	
@@ -52,7 +65,7 @@ public class Maps extends MapActivity
 		return false;
 	}
 	
-	public void showErrorDialog(String title, String message)
+	public void showDialog(String title, String message)
 	{
 		Builder alert = new AlertDialog.Builder(this);
 		alert.setTitle(title);

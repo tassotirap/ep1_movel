@@ -1,16 +1,13 @@
 package ep1.usp;
 
-import ep1.usp.R;
-import ep1.usp.gate.Gate;
-import ep1.usp.maps.Maps;
-import ep1.usp.restaurant.Restaurant;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import ep1.usp.gate.Gate;
+import ep1.usp.maps.Maps;
+import ep1.usp.restaurant.Restaurant;
 
 public class Main extends Activity
 {

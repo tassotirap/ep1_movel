@@ -2,8 +2,9 @@ package ep1.usp.maps;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -11,42 +12,45 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import ep1.usp.R;
-import ep1.usp.access.JSON.ParseJSON;
 
 public class MapsAddOverlay extends Dialog
 {
 	private Button btnSave;
 	private EditText txtName;
-	private ParseJSON parseJSON;
 	private ArrayAdapter<CharSequence> mAdapterTypes;
 	private Spinner spnTypes;
 	private int selectedType;
 	private int latitude, longitude;
+	private Maps mActivity;
 	
-	public MapsAddOverlay(Context context)
+	public MapsAddOverlay(Maps mActivity)
 	{
-		super(context);
+		super(mActivity);
+		this.mActivity = mActivity;
 	}
+	
+	public Handler handler = new Handler()
+	{
+		@Override
+		public void handleMessage(Message msg)
+		{
+			super.handleMessage(msg);
+			
+			if(msg.what == 0)
+				hide();
+		}
+	};
 	
 	public void init(int latitude, int longitude)
 	{
-		parseJSON = new ParseJSON();
 
 		this.latitude = latitude;
 		this.longitude = longitude;
 		
-		getLocations();
 		loadBinds();
 		fillSpinner();
 
-	}
-
-	private void getLocations()
-	{
-		((TextView) findViewById(R.id.map_add_overlay_x)).setText("Latitude:" + latitude);
-		((TextView) findViewById(R.id.map_add_overlay_y)).setText("Longitude:" + longitude);
 	}
 
 	private void loadBinds()
@@ -98,8 +102,6 @@ public class MapsAddOverlay extends Dialog
 	{
 		selectedType = spnTypes.getSelectedItemPosition() + 1;
 	}
-	
-	private void back()
 	{
 		super.onBackPressed();		
 	}
@@ -109,21 +111,9 @@ public class MapsAddOverlay extends Dialog
 		try
 		{
 			if (latitude != 0 && longitude != 0 && selectedType != -1)
-			{
-
-				parseJSON.setOverlay(latitude, longitude, txtName.getText().toString(), selectedType);
-				AlertDialog alert = new AlertDialog.Builder(getContext()).create();
-				alert.setTitle("Sucesso");
-				alert.setMessage("Ponto adicionado com sucesso!");
-				alert.setButton("OK", new DialogInterface.OnClickListener()
-				{
-					public void onClick(DialogInterface dialog, int which)
-					{
-						back();
-					}
-				});
-				alert.show();
-				
+			{			
+				LoadingAddOverlay loading = new LoadingAddOverlay(mActivity, latitude, longitude, txtName.getText().toString(), selectedType, this);
+				loading.Show();				
 			}
 			else
 			{
@@ -135,7 +125,7 @@ public class MapsAddOverlay extends Dialog
 				{
 					public void onClick(DialogInterface dialog, int which)
 					{
-						back();
+						onBackPressed();
 					}
 				});
 				alert.show();

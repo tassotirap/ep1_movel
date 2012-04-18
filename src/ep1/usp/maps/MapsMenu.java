@@ -5,24 +5,11 @@ import android.view.View;
 import com.google.android.maps.GeoPoint;
 
 import ep1.usp.R;
-import ep1.usp.access.db.OverlayDao;
 import ep1.usp.maps.Overlay.MyOverlays;
 
 public class MapsMenu
 {
-	private Maps mActivity;
-	public Maps getRoot()
-	{
-		return mActivity;
-	}
 	
-	private OverlayDao overlayDao;
-	public OverlayDao getOverlayDao()
-	{
-		if(overlayDao == null)
-			overlayDao = new OverlayDao(mActivity.getApplicationContext());
-		return overlayDao;				
-	}	
 	
 	private MyOverlays myOverlays;
 	public MyOverlays getMyOverlays()
@@ -49,6 +36,7 @@ public class MapsMenu
 		
 	}
 	
+	private Maps mActivity;
 	public MapsMenu(Maps mActivity)
 	{
 		this.mActivity = mActivity;		
@@ -133,7 +121,7 @@ public class MapsMenu
 					getMyOverlays().showDialogAddOverlay(getMapsSettings().getMyLatitude(), getMapsSettings().getMyLongitude());
 				}
 				else
-					mActivity.showErrorDialog(mActivity.getString(R.string.msgErrorTitle), mActivity.getString(R.string.msgLocalErrorMsg));
+					mActivity.showDialog(mActivity.getString(R.string.msgErrorTitle), mActivity.getString(R.string.msgLocalErrorMsg));
 			}
 		});
 	}	
@@ -146,12 +134,12 @@ public class MapsMenu
 			getMapsSettings().getMapController().animateTo(geoPointCenter);
 		}
 		else
-			mActivity.showErrorDialog(mActivity.getString(R.string.msgErrorTitle), mActivity.getString(R.string.msgLocalErrorMsg));
+			mActivity.showDialog(mActivity.getString(R.string.msgErrorTitle), mActivity.getString(R.string.msgLocalErrorMsg));
 	}
 	
 	private void refreshOverlayClick()
 	{
-		LoadingOverlays loading = new LoadingOverlays(this);
+		LoadingOverlays loading = new LoadingOverlays(mActivity);
 		loading.Show();		
 	}
 	

@@ -42,28 +42,12 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView2" />
 
-    <TextView
-        android:id="@+id/map_add_overlay_x"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/map_add_overlay_ddlType"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/map_add_overlay_y"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/map_add_overlay_x"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <Button
         android:id="@+id/map_add_overlay_btnSave"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/map_add_overlay_y"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/map_add_overlay_ddlType"
         android:text="@string/lblSave" />
 
 </RelativeLayout>
