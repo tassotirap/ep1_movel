@@ -1,0 +1,13 @@
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\wcfEp1Test.dll
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\wcfEp1Test.pdb
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\Ep1Dao.dll
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\MySql.Data.dll
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\MySql.Data.Entity.dll
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\wcfEp1.dll
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\Ep1Dao.pdb
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\wcfEp1.pdb
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\wcfEp1_Accessor.dll
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug\wcfEp1_Accessor.pdb
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\obj\Debug\wcfEp1Test.dll
+C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\obj\Debug\wcfEp1Test.pdb

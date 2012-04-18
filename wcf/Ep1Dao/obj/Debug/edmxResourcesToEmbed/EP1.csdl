@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Ep1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Ep1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="gates" EntityType="Ep1Model.gate" />
+    <EntitySet Name="gate_posts" EntityType="Ep1Model.gate_posts" />
+    <EntitySet Name="gate_status" EntityType="Ep1Model.gate_status" />
+    <EntitySet Name="items" EntityType="Ep1Model.item" />
+    <EntitySet Name="item_type" EntityType="Ep1Model.item_type" />
+    <EntitySet Name="menus" EntityType="Ep1Model.menu" />
+    <EntitySet Name="overlays" EntityType="Ep1Model.overlay" />
+    <EntitySet Name="overlay_type" EntityType="Ep1Model.overlay_type" />
+    <EntitySet Name="restaurant_menu" EntityType="Ep1Model.restaurant_menu" />
+    <EntitySet Name="restaurants" EntityType="Ep1Model.restaurant" />
+    <EntitySet Name="restaurants_posts" EntityType="Ep1Model.restaurants_posts" />
+    <EntitySet Name="restaurants_status" EntityType="Ep1Model.restaurants_status" />
+    <EntitySet Name="settings" EntityType="Ep1Model.setting" />
+    <AssociationSet Name="fk_gate" Association="Ep1Model.fk_gate">
+      <End Role="gate" EntitySet="gates" />
+      <End Role="gate_posts" EntitySet="gate_posts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_gate_status" Association="Ep1Model.fk_gate_status">
+      <End Role="gate_status" EntitySet="gate_status" />
+      <End Role="gate" EntitySet="gates" />
+    </AssociationSet>
+    <AssociationSet Name="item_fk" Association="Ep1Model.item_fk">
+      <End Role="item_type" EntitySet="item_type" />
+      <End Role="item" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="fk_restaurant_menu2" Association="Ep1Model.fk_restaurant_menu2">
+      <End Role="menu" EntitySet="menus" />
+      <End Role="restaurant_menu" EntitySet="restaurant_menu" />
+    </AssociationSet>
+    <AssociationSet Name="fk_overlay_type" Association="Ep1Model.fk_overlay_type">
+      <End Role="overlay_type" EntitySet="overlay_type" />
+      <End Role="overlay" EntitySet="overlays" />
+    </AssociationSet>
+    <AssociationSet Name="fk_restaurant_menu" Association="Ep1Model.fk_restaurant_menu">
+      <End Role="restaurant" EntitySet="restaurants" />
+      <End Role="restaurant_menu" EntitySet="restaurant_menu" />
+    </AssociationSet>
+    <AssociationSet Name="fk_restaurant_status" Association="Ep1Model.fk_restaurant_status">
+      <End Role="restaurants_status" EntitySet="restaurants_status" />
+      <End Role="restaurant" EntitySet="restaurants" />
+    </AssociationSet>
+    <AssociationSet Name="fk_restaurants" Association="Ep1Model.fk_restaurants">
+      <End Role="restaurant" EntitySet="restaurants" />
+      <End Role="restaurants_posts" EntitySet="restaurants_posts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_restaurants_status" Association="Ep1Model.fk_restaurants_status">
+      <End Role="restaurants_status" EntitySet="restaurants_status" />
+      <End Role="restaurants_posts" EntitySet="restaurants_posts" />
+    </AssociationSet>
+    <AssociationSet Name="menu_item" Association="Ep1Model.menu_item">
+      <End Role="menu" EntitySet="menus" />
+      <End Role="item" EntitySet="items" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="gate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <Property Type="Int32" Name="status_id" Nullable="false" />
+    <Property Type="Int32" Name="latitude" Nullable="false" />
+    <Property Type="Int32" Name="longitude" Nullable="false" />
+    <NavigationProperty Name="gate_posts" Relationship="Ep1Model.fk_gate" FromRole="gate" ToRole="gate_posts" />
+    <NavigationProperty Name="gate_status" Relationship="Ep1Model.fk_gate_status" FromRole="gate" ToRole="gate_status" />
+  </EntityType>
+  <EntityType Name="gate_posts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="gate_id" Nullable="false" />
+    <Property Type="Int32" Name="latitude" Nullable="false" />
+    <Property Type="Int32" Name="longitude" Nullable="false" />
+    <Property Type="DateTime" Name="date" Nullable="false" />
+    <NavigationProperty Name="gate" Relationship="Ep1Model.fk_gate" FromRole="gate_posts" ToRole="gate" />
+  </EntityType>
+  <EntityType Name="gate_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <NavigationProperty Name="gates" Relationship="Ep1Model.fk_gate_status" FromRole="gate_status" ToRole="gate" />
+  </EntityType>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <Property Type="Int32" Name="type" Nullable="false" />
+    <NavigationProperty Name="item_type" Relationship="Ep1Model.item_fk" FromRole="item" ToRole="item_type" />
+    <NavigationProperty Name="menus" Relationship="Ep1Model.menu_item" FromRole="item" ToRole="menu" />
+  </EntityType>
+  <EntityType Name="item_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <NavigationProperty Name="items" Relationship="Ep1Model.item_fk" FromRole="item_type" ToRole="item" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="restaurant_menu" Relationship="Ep1Model.fk_restaurant_menu2" FromRole="menu" ToRole="restaurant_menu" />
+    <NavigationProperty Name="items" Relationship="Ep1Model.menu_item" FromRole="menu" ToRole="item" />
+  </EntityType>
+  <EntityType Name="overlay">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="latitude" Nullable="false" />
+    <Property Type="Int32" Name="longitude" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <Property Type="Int32" Name="type_id" Nullable="false" />
+    <Property Type="Boolean" Name="enable" Nullable="false" />
+    <NavigationProperty Name="overlay_type" Relationship="Ep1Model.fk_overlay_type" FromRole="overlay" ToRole="overlay_type" />
+  </EntityType>
+  <EntityType Name="overlay_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <NavigationProperty Name="overlays" Relationship="Ep1Model.fk_overlay_type" FromRole="overlay_type" ToRole="overlay" />
+  </EntityType>
+  <EntityType Name="restaurant_menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="restaurant_id" Nullable="false" />
+    <Property Type="Int32" Name="menu_id" Nullable="false" />
+    <Property Type="DateTime" Name="date" Nullable="false" />
+    <NavigationProperty Name="menu" Relationship="Ep1Model.fk_restaurant_menu2" FromRole="restaurant_menu" ToRole="menu" />
+    <NavigationProperty Name="restaurant" Relationship="Ep1Model.fk_restaurant_menu" FromRole="restaurant_menu" ToRole="restaurant" />
+  </EntityType>
+  <EntityType Name="restaurant">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <Property Type="Int32" Name="status_id" Nullable="false" />
+    <NavigationProperty Name="restaurant_menu" Relationship="Ep1Model.fk_restaurant_menu" FromRole="restaurant" ToRole="restaurant_menu" />
+    <NavigationProperty Name="restaurants_status" Relationship="Ep1Model.fk_restaurant_status" FromRole="restaurant" ToRole="restaurants_status" />
+    <NavigationProperty Name="restaurants_posts" Relationship="Ep1Model.fk_restaurants" FromRole="restaurant" ToRole="restaurants_posts" />
+  </EntityType>
+  <EntityType Name="restaurants_posts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="restaurant_id" Nullable="false" />
+    <Property Type="Int32" Name="status_id" Nullable="false" />
+    <Property Type="String" Name="comment" />
+    <Property Type="DateTime" Name="date" Nullable="false" />
+    <NavigationProperty Name="restaurant" Relationship="Ep1Model.fk_restaurants" FromRole="restaurants_posts" ToRole="restaurant" />
+    <NavigationProperty Name="restaurants_status" Relationship="Ep1Model.fk_restaurants_status" FromRole="restaurants_posts" ToRole="restaurants_status" />
+  </EntityType>
+  <EntityType Name="restaurants_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" />
+    <NavigationProperty Name="restaurants" Relationship="Ep1Model.fk_restaurant_status" FromRole="restaurants_status" ToRole="restaurant" />
+    <NavigationProperty Name="restaurants_posts" Relationship="Ep1Model.fk_restaurants_status" FromRole="restaurants_status" ToRole="restaurants_posts" />
+  </EntityType>
+  <EntityType Name="setting">
+    <Key>
+      <PropertyRef Name="usp_latitude" />
+      <PropertyRef Name="usp_longitude" />
+      <PropertyRef Name="usp_gate1_latitude" />
+      <PropertyRef Name="usp_gate1_longitude" />
+      <PropertyRef Name="usp_gate2_latitude" />
+      <PropertyRef Name="usp_gate2_longitude" />
+      <PropertyRef Name="usp_gate3_latitude" />
+      <PropertyRef Name="usp_gate3_longitude" />
+    </Key>
+    <Property Type="Int32" Name="usp_latitude" Nullable="false" />
+    <Property Type="Int32" Name="usp_longitude" Nullable="false" />
+    <Property Type="Int32" Name="usp_gate1_latitude" Nullable="false" />
+    <Property Type="Int32" Name="usp_gate1_longitude" Nullable="false" />
+    <Property Type="Int32" Name="usp_gate2_latitude" Nullable="false" />
+    <Property Type="Int32" Name="usp_gate2_longitude" Nullable="false" />
+    <Property Type="Int32" Name="usp_gate3_latitude" Nullable="false" />
+    <Property Type="Int32" Name="usp_gate3_longitude" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_gate">
+    <End Type="Ep1Model.gate" Role="gate" Multiplicity="1" />
+    <End Type="Ep1Model.gate_posts" Role="gate_posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gate">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="gate_posts">
+        <PropertyRef Name="gate_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_gate_status">
+    <End Type="Ep1Model.gate_status" Role="gate_status" Multiplicity="1" />
+    <End Type="Ep1Model.gate" Role="gate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gate_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="gate">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="item_fk">
+    <End Type="Ep1Model.item_type" Role="item_type" Multiplicity="1" />
+    <End Type="Ep1Model.item" Role="item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="item_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="item">
+        <PropertyRef Name="type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_restaurant_menu2">
+    <End Type="Ep1Model.menu" Role="menu" Multiplicity="1" />
+    <End Type="Ep1Model.restaurant_menu" Role="restaurant_menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="restaurant_menu">
+        <PropertyRef Name="menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_overlay_type">
+    <End Type="Ep1Model.overlay_type" Role="overlay_type" Multiplicity="1" />
+    <End Type="Ep1Model.overlay" Role="overlay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="overlay_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="overlay">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_restaurant_menu">
+    <End Type="Ep1Model.restaurant" Role="restaurant" Multiplicity="1" />
+    <End Type="Ep1Model.restaurant_menu" Role="restaurant_menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="restaurant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="restaurant_menu">
+        <PropertyRef Name="restaurant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_restaurant_status">
+    <End Type="Ep1Model.restaurants_status" Role="restaurants_status" Multiplicity="1" />
+    <End Type="Ep1Model.restaurant" Role="restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="restaurants_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="restaurant">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_restaurants">
+    <End Type="Ep1Model.restaurant" Role="restaurant" Multiplicity="1" />
+    <End Type="Ep1Model.restaurants_posts" Role="restaurants_posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="restaurant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="restaurants_posts">
+        <PropertyRef Name="restaurant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_restaurants_status">
+    <End Type="Ep1Model.restaurants_status" Role="restaurants_status" Multiplicity="1" />
+    <End Type="Ep1Model.restaurants_posts" Role="restaurants_posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="restaurants_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="restaurants_posts">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="menu_item">
+    <End Type="Ep1Model.menu" Role="menu" Multiplicity="*" />
+    <End Type="Ep1Model.item" Role="item" Multiplicity="*" />
+  </Association>
+</Schema>
