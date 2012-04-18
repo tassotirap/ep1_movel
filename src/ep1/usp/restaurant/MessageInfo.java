@@ -10,6 +10,8 @@ public class MessageInfo
 	
 	private Date date;
 
+	private int status = 0;
+
 	public MessageInfo(int restaurantId, String message, Date date)
 	{
 		this.restaurantId = restaurantId;
@@ -49,6 +51,17 @@ public class MessageInfo
 	public void setDate(Date date)
 	{
 		this.date = date;
+	}
+
+	public String getStaus()
+	{
+		switch (status)
+		{
+			case 1:
+				return "Vazio";
+			default:
+				return "Cheio";
+		}
 	}
 
 }

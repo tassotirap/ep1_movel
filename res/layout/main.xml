@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginBottom="@dimen/margin"
-                    android:text="@string/btnSettings"
+                    android:text="@string/lblSettings"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/gray" />
             </FrameLayout>

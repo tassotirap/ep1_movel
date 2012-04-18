@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lblSave">Salvar</string>
-    <string name="lblBack">Voltar</string>     
+    <string name="lblBack">Voltar</string>
+    <string name="lblRefresh">Atualizar</string>
+    <string name="lblSend">Enviar</string>
+    <string name="lblSendComment">Enviar Comentario</string>
+    <string name="lblSettings">Configurações</string>          
 </resources>

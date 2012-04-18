@@ -12,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:prompt="@string/restaurants_ids_init" />
+        android:prompt="@string/restaurants_lblRestaurantInit" />
 
     <Spinner
         android:id="@+id/restaurant_status"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/restaurant_ids"
-        android:prompt="@string/restaurant_status_init" />
+        android:prompt="@string/restaurants_lblStatusInit" />
 
     <EditText
         android:id="@+id/restaurant_comment"
@@ -28,7 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/restaurant_status"
-        android:ems="10" >
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="100" >
 
         <requestFocus />
     </EditText>
@@ -39,24 +41,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/restaurant_comment"
-        android:text="@string/restaurant_send" />
+        android:text="@string/lblSendComment" />
 
     <Button
-        android:id="@+id/restaurant_btnRefresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/restaurant_comment"
-        android:text="Refresh" />
-
-    <Button
-        android:id="@+id/restaurant_BtnRefresh2"
+        android:id="@+id/restaurant_BtnRefresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/restaurant_comment"
-        android:layout_toRightOf="@+id/restaurant_btnRefresh"
-        android:text="Button" />
-
+        android:text="@string/lblRefresh" />
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
@@ -69,7 +61,7 @@
         <LinearLayout
             android:id="@+id/textLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
         </LinearLayout>

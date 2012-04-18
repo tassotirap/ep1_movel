@@ -10,8 +10,7 @@ package ep1.usp;
 public final class R {
     public static final class array {
         public static final int map_addOverlayTypes=0x7f070000;
-        public static final int restaurants_ids=0x7f070001;
-        public static final int restaurants_status=0x7f070002;
+        public static final int restaurants_status=0x7f070001;
     }
     public static final class attr {
     }
@@ -68,14 +67,13 @@ public final class R {
         public static final int map_btnUSPCenter=0x7f08000f;
         public static final int map_btnUniversity=0x7f08000e;
         public static final int mapview=0x7f080013;
-        public static final int restaurant_BtnRefresh2=0x7f08001d;
-        public static final int restaurant_btnRefresh=0x7f08001c;
+        public static final int restaurant_BtnRefresh=0x7f08001c;
         public static final int restaurant_btnSend=0x7f08001b;
         public static final int restaurant_comment=0x7f08001a;
         public static final int restaurant_ids=0x7f080018;
         public static final int restaurant_status=0x7f080019;
-        public static final int scrollView1=0x7f08001e;
-        public static final int textLayout=0x7f08001f;
+        public static final int scrollView1=0x7f08001d;
+        public static final int textLayout=0x7f08001e;
         public static final int textView1=0x7f080004;
         public static final int textView2=0x7f080006;
         public static final int textView3=0x7f080008;
@@ -87,36 +85,39 @@ public final class R {
         public static final int maps=0x7f030002;
         public static final int maps_add_overlay=0x7f030003;
         public static final int restaurant=0x7f030004;
+        public static final int restaurant_msg=0x7f030005;
     }
     public static final class string {
-        public static final int app_name=0x7f040014;
-        public static final int btnSettings=0x7f04001c;
-        public static final int btn_gate=0x7f040017;
-        public static final int btn_map=0x7f040015;
-        public static final int btn_retaurant=0x7f040016;
+        public static final int app_name=0x7f040017;
+        public static final int btn_gate=0x7f04001a;
+        public static final int btn_map=0x7f040018;
+        public static final int btn_retaurant=0x7f040019;
         public static final int lblBack=0x7f040001;
+        public static final int lblRefresh=0x7f040002;
         public static final int lblSave=0x7f040000;
-        public static final int lbl_gate=0x7f04001a;
-        public static final int lbl_maps=0x7f040018;
-        public static final int lbl_restaurant=0x7f040019;
-        public static final int lbl_settings=0x7f04001b;
-        public static final int map_addOverlayName=0x7f04000a;
-        public static final int map_addOverlayTypes=0x7f04000b;
-        public static final int map_settingsAddOVerlay=0x7f040009;
-        public static final int map_settingsBusStop=0x7f040004;
-        public static final int map_settingsMyLocation=0x7f040007;
-        public static final int map_settingsRefresh=0x7f040008;
-        public static final int map_settingsRestaurant=0x7f040005;
-        public static final int map_settingsTitle=0x7f040002;
-        public static final int map_settingsUSPCenter=0x7f040003;
-        public static final int map_settingsUniversity=0x7f040006;
-        public static final int msgErrorMsg=0x7f04000f;
-        public static final int msgErrorTitle=0x7f04000e;
-        public static final int msgLoadingMsg=0x7f04000d;
-        public static final int msgLoadingTitle=0x7f04000c;
-        public static final int msgLocalErrorMsg=0x7f040010;
-        public static final int restaurant_send=0x7f040013;
-        public static final int restaurant_status_init=0x7f040011;
-        public static final int restaurants_ids_init=0x7f040012;
+        public static final int lblSend=0x7f040003;
+        public static final int lblSendComment=0x7f040004;
+        public static final int lblSettings=0x7f040005;
+        public static final int lbl_gate=0x7f04001d;
+        public static final int lbl_maps=0x7f04001b;
+        public static final int lbl_restaurant=0x7f04001c;
+        public static final int lbl_settings=0x7f04001e;
+        public static final int map_addOverlayName=0x7f04000e;
+        public static final int map_addOverlayTypes=0x7f04000f;
+        public static final int map_settingsAddOVerlay=0x7f04000d;
+        public static final int map_settingsBusStop=0x7f040008;
+        public static final int map_settingsMyLocation=0x7f04000b;
+        public static final int map_settingsRefresh=0x7f04000c;
+        public static final int map_settingsRestaurant=0x7f040009;
+        public static final int map_settingsTitle=0x7f040006;
+        public static final int map_settingsUSPCenter=0x7f040007;
+        public static final int map_settingsUniversity=0x7f04000a;
+        public static final int msgErrorMsg=0x7f040013;
+        public static final int msgErrorTitle=0x7f040012;
+        public static final int msgLoadingMsg=0x7f040011;
+        public static final int msgLoadingTitle=0x7f040010;
+        public static final int msgLocalErrorMsg=0x7f040014;
+        public static final int restaurants_lblRestaurantInit=0x7f040015;
+        public static final int restaurants_lblStatusInit=0x7f040016;
     }
 }
