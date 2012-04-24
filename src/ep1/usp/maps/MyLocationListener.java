@@ -34,7 +34,7 @@ public class MyLocationListener implements LocationListener
 	private void InitOverlay()
 	{
 		Drawable drawable = mContext.getResources().getDrawable(R.drawable.location);
-		itemizedoverlay = new OverlayIcon(drawable, mContext);
+		itemizedoverlay = new OverlayIcon(drawable, mContext, 20, 20, false);
 	}
 
 	public void setOverlay()

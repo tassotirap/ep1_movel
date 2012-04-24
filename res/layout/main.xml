@@ -3,7 +3,7 @@
     android:id="@+id/FrameLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backgroud" >
+    android:background="@color/background_geral" >
 
     <ImageView
         android:id="@+id/appImage"
@@ -31,6 +31,7 @@
                 android:id="@+id/btnMap"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_1"
                 android:layout_weight=".5"
                 android:background="@drawable/border" >
 
@@ -50,13 +51,16 @@
                     android:layout_marginBottom="@dimen/margin"
                     android:text="@string/btn_map"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
             </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/btnRetaurant"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_1"
                 android:layout_weight=".5"
                 android:background="@drawable/border" >
 
@@ -76,7 +80,9 @@
                     android:layout_marginBottom="@dimen/margin"
                     android:text="@string/btn_retaurant"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
             </FrameLayout>
         </LinearLayout>
 
@@ -89,6 +95,7 @@
                 android:id="@+id/btnGate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_1"
                 android:layout_weight=".5"
                 android:background="@drawable/border" >
 
@@ -108,13 +115,16 @@
                     android:layout_marginBottom="@dimen/margin"
                     android:text="@string/lbl_gate"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
             </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/btnSettings"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_1"
                 android:layout_weight=".5"
                 android:background="@drawable/border" >
 
@@ -134,7 +144,9 @@
                     android:layout_marginBottom="@dimen/margin"
                     android:text="@string/lblSettings"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>

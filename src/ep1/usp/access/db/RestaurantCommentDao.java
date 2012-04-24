@@ -15,7 +15,7 @@ public class RestaurantCommentDao extends BaseDao<MessageInfo>
 	{
 		super(ctx);
 		TABLE_NAME = "RESTAURANT_COMMENTS";
-		COLUMNS = new String[] { "idRestaurant", "comment", "date"};
+		COLUMNS = new String[] { "idRestaurant", "comment", "date", "status"};
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class RestaurantCommentDao extends BaseDao<MessageInfo>
 
 		while (c.moveToNext())
 		{
-			msg.add(new MessageInfo(c.getInt(0), c.getString(1), Date.valueOf(c.getString(2))));
+			msg.add(new MessageInfo(c.getInt(0), c.getString(1), Date.valueOf(c.getString(2)), c.getInt(3)));
 		}
 
 		c.close();
@@ -46,6 +46,7 @@ public class RestaurantCommentDao extends BaseDao<MessageInfo>
 				contentValues.put(COLUMNS[0], msg.getRestaurantId());
 				contentValues.put(COLUMNS[1], msg.getMessage());
 				contentValues.put(COLUMNS[2], msg.getDate().toString());
+				contentValues.put(COLUMNS[3], msg.getStaus());
 				getWritableDatabase().insertOrThrow(TABLE_NAME, null, contentValues);
 			}
 			catch (Exception e)

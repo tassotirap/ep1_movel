@@ -36,7 +36,7 @@ public class MyOverlays
 	{
 		List<Overlay> mapOverlays = mapView.getOverlays();
 		Drawable drawable = mActivity.getResources().getDrawable(id);
-		OverlayIcon itemizedoverlay = new OverlayIcon(drawable, mActivity);
+		OverlayIcon itemizedoverlay = new OverlayIcon(drawable, mActivity, 11, 22, true);
 		String title = null;
 		
 		switch (id)

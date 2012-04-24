@@ -8,12 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 abstract class DatabaseHelper extends SQLiteOpenHelper
 {
 
-	private static int VERSAO_DO_BD = 1;
+	private static int VERSAO_DO_BD = 2;
 	private static String NOME_DO_BANCO = "ep1.tasso";
 
 	public DatabaseHelper(Context ctx)
 	{
 		super(ctx, NOME_DO_BANCO, null, VERSAO_DO_BD);
+		
 	}
 
 	public void onCreate(SQLiteDatabase bd)
@@ -111,7 +112,7 @@ abstract class DatabaseHelper extends SQLiteOpenHelper
 	
 	private void CreateRestaurantCommets(SQLiteDatabase bd)
 	{
-		bd.execSQL("CREATE TABLE RESTAURANT_COMMENTS (idRestaurant INTEGER NOT NULL, comment TEXT NOT NULL, date TEXT NOT NULL);");
+		bd.execSQL("CREATE TABLE RESTAURANT_COMMENTS (idRestaurant INTEGER NOT NULL, comment TEXT NOT NULL, date TEXT NOT NULL, status INTEGER NOT NULL);");
 	}
 
 	public void onUpgrade(SQLiteDatabase bd, int versaoAnterior, int versaoNova)

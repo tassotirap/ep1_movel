@@ -9,8 +9,6 @@ import ep1.usp.maps.Overlay.MyOverlays;
 
 public class MapsMenu
 {
-	
-	
 	private MyOverlays myOverlays;
 	public MyOverlays getMyOverlays()
 	{

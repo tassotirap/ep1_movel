@@ -1,51 +1,55 @@
 package ep1.usp.restaurant;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import ep1.usp.R;
 
 public class RestaurantMsgView
 {
-	
+
 	private Context context;
+
 	public RestaurantMsgView(Context context)
 	{
 		this.context = context;
-		
+
 	}
-	
+
 	private View view;
+
 	public View getView()
 	{
-		if(view == null)
-		 view = View.inflate(context, R.layout.restaurant_msg, null);
+		if (view == null)
+			view = View.inflate(context, R.layout.restaurant_msg, null);
 		return view;
 	}
 
-	private TextView txt1;
-	public TextView getText1()
+	private TextView date = null;
+
+	public TextView getDate()
 	{
-		if(txt1 == null)
-			txt1 = (TextView)getView().findViewById(R.id.textView1);
-		return txt1;		
+		if (date == null)
+			date = (TextView) getView().findViewById(R.id.restaurant_txtDate);
+		return date;
 	}
-	
-	private TextView txt2;
-	public TextView getText2()
+
+	private TextView comment = null;
+
+	public TextView getComment()
 	{
-		if(txt2 == null)
-			txt2 = (TextView)getView().findViewById(R.id.textView2);
-		return txt2;		
+		if (comment == null)
+			comment = (TextView) getView().findViewById(R.id.restaurant_txtMsg);
+		return comment;
 	}
-	
-	private TextView txt3;
-	public TextView getText3()
+
+	private ImageView status = null;
+
+	public ImageView getStatus()
 	{
-		if(txt3 == null)
-			txt3 = (TextView)getView().findViewById(R.id.textView3);
-		return txt3;		
+		if (status == null)
+			status = (ImageView) getView().findViewById(R.id.restaurant_imgStatus);
+		return status;
 	}
-	}
+}

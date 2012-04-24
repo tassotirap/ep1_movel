@@ -27,7 +27,7 @@ public class LoadingGetMsg
 			{
 				try
 				{
-					ArrayList<MessageInfo> msgs = new ParseJSON().getRestaurantComment(restaurantId);
+					ArrayList<MessageInfo> msgs = new ParseJSON().getRestaurantComment(restaurantId, 10);
 					mActivity.getRestaurantCommentDao().clear();
 					mActivity.getRestaurantCommentDao().setList(msgs);
 					mActivity.handler.sendEmptyMessage(3);

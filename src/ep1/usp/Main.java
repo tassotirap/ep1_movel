@@ -24,8 +24,6 @@ public class Main extends Activity
 		setIntents();
 		setElements();
 		bindListeners();
-
-		dropDatabase();
 	}
 
 	private void setIntents()
@@ -75,10 +73,5 @@ public class Main extends Activity
 			}
 		});
 
-	}
-
-	private void dropDatabase()
-	{
-		this.getApplicationContext().deleteDatabase("ep1.tasso");
 	}
 }

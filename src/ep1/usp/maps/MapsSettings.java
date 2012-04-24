@@ -16,8 +16,6 @@ import ep1.usp.maps.Overlay.MyOverlays;
 public class MapsSettings
 {
 	private Maps mActivity;
-	private MapController mapController;
-	private MapView mapView = null;
 	private MyOverlays myOverlays;
 	private SettingsDao settingsDao;
 	private OverlayDao overlayDao;
@@ -26,9 +24,9 @@ public class MapsSettings
 	public MapsSettings(Maps mActivity)
 	{
 		this.mActivity = mActivity;
-		myOverlays = new MyOverlays(mActivity);
-		settingsDao = new SettingsDao(mActivity.getApplicationContext());
-		overlayDao = new OverlayDao(mActivity.getApplicationContext());
+		this.myOverlays = new MyOverlays(mActivity);
+		this.settingsDao = new SettingsDao(mActivity.getApplicationContext());
+		this.overlayDao = new OverlayDao(mActivity.getApplicationContext());
 	}
 
 	public void init()
@@ -37,12 +35,14 @@ public class MapsSettings
 		resetMaps();
 		enableGPS();
 	}
-	
+
 	public void resetMaps()
 	{
 		setZoom(15);
 		setCenterGeoPoint(settingsDao.GetUspCenter());
 	}
+
+	private MapController mapController = null;
 
 	public MapController getMapController()
 	{
@@ -54,13 +54,15 @@ public class MapsSettings
 		return mapController;
 	}
 
+	private MapView mapView = null;
+
 	public MapView getMap()
 	{
 		if (mapView == null)
 		{
 			mapView = (MapView) mActivity.findViewById(R.id.mapview);
+			mapView.setBuiltInZoomControls(true);
 		}
-
 		return mapView;
 	}
 

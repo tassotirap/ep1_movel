@@ -12,11 +12,12 @@ public class MessageInfo
 
 	private int status = 0;
 
-	public MessageInfo(int restaurantId, String message, Date date)
+	public MessageInfo(int restaurantId, String message, Date date, int status)
 	{
 		this.restaurantId = restaurantId;
 		this.message = message;
 		this.date = date;
+		this.status = status;
 	}
 
 	public MessageInfo()
@@ -52,16 +53,15 @@ public class MessageInfo
 	{
 		this.date = date;
 	}
-
-	public String getStaus()
+	
+	public void setStaus(int status)
 	{
-		switch (status)
-		{
-			case 1:
-				return "Vazio";
-			default:
-				return "Cheio";
-		}
+		this.status = status;
+	}
+
+	public int getStaus()
+	{
+		return status;
 	}
 
 }

@@ -15,36 +15,45 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int background=0x7f050001;
+        public static final int background=0x7f050002;
+        public static final int background_geral=0x7f050003;
+        public static final int black=0x7f050001;
         public static final int gray=0x7f050000;
     }
     public static final class dimen {
         public static final int margin=0x7f060000;
+        public static final int margin_1=0x7f060003;
         public static final int margin_all=0x7f060001;
         public static final int margin_logo=0x7f060002;
     }
     public static final class drawable {
-        public static final int back=0x7f020000;
-        public static final int backgroud=0x7f020001;
+        public static final int add=0x7f020000;
+        public static final int back=0x7f020001;
         public static final int bandejao_icone_transparente=0x7f020002;
         public static final int border=0x7f020003;
-        public static final int busstop=0x7f020004;
-        public static final int busstop_disable=0x7f020005;
-        public static final int busstop_enable=0x7f020006;
-        public static final int configuracoes_icone_transparente=0x7f020007;
-        public static final int home=0x7f020008;
-        public static final int location=0x7f020009;
-        public static final int logo=0x7f02000a;
-        public static final int mapausp_icone_transparente=0x7f02000b;
-        public static final int portaria_icone_transparente=0x7f02000c;
-        public static final int refresh=0x7f02000d;
-        public static final int restaurant=0x7f02000e;
-        public static final int restaurant_disable=0x7f02000f;
-        public static final int restaurant_enable=0x7f020010;
-        public static final int settings=0x7f020011;
-        public static final int university=0x7f020012;
-        public static final int university_disable=0x7f020013;
-        public static final int university_enable=0x7f020014;
+        public static final int border_msg=0x7f020004;
+        public static final int busstop=0x7f020005;
+        public static final int busstop_disable=0x7f020006;
+        public static final int busstop_enable=0x7f020007;
+        public static final int configuracoes_icone_transparente=0x7f020008;
+        public static final int home=0x7f020009;
+        public static final int location=0x7f02000a;
+        public static final int logo=0x7f02000b;
+        public static final int mapausp_icone_transparente=0x7f02000c;
+        public static final int msg1=0x7f02000d;
+        public static final int msg2=0x7f02000e;
+        public static final int msg3=0x7f02000f;
+        public static final int msg4=0x7f020010;
+        public static final int msg5=0x7f020011;
+        public static final int portaria_icone_transparente=0x7f020012;
+        public static final int refresh=0x7f020013;
+        public static final int restaurant=0x7f020014;
+        public static final int restaurant_disable=0x7f020015;
+        public static final int restaurant_enable=0x7f020016;
+        public static final int settings=0x7f020017;
+        public static final int university=0x7f020018;
+        public static final int university_disable=0x7f020019;
+        public static final int university_enable=0x7f02001a;
     }
     public static final class id {
         public static final int FrameLayout1=0x7f080000;
@@ -71,7 +80,10 @@ public final class R {
         public static final int restaurant_btnSend=0x7f08001b;
         public static final int restaurant_comment=0x7f08001a;
         public static final int restaurant_ids=0x7f080018;
+        public static final int restaurant_imgStatus=0x7f080021;
         public static final int restaurant_status=0x7f080019;
+        public static final int restaurant_txtDate=0x7f08001f;
+        public static final int restaurant_txtMsg=0x7f080020;
         public static final int scrollView1=0x7f08001d;
         public static final int textLayout=0x7f08001e;
         public static final int textView1=0x7f080004;

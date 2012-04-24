@@ -2,33 +2,69 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_geral"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_msg" >
 
-        <TextView
-            android:id="@+id/textView1"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_margin="@dimen/margin_all"
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/textView2"
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data:"
+                android:textColor="@color/gray"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/restaurant_txtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12/02/2012"
+                android:textColor="@color/gray"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_margin="@dimen/margin_all"
+            android:layout_weight="0.85"
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comentario:"
+                android:textColor="@color/gray"
+                android:textSize="10dp" />
 
+            <TextView
+                android:id="@+id/restaurant_txtMsg"
+                android:layout_width="223dp"
+                android:layout_height="match_parent"
+                android:text="Large Text"
+                android:textColor="@color/gray"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/restaurant_imgStatus"
+            android:layout_width="17dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_all"
+            android:src="@drawable/msg1" />
     </LinearLayout>
 
 </LinearLayout>

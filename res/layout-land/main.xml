@@ -3,7 +3,7 @@
     android:id="@+id/FrameLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backgroud" >
+    android:background="@color/background_geral" >
 
     <ImageView
         android:id="@+id/appImage"
@@ -17,7 +17,7 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="285dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center|right"
         android:layout_margin="@dimen/margin_all"
         android:orientation="vertical" >
@@ -31,6 +31,7 @@
                 android:id="@+id/btnMap"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_all"
                 android:layout_weight=".5"
                 android:background="@drawable/border" >
 
@@ -51,13 +52,15 @@
                     android:text="@string/btn_map"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/gray"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
             </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/btnRetaurant"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_all"
                 android:layout_weight=".5"
                 android:background="@drawable/border" >
 
@@ -78,7 +81,8 @@
                     android:text="@string/btn_retaurant"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/gray"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
             </FrameLayout>
         </LinearLayout>
 
@@ -91,6 +95,7 @@
                 android:id="@+id/btnGate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_all"
                 android:layout_weight=".5"
                 android:background="@drawable/border" >
 
@@ -111,7 +116,8 @@
                     android:text="@string/lbl_gate"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/gray"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
             </FrameLayout>
 
             <FrameLayout
@@ -119,6 +125,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
+                android:layout_margin="@dimen/margin_all"
                 android:layout_weight=".5"
                 android:background="@drawable/border" >
 
@@ -139,7 +146,8 @@
                     android:text="@string/lblSettings"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/gray"
-                    android:textSize="18dp" />
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>

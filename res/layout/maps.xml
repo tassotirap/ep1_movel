@@ -73,8 +73,8 @@
                 style="@android:style/Widget.Button.Inset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/home"
-                android:contentDescription="@string/map_settingsAddOVerlay" />
+                android:contentDescription="@string/map_settingsAddOVerlay"
+                android:src="@drawable/add" />
 
         </LinearLayout>
     </HorizontalScrollView>

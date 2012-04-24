@@ -1,5 +1,6 @@
 package ep1.usp.restaurant;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -10,6 +11,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -100,9 +103,27 @@ public class Restaurant extends Activity
 		for (MessageInfo msg : msgs)
 		{
 			RestaurantMsgView txt = new RestaurantMsgView(this);
-			txt.getText1().setText(msg.getMessage());
-			txt.getText2().setText(msg.getDate().toString());
-			txt.getText3().setText(msg.getStaus());
+			SimpleDateFormat formatBra = new SimpleDateFormat("dd/MM/yyyy");  
+			txt.getDate().setText(formatBra.format(msg.getDate()));
+			txt.getComment().setText(msg.getMessage());			
+			switch (msg.getStaus())
+			{
+				case 1:
+					txt.getStatus().setImageResource(R.drawable.msg1);
+					break;
+				case 2:
+					txt.getStatus().setImageResource(R.drawable.msg2);
+					break;
+				case 3:
+					txt.getStatus().setImageResource(R.drawable.msg3);
+					break;
+				case 4:
+					txt.getStatus().setImageResource(R.drawable.msg4);
+					break;
+				case 5:
+					txt.getStatus().setImageResource(R.drawable.msg5);
+					break;
+			}
 			getTxtComments().addView(txt.getView());
 		}
 	}
@@ -155,8 +176,6 @@ public class Restaurant extends Activity
 
 	public void bindElements()
 	{
-
-		spnStatus = (Spinner) findViewById(R.id.restaurant_status);
 		getBtnRefresh().setOnClickListener(new OnClickListener()
 		{
 
@@ -166,6 +185,23 @@ public class Restaurant extends Activity
 				refreshMsg();
 			}
 		});
+		
+		getSpnRestaurants().setOnItemSelectedListener(new OnItemSelectedListener()
+		{
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3)
+			{
+				refreshMsg();
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0)
+			{
+				getTxtComments().removeAllViews();				
+			}
+		} );
 
 		getBtnSend().setOnClickListener(new OnClickListener()
 		{

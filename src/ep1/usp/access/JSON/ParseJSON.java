@@ -111,12 +111,12 @@ public class ParseJSON
 		}
 	}
 	
-	public ArrayList<MessageInfo> getRestaurantComment(int restaurantId)
+	public ArrayList<MessageInfo> getRestaurantComment(int restaurantId, int qtde)
 	{
 		ArrayList<MessageInfo> messageInfos = new ArrayList<MessageInfo>();
 		try
 		{
-			GetHttp httpGet = new GetHttp(URL + "GetRestaurantComment?restaurantId="+restaurantId);
+			GetHttp httpGet = new GetHttp(URL + "GetRestaurantComment?restaurantId="+restaurantId+"&qtde="+qtde);
 
 			if (httpGet.getResponse() != null)
 			{
@@ -126,9 +126,10 @@ public class ParseJSON
 				{
 					JSONObject lines = (JSONObject) new JSONTokener(message.getString(i)).nextValue();
 					MessageInfo messageInfo = new MessageInfo();
-					messageInfo.setRestaurantId(restaurantId);
+					messageInfo.setRestaurantId(lines.getInt("RestaurantId"));
 					messageInfo.setMessage(lines.getString("Comment"));
 					messageInfo.setDate(Date.valueOf(lines.getString("Date")));
+					messageInfo.setStaus(lines.getInt("Status"));
 					messageInfos.add(messageInfo);
 				}
 			}
