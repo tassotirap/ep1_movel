@@ -20,11 +20,12 @@ namespace Ep1Dao
             contexto.SaveChanges();
         }
 
-        public List<restaurants_posts> getComment(int restaurantId)
+        public List<restaurants_posts> getComment(int restaurantId, int qtde)
         {
             var post = (from p in contexto.restaurants_posts
                         where p.restaurant_id == restaurantId
-                        select p).ToList();
+                        orderby p.date descending
+                        select p).Take(qtde).ToList();
 
             return post;
         }

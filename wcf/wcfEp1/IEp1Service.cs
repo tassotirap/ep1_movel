@@ -47,7 +47,7 @@ namespace wcfEp1
 
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
-        List<RestaurantComment> GetRestaurantComment(int RestaurantId);
+        List<RestaurantComment> GetRestaurantComment(int RestaurantId, int qtde);
 
         #endregion Restaurants
     }
@@ -185,21 +185,33 @@ namespace wcfEp1
     [DataContract]
     public class RestaurantComment
     {
-        private string comment;
 
         [DataMember]
         public string Comment
         {
-            get { return comment; }
-            set { comment = value; }
+            get;
+            set;
         }
-        private string date;
 
         [DataMember]
         public string Date
         {
-            get { return date; }
-            set { date = value; }
+            get;
+            set;
+        }
+
+        [DataMember]
+        public int Status
+        {
+            get;
+            set;
+        }
+
+        [DataMember]
+        public int RestaurantId
+        {
+            get;
+            set;
         }
     }
 }

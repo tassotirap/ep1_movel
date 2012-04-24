@@ -205,24 +205,28 @@ namespace wcfEp1
             restaurantDao.setComment(post);
         }
 
-        public List<RestaurantComment> GetRestaurantComment(int restaurantId)
+        public List<RestaurantComment> GetRestaurantComment(int restaurantId, int qtde)
         {
             List<RestaurantComment> comments = new List<RestaurantComment>();
 
             DateTime dtIni = DateTime.Now;
             DateTime dtFim = dtIni.AddMinutes(-5);
-            var posts = restaurantDao.getComment(restaurantId);
+            var posts = restaurantDao.getComment(restaurantId, qtde);
 
             foreach (restaurants_posts post in posts)
             {
                 comments.Add(new RestaurantComment
                 {
+                    RestaurantId = post.restaurant_id,
                     Comment = post.comment,
-                    Date = post.date.ToString("yyyy-MM-dd")
+                    Date = post.date.ToString("yyyy-MM-dd"),
+                    Status = post.status_id
                 });
             }
 
             return comments;
         }
+
+
     }
 }
