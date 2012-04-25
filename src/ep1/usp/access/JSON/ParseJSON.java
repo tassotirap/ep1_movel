@@ -1,12 +1,13 @@
 package ep1.usp.access.JSON;
 
-import java.sql.Date;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import ep1.usp.lib.DateAndTime;
 import ep1.usp.maps.Overlay.OverlayInfo;
 import ep1.usp.restaurant.MessageInfo;
 import ep1.usp.restaurant.RestaurantInfo;
@@ -100,6 +101,8 @@ public class ParseJSON
 
 		try
 		{
+			
+			comment = URLEncoder.encode(comment, "UTF-8");
 			String url = URL + "SetRestaurantComment?restaurantId=" + restaurantId + "&comment=" + comment + "&status=" + statusId;
 			new GetHttp(url);
 			return true;
@@ -117,7 +120,6 @@ public class ParseJSON
 		try
 		{
 			GetHttp httpGet = new GetHttp(URL + "GetRestaurantComment?restaurantId="+restaurantId+"&qtde="+qtde);
-
 			if (httpGet.getResponse() != null)
 			{
 				JSONObject object = (JSONObject) new JSONTokener(httpGet.getResponse()).nextValue();
@@ -128,7 +130,7 @@ public class ParseJSON
 					MessageInfo messageInfo = new MessageInfo();
 					messageInfo.setRestaurantId(lines.getInt("RestaurantId"));
 					messageInfo.setMessage(lines.getString("Comment"));
-					messageInfo.setDate(Date.valueOf(lines.getString("Date")));
+					messageInfo.setDate(DateAndTime.ParseToDate(lines.getString("Date")));
 					messageInfo.setStaus(lines.getInt("Status"));
 					messageInfos.add(messageInfo);
 				}

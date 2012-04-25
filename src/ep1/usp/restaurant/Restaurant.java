@@ -1,6 +1,5 @@
 package ep1.usp.restaurant;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -17,15 +16,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import ep1.usp.R;
 import ep1.usp.access.db.RestaurantCommentDao;
 import ep1.usp.access.db.RestaurantsDao;
+import ep1.usp.lib.DateAndTime;
 
 public class Restaurant extends Activity
 {
-	public enum MsgTypes{ ERROR, REFRESH_RESTAURANTS, OK, REFRESH_COMMENT};
-
 	int tryNumber = 0;
 	
 	private RestaurantCommentDao restaurantCommentDao = null;
@@ -37,10 +34,18 @@ public class Restaurant extends Activity
 
 	}
 
+	private RestaurantsDao restaurantsDao = null;
+	public RestaurantsDao getRestaurantsDao()
+	{
+		if (restaurantsDao == null)
+			restaurantsDao = new RestaurantsDao(getApplicationContext());
+		return restaurantsDao;
+	}
+	
 	private LinearLayout txtComments = null;
 	public LinearLayout getTxtComments()
 	{
-		if (txtComment == null)
+		if (txtComments == null)
 			txtComments = (LinearLayout) findViewById(R.id.textLayout);
 		return txtComments;
 	}
@@ -54,23 +59,6 @@ public class Restaurant extends Activity
 
 	}
 
-	protected Spinner spnStatus = null;
-	public Spinner getSpnStatus()
-	{
-		if (spnStatus == null)
-			spnStatus = (Spinner) findViewById(R.id.restaurant_status);
-		return spnStatus;
-
-	}
-	
-	private TextView txtComment = null;
-	public TextView getTxtComment()
-	{
-		if (txtComment == null)
-			txtComment = (TextView) findViewById(R.id.restaurant_comment);
-		return txtComment;
-	}
-	
 	private Button btnRefresh = null;
 	public Button getBtnRefresh()
 	{
@@ -79,21 +67,12 @@ public class Restaurant extends Activity
 		return btnRefresh;
 	}
 	
-	private Button btnSend = null;
-	public Button getBtnSend()
+	private Button btnNewComment = null;
+	public Button getBtnNewComment()
 	{
-		if (btnSend == null)
-			btnSend = (Button) findViewById(R.id.restaurant_btnSend);
-
-		return btnSend;
-	}
-
-	private RestaurantsDao restaurantsDao = null;
-	public RestaurantsDao getRestaurantsDao()
-	{
-		if (restaurantsDao == null)
-			restaurantsDao = new RestaurantsDao(getApplicationContext());
-		return restaurantsDao;
+		if (btnNewComment == null)
+			btnNewComment = (Button) findViewById(R.id.restaurant_btnComment);
+		return btnNewComment;
 	}
 	
 	public void fillComments()
@@ -102,30 +81,43 @@ public class Restaurant extends Activity
 		getTxtComments().removeAllViews();
 		for (MessageInfo msg : msgs)
 		{
-			RestaurantMsgView txt = new RestaurantMsgView(this);
-			SimpleDateFormat formatBra = new SimpleDateFormat("dd/MM/yyyy");  
-			txt.getDate().setText(formatBra.format(msg.getDate()));
-			txt.getComment().setText(msg.getMessage());			
-			switch (msg.getStaus())
-			{
-				case 1:
-					txt.getStatus().setImageResource(R.drawable.msg1);
-					break;
-				case 2:
-					txt.getStatus().setImageResource(R.drawable.msg2);
-					break;
-				case 3:
-					txt.getStatus().setImageResource(R.drawable.msg3);
-					break;
-				case 4:
-					txt.getStatus().setImageResource(R.drawable.msg4);
-					break;
-				case 5:
-					txt.getStatus().setImageResource(R.drawable.msg5);
-					break;
-			}
-			getTxtComments().addView(txt.getView());
+			AddComment(msg);
 		}
+	}
+	
+	private void AddComment(MessageInfo msg)
+	{
+		AddComment(msg, false);	
+	}
+
+	private void AddComment(MessageInfo msg, Boolean first)
+	{
+		RestaurantMsgView txt = new RestaurantMsgView(this);
+		
+		txt.getDate().setText(DateAndTime.ParseToStringPrint(msg.getDate()));
+		txt.getComment().setText(msg.getMessage());			
+		switch (msg.getStaus())
+		{
+			case 1:
+				txt.getStatus().setImageResource(R.drawable.msg1);
+				break;
+			case 2:
+				txt.getStatus().setImageResource(R.drawable.msg2);
+				break;
+			case 3:
+				txt.getStatus().setImageResource(R.drawable.msg3);
+				break;
+			case 4:
+				txt.getStatus().setImageResource(R.drawable.msg4);
+				break;
+			case 5:
+				txt.getStatus().setImageResource(R.drawable.msg5);
+				break;
+		}
+		if(first)
+			getTxtComments().addView(txt.getView(), 0);
+		else
+			getTxtComments().addView(txt.getView());
 	}
 
 	protected ArrayAdapter<String> mAdapterRestaurant;
@@ -139,16 +131,6 @@ public class Restaurant extends Activity
 		return mAdapterRestaurant;
 	}
 	
-	protected ArrayAdapter<CharSequence> mAdapterStatus;
-	public ArrayAdapter<CharSequence> getAdapterStatus()
-	{
-		if(mAdapterStatus == null)
-		{
-			mAdapterStatus = ArrayAdapter.createFromResource(this, R.array.restaurants_status, android.R.layout.simple_spinner_item);
-			mAdapterStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		}
-		return mAdapterStatus;		
-	}
 	
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -202,28 +184,28 @@ public class Restaurant extends Activity
 				getTxtComments().removeAllViews();				
 			}
 		} );
-
-		getBtnSend().setOnClickListener(new OnClickListener()
+		
+		getBtnNewComment().setOnClickListener(new View.OnClickListener()
 		{
-
 			@Override
 			public void onClick(View v)
 			{
-				AddMessageClick();
+				showAddComment();
 			}
 		});
-
 	}
-
-	private void AddMessageClick()
+	
+	private RestaurantAddComment dialogAddComment = null;	
+	private void showAddComment()
 	{
-		int restaurantPosition = getSpnRestaurants().getSelectedItemPosition();
-		int restaurantId = restaurantsDao.getIdByName(getAdapterRestaurant().getItem(restaurantPosition));
-		String comment = getTxtComment().getText().toString();
-		int statusId = getSpnStatus().getSelectedItemPosition() + 1;
-		LoadingSendMsg loading = new LoadingSendMsg(this, restaurantId, comment, statusId);
-		loading.Show();
+		dialogAddComment = new RestaurantAddComment(this);
+		dialogAddComment.setContentView(R.layout.restaurant_add_msg);
+		dialogAddComment.setTitle("Adicionar Comentario");
+		dialogAddComment.init();
+		dialogAddComment.show();			
 	}
+
+	
 
 	public Handler handler = new Handler()
 	{
@@ -241,7 +223,12 @@ public class Restaurant extends Activity
 					refreshAdapterRestaurants();
 					break;
 				case 2:
-					showDialog("OK", "OK");
+					showDialog("OK", "Comentario enviado com sucesso!");
+					if(dialogAddComment != null)
+					{
+						dialogAddComment.hide();
+						dialogAddComment = null;		
+					}
 					break;
 				case 3:
 					fillComments();
@@ -281,7 +268,6 @@ public class Restaurant extends Activity
 	{
 		refreshAdapterRestaurants();
 		getSpnRestaurants().setAdapter(getAdapterRestaurant());
-		getSpnStatus().setAdapter(getAdapterStatus());
 	}
 
 }

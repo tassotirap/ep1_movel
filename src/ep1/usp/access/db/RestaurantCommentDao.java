@@ -1,11 +1,11 @@
 package ep1.usp.access.db;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import ep1.usp.lib.DateAndTime;
 import ep1.usp.restaurant.MessageInfo;
 
 public class RestaurantCommentDao extends BaseDao<MessageInfo>
@@ -27,7 +27,13 @@ public class RestaurantCommentDao extends BaseDao<MessageInfo>
 
 		while (c.moveToNext())
 		{
-			msg.add(new MessageInfo(c.getInt(0), c.getString(1), Date.valueOf(c.getString(2)), c.getInt(3)));
+			try
+			{
+			msg.add(new MessageInfo(c.getInt(0), c.getString(1), DateAndTime.ParseToDate(c.getString(2)), c.getInt(3)));
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		c.close();
@@ -45,7 +51,7 @@ public class RestaurantCommentDao extends BaseDao<MessageInfo>
 				ContentValues contentValues = new ContentValues();
 				contentValues.put(COLUMNS[0], msg.getRestaurantId());
 				contentValues.put(COLUMNS[1], msg.getMessage());
-				contentValues.put(COLUMNS[2], msg.getDate().toString());
+				contentValues.put(COLUMNS[2], DateAndTime.ParseToString(msg.getDate()));
 				contentValues.put(COLUMNS[3], msg.getStaus());
 				getWritableDatabase().insertOrThrow(TABLE_NAME, null, contentValues);
 			}

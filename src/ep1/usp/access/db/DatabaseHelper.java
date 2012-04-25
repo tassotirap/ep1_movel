@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 abstract class DatabaseHelper extends SQLiteOpenHelper
 {
 
-	private static int VERSAO_DO_BD = 2;
+	private static int VERSAO_DO_BD = 3;
 	private static String NOME_DO_BANCO = "ep1.tasso";
 
 	public DatabaseHelper(Context ctx)

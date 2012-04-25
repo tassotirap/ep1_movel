@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">EP1</string>
+    <string name="app_name">Localiza Smart</string>
     <string name="btn_map">Mapa da USP</string>
     <string name="btn_retaurant">Bandejão</string>
     <string name="btn_gate">Portão</string>

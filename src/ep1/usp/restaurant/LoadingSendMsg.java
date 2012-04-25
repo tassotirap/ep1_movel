@@ -29,7 +29,6 @@ public class LoadingSendMsg
 			{
 				try
 				{
-
 					new ParseJSON().setRestaurantComment(restaurantId, comment, statusId);
 					mActivity.handler.sendEmptyMessage(2);
 				}

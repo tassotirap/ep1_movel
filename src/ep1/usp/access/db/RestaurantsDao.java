@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import ep1.usp.restaurant.RestaurantInfo;
 
 public class RestaurantsDao extends BaseDao<RestaurantInfo>
@@ -20,7 +21,8 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 	{
 		ArrayList<RestaurantInfo> restaurants = new ArrayList<RestaurantInfo>();
 		
-		Cursor c = getWritableDatabase().query(TABLE_NAME, COLUMNS, null, null, null, null, null);
+		SQLiteDatabase db =  getWritableDatabase();
+		Cursor c = db.query(TABLE_NAME, COLUMNS, null, null, null, null, null);
 
 		while (c.moveToNext())
 		{
@@ -28,6 +30,7 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 		}
 
 		c.close();
+		db.close();
 
 		return restaurants;	
 	}
@@ -42,7 +45,9 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 				contentValues.put(COLUMNS[0], restaurant.getId());
 				contentValues.put(COLUMNS[1], restaurant.getName());
 				contentValues.put(COLUMNS[2], restaurant.getStatus());
-				getWritableDatabase().insertOrThrow(TABLE_NAME, null, contentValues);
+				SQLiteDatabase db =  getWritableDatabase();
+				db.insertOrThrow(TABLE_NAME, null, contentValues);
+				db.close();
 			}
 			catch (Exception e)
 			{
@@ -55,22 +60,21 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 	{
 		ArrayList<String> names = new ArrayList<String>();
 		
-		Cursor c = getWritableDatabase().query(TABLE_NAME, new String[]{ COLUMNS[1] }, null, null, null, null, null);
-
+		SQLiteDatabase db =  getWritableDatabase();
+		Cursor c = db.query(TABLE_NAME, new String[]{ COLUMNS[1] }, null, null, null, null, null);
 		while (c.moveToNext())
 		{
 			names.add(c.getString(0));
 		}
-
 		c.close();
-
+		db.close();
 		return names;			
 	}
 	
 	public int getIdByName(String name)
 	{
-
-		Cursor c = getWritableDatabase().query(TABLE_NAME, new String[]{ COLUMNS[0] }, COLUMNS[1] + "=?", new String[]{name}, null, null, null);
+		SQLiteDatabase db =  getWritableDatabase();
+		Cursor c = db.query(TABLE_NAME, new String[]{ COLUMNS[0] }, COLUMNS[1] + "=?", new String[]{name}, null, null, null);
 
 		while (c.moveToNext())
 		{
@@ -79,6 +83,7 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 			return id;
 		}
 		c.close();
+		db.close();
 		return -1;			
 	}
 

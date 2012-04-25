@@ -1,71 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_geral"
     android:orientation="vertical" >
 
-    <Spinner
-        android:id="@+id/restaurant_ids"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:prompt="@string/restaurants_lblRestaurantInit" />
-
-    <Spinner
-        android:id="@+id/restaurant_status"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/restaurant_ids"
-        android:prompt="@string/restaurants_lblStatusInit" />
-
-    <EditText
-        android:id="@+id/restaurant_comment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/restaurant_status"
-        android:ems="10"
-        android:inputType="text"
-        android:maxLength="100" >
+        android:layout_height="wrap_content" >
 
-        <requestFocus />
-    </EditText>
+        <Spinner
+            android:id="@+id/restaurant_ids"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:prompt="@string/restaurants_lblRestaurantInit" />
 
-    <Button
-        android:id="@+id/restaurant_btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/restaurant_comment"
-        android:text="@string/lblSendComment" />
+        <Button
+            android:id="@+id/restaurant_btnComment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="+" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/restaurant_BtnRefresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/restaurant_comment"
+        android:layout_gravity="right"
         android:text="@string/lblRefresh" />
+
     <ScrollView
         android:id="@+id/scrollView1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/restaurant_btnSend" >
+        android:layout_weight="0.06" >
 
         <LinearLayout
             android:id="@+id/textLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-
         </LinearLayout>
     </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>
