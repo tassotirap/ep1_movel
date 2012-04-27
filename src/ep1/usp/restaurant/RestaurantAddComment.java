@@ -1,8 +1,6 @@
 package ep1.usp.restaurant;
 
 import android.app.Dialog;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;

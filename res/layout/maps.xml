@@ -15,9 +15,23 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="left"
             android:baselineAligned="false"
             android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/map_btnRoute1"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R1" />
+
+            <Button
+                android:id="@+id/map_btnRout2"
+                style="@android:style/Widget.Button.Inset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R2" />
 
             <ImageButton
                 android:id="@+id/map_btnBusStop"

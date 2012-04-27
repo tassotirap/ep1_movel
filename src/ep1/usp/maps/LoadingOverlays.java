@@ -34,7 +34,11 @@ public class LoadingOverlays
 					{
 						mActivity.getOverlayDao().clear();
 						mActivity.getOverlayDao().setList(lstOverlayInfo);
-						mActivity.getMapsMenus().drawOverlays();
+						mActivity.getMapsMenusButtons().removeOverlays();
+						mActivity.getMyOverlays().refreshBusStopOverlay();
+						mActivity.getMyOverlays().refreshRestaurantOverlay();
+						mActivity.getMyOverlays().refreshUniversityOverlay();
+						mActivity.getMapsMenusButtons().initDraw();
 					}
 					else
 					{

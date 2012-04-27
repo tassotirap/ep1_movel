@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 abstract class DatabaseHelper extends SQLiteOpenHelper
 {
 
-	private static int VERSAO_DO_BD = 3;
+	private static int VERSAO_DO_BD = 4;
 	private static String NOME_DO_BANCO = "ep1.tasso";
 
 	public DatabaseHelper(Context ctx)
@@ -77,6 +77,22 @@ abstract class DatabaseHelper extends SQLiteOpenHelper
 
 			contentValues.put("type", 3);
 			contentValues.put("name", "restaurant");
+			contentValues.put("enable", "0");
+			bd.insertOrThrow("MAP_CONFIG_VIEW", null, contentValues);
+			
+			contentValues.put("type", 4);
+			contentValues.put("name", "etc");
+			contentValues.put("enable", "0");
+			bd.insertOrThrow("MAP_CONFIG_VIEW", null, contentValues);
+			
+			
+			contentValues.put("type", 5);
+			contentValues.put("name", "route1");
+			contentValues.put("enable", "0");
+			bd.insertOrThrow("MAP_CONFIG_VIEW", null, contentValues);
+			
+			contentValues.put("type", 6);
+			contentValues.put("name", "route2");
 			contentValues.put("enable", "0");
 			bd.insertOrThrow("MAP_CONFIG_VIEW", null, contentValues);
 		}

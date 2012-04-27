@@ -9,47 +9,52 @@ import ep1.usp.maps.Overlay.MyOverlays;
 
 public class MapsMenu
 {
-	private MyOverlays myOverlays;
-	public MyOverlays getMyOverlays()
-	{
-		if(myOverlays == null)
-			myOverlays = new MyOverlays(mActivity);
-		return myOverlays;			
-	}
-
-	private MapsSettings mapsSettings = null;
-	public MapsSettings getMapsSettings()
-	{
-		if(mapsSettings == null)
-			mapsSettings = new MapsSettings(mActivity);
-		return mapsSettings;				
-	}
-	
-	private MapsMenusButtons mapsMenusButtons;
-	public MapsMenusButtons getMapsMenusButtons()
-	{
-		if(mapsMenusButtons == null)
-			mapsMenusButtons = new MapsMenusButtons(mActivity);
-		return mapsMenusButtons;
-		
-	}
-	
 	private Maps mActivity;
 	public MapsMenu(Maps mActivity)
 	{
-		this.mActivity = mActivity;		
-		this.init();		
+		this.mActivity = mActivity;
 	}
-	
+
 	public void init()
 	{
-		setBinds();	
+		setBinds();
 		setButtons();
 	}
 	
+	public void setButtons()
+	{
+
+		if (mActivity.getMapsMenusButtons().getShowBusStop())
+		{
+			mActivity.getMapsMenusButtons().getBtnBusStop().setImageResource(R.drawable.busstop_enable);
+		}
+		else
+		{
+			mActivity.getMapsMenusButtons().getBtnBusStop().setImageResource(R.drawable.busstop_disable);
+		}
+
+		if (mActivity.getMapsMenusButtons().getShowRestaurant())
+		{
+			mActivity.getMapsMenusButtons().getBtnRestaurant().setImageResource(R.drawable.restaurant_enable);
+		}
+		else
+		{
+			mActivity.getMapsMenusButtons().getBtnRestaurant().setImageResource(R.drawable.restaurant_disable);
+		}
+
+		if (mActivity.getMapsMenusButtons().getShowUniversity())
+		{
+			mActivity.getMapsMenusButtons().getBtnUniversity().setImageResource(R.drawable.university_enable);
+		}
+		else
+		{
+			mActivity.getMapsMenusButtons().getBtnUniversity().setImageResource(R.drawable.university_disable);
+		}
+	}
+
 	private void setBinds()
 	{
-		getMapsMenusButtons().getBtnRefresh().setOnClickListener(new View.OnClickListener()
+		mActivity.getMapsMenusButtons().getBtnRefresh().setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
@@ -58,49 +63,66 @@ public class MapsMenu
 			}
 		});
 
-		getMapsMenusButtons().getBtnUSPCenter().setOnClickListener(new View.OnClickListener()
+		mActivity.getMapsMenusButtons().getBtnUSPCenter().setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				mapsSettings.resetMaps();
+				mActivity.getMapsSettings().resetMaps();
 			}
 		});
 
-		getMapsMenusButtons().getBtnBusStop().setOnClickListener(new View.OnClickListener()
+		mActivity.getMapsMenusButtons().getBtnBusStop().setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				getMapsMenusButtons().onBusStopClick();
-				drawOverlays();
+				mActivity.getMapsMenusButtons().onBusStopClick();
 			}
 
 		});
 
-		getMapsMenusButtons().getBtnRestaurant().setOnClickListener(new View.OnClickListener()
+		mActivity.getMapsMenusButtons().getBtnRestaurant().setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				getMapsMenusButtons().onRestaurantClick();
-				drawOverlays();
+				mActivity.getMapsMenusButtons().onRestaurantClick();
 			}
 
 		});
 
-		getMapsMenusButtons().getBtnUniversity().setOnClickListener(new View.OnClickListener()
+		mActivity.getMapsMenusButtons().getBtnUniversity().setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				getMapsMenusButtons().onUniversityClick();
-				drawOverlays();
+				mActivity.getMapsMenusButtons().onUniversityClick();
 			}
 
 		});
+		
+		mActivity.getMapsMenusButtons().getBtnRoute1().setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				mActivity.getMapsMenusButtons().onRoute1Click();
+			}
 
-		getMapsMenusButtons().getBtnMyLocation().setOnClickListener(new View.OnClickListener()
+		});		
+		
+		mActivity.getMapsMenusButtons().getBtnRoute2().setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				mActivity.getMapsMenusButtons().onRoute2Click();
+			}
+
+		});	
+
+		mActivity.getMapsMenusButtons().getBtnMyLocation().setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
@@ -109,95 +131,40 @@ public class MapsMenu
 			}
 		});
 
-		getMapsMenusButtons().getBtnAddOverlay().setOnClickListener(new View.OnClickListener()
+		mActivity.getMapsMenusButtons().getBtnAddOverlay().setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				if (getMapsSettings().getMyLatitude() != 0 && getMapsSettings().getMyLongitude() != 0)
+				if (mActivity.getMyLocation().getLatitude() != 0 && mActivity.getMyLocation().getLongitude() != 0)
 				{
-					getMyOverlays().showDialogAddOverlay(getMapsSettings().getMyLatitude(), getMapsSettings().getMyLongitude());
+					mActivity.getMyOverlays().showDialogAddOverlay(mActivity.getMyLocation().getLatitude(), mActivity.getMyLocation().getLongitude());
 				}
 				else
 					mActivity.showDialog(mActivity.getString(R.string.msgErrorTitle), mActivity.getString(R.string.msgLocalErrorMsg));
 			}
 		});
-	}	
+	}
 
 	private void myLocationClick()
 	{
-		if (getMapsSettings().getMyLatitude() != 0 && getMapsSettings().getMyLongitude()!= 0)
+		if (mActivity.getMyLocation().getLatitude() != 0 && mActivity.getMyLocation().getLongitude() != 0)
 		{
-			GeoPoint geoPointCenter = new GeoPoint(getMapsSettings().getMyLatitude(), getMapsSettings().getMyLongitude());
-			getMapsSettings().getMapController().animateTo(geoPointCenter);
+			GeoPoint geoPointCenter = new GeoPoint(mActivity.getMyLocation().getLatitude(), mActivity.getMyLocation().getLongitude());
+			mActivity.getMapsSettings().getMapController().animateTo(geoPointCenter);
 		}
 		else
 			mActivity.showDialog(mActivity.getString(R.string.msgErrorTitle), mActivity.getString(R.string.msgLocalErrorMsg));
 	}
-	
+
 	private void refreshOverlayClick()
 	{
 		LoadingOverlays loading = new LoadingOverlays(mActivity);
-		loading.Show();		
+		loading.Show();
 	}
-	
+
 	public void sendHandlerMessage(int what)
 	{
-		this.mActivity.handler.sendEmptyMessage(what);		
-	}
-	
-	public void setButtons()
-	{
-
-		if (getMapsMenusButtons().getShowBusStop())
-		{
-			getMapsMenusButtons().getBtnBusStop().setImageResource(R.drawable.busstop_enable);
-		}
-		else
-		{
-			getMapsMenusButtons().getBtnBusStop().setImageResource(R.drawable.busstop_disable);
-		}
-
-		if (getMapsMenusButtons().getShowRestaurant())
-		{
-			getMapsMenusButtons().getBtnRestaurant().setImageResource(R.drawable.restaurant_enable);
-		}
-		else
-		{
-			getMapsMenusButtons().getBtnRestaurant().setImageResource(R.drawable.restaurant_disable);
-		}
-
-		if (getMapsMenusButtons().getShowUniversity())
-		{
-			getMapsMenusButtons().getBtnUniversity().setImageResource(R.drawable.university_enable);
-		}
-		else
-		{
-			getMapsMenusButtons().getBtnUniversity().setImageResource(R.drawable.university_disable);
-		}
-	}
-	
-	public void drawOverlays()
-	{
-		getMapsSettings().clearOverlay();
-
-		if (getMapsMenusButtons().getShowBusStop())
-		{
-			getMapsSettings().drawBusStopOverlay();
-		}
-
-		if (getMapsMenusButtons().getShowRestaurant())
-		{
-			getMapsSettings().drawRestaurantOverlay();
-		}
-
-		if (getMapsMenusButtons().getShowUniversity())
-		{
-			getMapsSettings().drawUniversityOverlay();
-		}
-
-		getMapsSettings().drawGPSOverlay();
-		
-		getMapsSettings().refreshOverlay();
+		this.mActivity.handler.sendEmptyMessage(what);
 	}
 }

@@ -1,0 +1,1351 @@
+<?xml version="1.0" standalone="yes"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+  <Document>
+    <name><![CDATA[Estrada desconhecida - Av. da Universidade - Pra&#231;a Prof. Rubi&#227;o Meira - Av. Prof. Luciano Gualberto - Av. Prof. Almeida Prado - Av. Prof. Lineu Prestes - Estrada desconhecida - Av. Prof. Lineu Prestes - R. do Mat&#227;o - Av. Prof. Almeida Prado - Av. Prof. L&#250;cio Martins Rodrigues - Av. Prof. Melo Morais - Av. da Universidade - R. Sapetuba - Estrada desconhecida]]></name>
+    <visibility>1</visibility>
+    <open>1</open>
+    <Snippet><![CDATA[created using <A href="http://www.gpsvisualizer.com/?ref=ge&time=1335486222">GPS Visualizer</A>]]></Snippet>
+    <Style id="gv_waypoint_normal">
+      <IconStyle>
+        <color>FFFFFF</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://maps.google.ca/mapfiles/kml/pal4/icon56.png</href>
+        </Icon>
+        <hotSpot x="0.5" xunits="fraction" y="0.5" yunits="fraction" />
+      </IconStyle>
+      <LabelStyle>
+        <color>FFFFFF</color>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<p align="left" style="white-space:nowrap;"><font size="+1"><b>$[name]</b></font></p> <p align="left">$[description]</p>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="gv_waypoint_highlight">
+      <IconStyle>
+        <color>FFFFFF</color>
+        <scale>1.2</scale>
+        <Icon>
+          <href>http://maps.google.ca/mapfiles/kml/pal4/icon56.png</href>
+        </Icon>
+        <hotSpot x="0.5" xunits="fraction" y="0.5" yunits="fraction" />
+      </IconStyle>
+      <LabelStyle>
+        <color>FFFFFF</color>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<p align="left" style="white-space:nowrap;"><font size="+1"><b>$[name]</b></font></p> <p align="left">$[description]</p>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="gv_waypoint">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#gv_waypoint_normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#gv_waypoint_highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder id="Waypoints">
+      <name>Waypoints</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o norte para a Av. Valentim Gentil</name>
+        <description><![CDATA[ir 110m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.70758,-23.5676,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Saia da rotat&#243;ria para  Av. Afr&#226;nio Peixoto</name>
+        <description><![CDATA[ir 500m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.70819,-23.56725,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita na Av. da Universidade</name>
+        <description><![CDATA[ir 120m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71268,-23.56499,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mantenha-se &#224; direita na bifurca&#231;&#227;o</name>
+        <description><![CDATA[ir 66m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71343,-23.56454,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. da Universidade</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.714033,-23.564324,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o noroeste na Av. da Universidade em dire&#231;&#227;o &#224; Cidade Universit&#225;ria</name>
+        <description><![CDATA[ir 500m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71403,-23.56432,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita para permanecer na Av. da Universidade</name>
+        <description><![CDATA[ir 120m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71829,-23.56218,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pegue a 2&#170; &#224; direita em Pra&#231;a Prof. Rubi&#227;o Meira</name>
+        <description><![CDATA[ir 91m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71911,-23.56183,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita na Pra&#231;a da Reitoria</name>
+        <description><![CDATA[ir 450m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71978,-23.56129,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita na Pra&#231;a Prof. Rubi&#227;o Meira</name>
+        <description><![CDATA[ir 51m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.72007,-23.5618,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Pra&#231;a Prof. Rubi&#227;o Meira</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.719598,-23.561945,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o leste na Pra&#231;a Prof. Rubi&#227;o Meira em dire&#231;&#227;o &#224; Av. da Universidade</name>
+        <description><![CDATA[ir 41m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.7196,-23.56195,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita na Av. da Universidade</name>
+        <description><![CDATA[ir 20m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71921,-23.56203,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pegue a 1&#170; &#224; direita em Av. Prof. Lineu Prestes</name>
+        <description><![CDATA[ir 190m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71923,-23.56221,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita para permanecer na Av. Prof. Lineu Prestes</name>
+        <description><![CDATA[ir 74m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.7208,-23.5631,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pegue a 1&#170; &#224; direita em Av. Prof. Luciano Gualberto</name>
+        <description><![CDATA[ir 1,4km]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.72147,-23.5631,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. Prof. Luciano Gualberto</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.733328,-23.557275,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o noroeste na Av. Prof. Luciano Gualberto em dire&#231;&#227;o &#224; Pra&#231;a Ramos de Azevedo</name>
+        <description><![CDATA[ir 65m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73333,-23.55728,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Na Pra&#231;a Ramos de Azevedo, pegue a 3&#170; sa&#237;da para a Av. Prof. Almeida Prado Passe por 1 rotat&#243;ria</name>
+        <description><![CDATA[ir 1,1km]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.7339,-23.55701,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. Prof. Almeida Prado</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.74311,-23.56006,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o sudoeste para a Av. Dois</name>
+        <description><![CDATA[ir 27m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.74311,-23.56006,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Saia da rotat&#243;ria para  Av. Prof. Ernesto de Morais Leme</name>
+        <description><![CDATA[ir 350m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.74315,-23.56024,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Na rotat&#243;ria, pegue a 1&#170; sa&#237;da para a Av. Prof. Lineu Prestes</name>
+        <description><![CDATA[ir 850m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.74161,-23.56318,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. Prof. Lineu Prestes</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.735661,-23.568193,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o sudeste na Av. Prof. Lineu Prestes em dire&#231;&#227;o &#224; R. Prof. Gabriel Silvestre Teixeira de Carvalho</name>
+        <description><![CDATA[ir 13m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73566,-23.56819,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Curva suave &#224; direita na R. Prof. Gabriel Silvestre Teixeira de Carvalho</name>
+        <description><![CDATA[ir 550m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73555,-23.56825,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Entre na rotat&#243;ria</name>
+        <description><![CDATA[ir 49m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73992,-23.56814,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Estrada desconhecida</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.740318,-23.568061,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o sul para a Av. S&#227;o Remo</name>
+        <description><![CDATA[ir 75m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.74032,-23.56806,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Saia da rotat&#243;ria</name>
+        <description><![CDATA[ir 550m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73999,-23.56841,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Continue em frente na Av. Prof. Lineu Prestes</name>
+        <description><![CDATA[ir 130m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73489,-23.56859,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. Prof. Lineu Prestes</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.733788,-23.56907,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o leste na Av. Prof. Lineu Prestes em dire&#231;&#227;o &#224; Pra&#231;a Prof. Al&#237;pio Correia Neto</name>
+        <description><![CDATA[ir 500m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73379,-23.56907,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Na Pra&#231;a Prof. Al&#237;pio Correia Neto, pegue a 1&#170; sa&#237;da e permane&#231;a na Av. Prof. Lineu Prestes</name>
+        <description><![CDATA[ir 120m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.72931,-23.56798,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita na R. do Mat&#227;o</name>
+        <description><![CDATA[ir 1,0km]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73011,-23.56768,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Na rotat&#243;ria, pegue a 2&#170; sa&#237;da para a Pra&#231;a do Oceanogr&#225;fico</name>
+        <description><![CDATA[ir 190m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.7314,-23.56039,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Continue para R. do Mat&#227;o</name>
+        <description><![CDATA[ir 280m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73276,-23.55975,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: R. do Mat&#227;o</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.735494,-23.559498,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o oeste na R. do Mat&#227;o em dire&#231;&#227;o &#224; Tv. R</name>
+        <description><![CDATA[ir 270m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73549,-23.5595,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Na Pra&#231;a da Prefeitura, pegue a 1&#170; sa&#237;da para a Av. Prof. Almeida Prado Passe por 1 rotat&#243;ria</name>
+        <description><![CDATA[ir 1,2km]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73815,-23.55935,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. Prof. Almeida Prado</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73126,-23.55151,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o nordeste na Av. Prof. Almeida Prado em dire&#231;&#227;o &#224; Av. Prof. Melo Morais</name>
+        <description><![CDATA[ir 2m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73126,-23.55151,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita na Av. Prof. Melo Morais</name>
+        <description><![CDATA[ir 700m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.73125,-23.55149,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pegue a 1&#170; &#224; direita em Av. Prof. L&#250;cio Martins Rodrigues</name>
+        <description><![CDATA[ir 550m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.72543,-23.5544,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. Prof. L&#250;cio Martins Rodrigues</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.7279,-23.55892,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o sudeste para a Av. Prof. L&#250;cio Martins Rodrigues</name>
+        <description><![CDATA[ir 29m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.7279,-23.55892,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; esquerda na Av. Prof. L&#250;cio Martins Rodrigues</name>
+        <description><![CDATA[ir 550m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.72767,-23.55907,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Curva suave &#224; direita na Av. Prof. Melo Morais</name>
+        <description><![CDATA[ir 750m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.72498,-23.55462,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. Prof. Melo Morais</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71845,-23.557893,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o leste na Av. Prof. Melo Morais em dire&#231;&#227;o &#224; Est&#225;dio</name>
+        <description><![CDATA[ir 1,0km]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71845,-23.55789,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; direita na Av. da Universidade</name>
+        <description><![CDATA[ir 44m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71301,-23.56448,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mantenha-se &#224; esquerda na bifurca&#231;&#227;o</name>
+        <description><![CDATA[ir 140m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71343,-23.56454,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Av. da Universidade</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71283,-23.56524,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o leste na Av. Afr&#226;nio Peixoto em dire&#231;&#227;o &#224; R. Alvarenga</name>
+        <description><![CDATA[ir 110m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71283,-23.56524,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pegue a 1&#170; &#224; direita em R. Alvarenga</name>
+        <description><![CDATA[ir 850m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71184,-23.56559,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vire &#224; esquerda na R. Sapetuba</name>
+        <description><![CDATA[ir 100m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71115,-23.57334,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: R. Sapetuba</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.710234,-23.573661,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Siga na dire&#231;&#227;o leste na R. Sapetuba em dire&#231;&#227;o &#224; R. Camargo</name>
+        <description><![CDATA[ir 3m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/go.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71023,-23.57366,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pegue a 1&#170; &#224; esquerda para pegar a R. Camargo</name>
+        <description><![CDATA[ir 700m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.71021,-23.57367,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Entre na rotat&#243;ria</name>
+        <description><![CDATA[ir 31m]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/pause.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.70805,-23.56778,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chegar em: Estrada desconhecida</name>
+        <Snippet></Snippet>
+        <description><![CDATA[&nbsp;]]></description>
+        <styleUrl>#gv_waypoint</styleUrl>
+        <Style>
+          <IconStyle>
+            <Icon>
+              <href>http://maps.gstatic.com/intl/pt-BR_ALL/mapfiles/kml/paddle/stop.png</href>
+            </Icon>
+            <hotSpot x="0.5" xunits="fraction" y="0" yunits="fraction" />
+          </IconStyle>
+        </Style>
+        <Point>
+          <altitudeMode>clampToGround</altitudeMode>
+          <coordinates>-46.70775,-23.56777,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="Tracks">
+      <name>Tracks</name>
+      <visibility>1</visibility>
+      <open>0</open>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 800m (aprox. 2 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.70758,-23.5676,0 -46.70756,-23.56736,0 -46.70774,-23.56715,0 -46.70791,-23.5671,0 -46.708,-23.56712,0 -46.70819,-23.56725,0 -46.71268,-23.56499,0 -46.71275,-23.56463,0 -46.71287,-23.56453,0 -46.71322,-23.56447,0 -46.71343,-23.56454,0 -46.71403,-23.56432,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,2km (aprox. 3 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.71403,-23.56432,0 -46.71829,-23.56218,0 -46.71834,-23.56193,0 -46.7185,-23.56177,0 -46.71884,-23.56171,0 -46.71896,-23.56173,0 -46.71911,-23.56183,0 -46.71978,-23.56129,0 -46.71975,-23.561,0 -46.71982,-23.56075,0 -46.72013,-23.56053,0 -46.72025,-23.56048,0 -46.72056,-23.56049,0 -46.72084,-23.56062,0 -46.72094,-23.56073,0 -46.72127,-23.56138,0 -46.72131,-23.56152,0 -46.72128,-23.56171,0 -46.72092,-23.56201,0 -46.72041,-23.56201,0 -46.72019,-23.56195,0 -46.72007,-23.5618,0 -46.7196,-23.56195,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,7km (aprox. 3 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.7196,-23.56195,0 -46.71921,-23.56203,0 -46.71923,-23.56221,0 -46.7208,-23.5631,0 -46.72111,-23.56299,0 -46.72123,-23.56299,0 -46.72147,-23.5631,0 -46.72262,-23.5626,0 -46.72547,-23.56111,0 -46.72635,-23.5606,0 -46.73333,-23.55728,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,2km (aprox. 2 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.73333,-23.55728,0 -46.7339,-23.55701,0 -46.73392,-23.55676,0 -46.73409,-23.55663,0 -46.73421,-23.55662,0 -46.73466,-23.55686,0 -46.73475,-23.55703,0 -46.73471,-23.5572,0 -46.73817,-23.55914,0 -46.73835,-23.55905,0 -46.73862,-23.55913,0 -46.73867,-23.55933,0 -46.73902,-23.55956,0 -46.74238,-23.55961,0 -46.74257,-23.55966,0 -46.74311,-23.56006,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,3km (aprox. 2 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.74311,-23.56006,0 -46.74318,-23.5601,0 -46.74319,-23.56022,0 -46.74315,-23.56024,0 -46.74224,-23.56147,0 -46.74162,-23.56249,0 -46.74155,-23.56274,0 -46.74154,-23.56303,0 -46.74161,-23.56318,0 -46.74166,-23.56335,0 -46.74141,-23.56352,0 -46.73952,-23.56459,0 -46.73858,-23.56612,0 -46.73804,-23.56669,0 -46.73765,-23.56699,0 -46.73566,-23.56819,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 600m (aprox. 1 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.73566,-23.56819,0 -46.73555,-23.56825,0 -46.7355,-23.56843,0 -46.73556,-23.56853,0 -46.73603,-23.56889,0 -46.7364,-23.56909,0 -46.73708,-23.56922,0 -46.73742,-23.56919,0 -46.73789,-23.56905,0 -46.73913,-23.56846,0 -46.73992,-23.56814,0 -46.74,-23.56804,0 -46.74013,-23.568,0 -46.74032,-23.56806,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 750m (aprox. 1 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.74032,-23.56806,0 -46.74039,-23.56822,0 -46.74035,-23.56834,0 -46.74022,-23.56842,0 -46.73999,-23.56841,0 -46.7397,-23.56833,0 -46.73916,-23.56851,0 -46.7379,-23.56911,0 -46.73748,-23.56924,0 -46.73712,-23.56929,0 -46.73644,-23.56916,0 -46.73602,-23.56896,0 -46.73552,-23.56859,0 -46.73537,-23.56856,0 -46.73489,-23.56859,0 -46.73441,-23.56891,0 -46.73379,-23.56907,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 2,1km (aprox. 5 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.73379,-23.56907,0 -46.73346,-23.56907,0 -46.73321,-23.56898,0 -46.73207,-23.56837,0 -46.73163,-23.56827,0 -46.73059,-23.5683,0 -46.7299,-23.56824,0 -46.72963,-23.5683,0 -46.7295,-23.56827,0 -46.72939,-23.56816,0 -46.72931,-23.56798,0 -46.72938,-23.56767,0 -46.72959,-23.56752,0 -46.72986,-23.5675,0 -46.73011,-23.56768,0 -46.73045,-23.56689,0 -46.73038,-23.56651,0 -46.73008,-23.56554,0 -46.72988,-23.56526,0 -46.72962,-23.56505,0 -46.72908,-23.56487,0 -46.729,-23.56467,0 -46.72892,-23.56427,0 -46.72912,-23.56354,0 -46.7291,-23.56271,0 -46.72927,-23.56212,0 -46.73044,-23.56093,0 -46.73083,-23.56061,0 -46.7314,-23.56039,0 -46.73133,-23.56017,0 -46.73141,-23.56002,0 -46.73276,-23.55975,0 -46.73549,-23.5595,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,5km (aprox. 4 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.73549,-23.5595,0 -46.73569,-23.55948,0 -46.73591,-23.55937,0 -46.73815,-23.55935,0 -46.73812,-23.55925,0 -46.73817,-23.55914,0 -46.73686,-23.55838,0 -46.73471,-23.5572,0 -46.73466,-23.55727,0 -46.73439,-23.5573,0 -46.73408,-23.55717,0 -46.7339,-23.55701,0 -46.73392,-23.55676,0 -46.73409,-23.55663,0 -46.73421,-23.55662,0 -46.73336,-23.55529,0 -46.73126,-23.55151,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,2km (aprox. 3 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.73126,-23.55151,0 -46.73125,-23.55149,0 -46.72876,-23.55269,0 -46.72543,-23.5544,0 -46.72567,-23.55498,0 -46.7279,-23.55892,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,4km (aprox. 4 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.7279,-23.55892,0 -46.72767,-23.55907,0 -46.72523,-23.55469,0 -46.72498,-23.55462,0 -46.72331,-23.55563,0 -46.71937,-23.55758,0 -46.71845,-23.55789,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,2km (aprox. 4 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.71845,-23.55789,0 -46.71794,-23.55805,0 -46.71444,-23.55972,0 -46.71389,-23.56005,0 -46.71355,-23.56039,0 -46.71343,-23.56054,0 -46.71322,-23.561,0 -46.71307,-23.56179,0 -46.71298,-23.5643,0 -46.71301,-23.56448,0 -46.71322,-23.56447,0 -46.71343,-23.56454,0 -46.71356,-23.5648,0 -46.71347,-23.56514,0 -46.71328,-23.56528,0 -46.71313,-23.56532,0 -46.71283,-23.56524,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 1,1km (aprox. 3 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.71283,-23.56524,0 -46.71267,-23.56526,0 -46.71184,-23.56559,0 -46.71174,-23.56711,0 -46.71165,-23.57013,0 -46.71156,-23.57126,0 -46.71115,-23.57334,0 -46.71023,-23.57366,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description><![CDATA[Dist&#226;ncia: 750m (aprox. 3 min)<br/>Dados cartogr&#225;ficos &#169;2012 Google, MapLink]]></description>
+        <Style>
+          <LineStyle>
+            <color>7FCF0064</color>
+            <width>6</width>
+          </LineStyle>
+        </Style>
+        <MultiGeometry>
+          <LineString>
+            <tessellate>1</tessellate>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>-46.71023,-23.57366,0 -46.71021,-23.57367,0 -46.70805,-23.56778,0 -46.70775,-23.56777,0 </coordinates>
+          </LineString>
+        </MultiGeometry>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

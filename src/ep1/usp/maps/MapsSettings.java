@@ -1,39 +1,39 @@
 package ep1.usp.maps;
 
-import android.content.Context;
-import android.location.LocationManager;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.ci.geo.route.Road;
+import org.ci.geo.route.RoadProvider;
+
+import android.graphics.Color;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.google.android.maps.Overlay;
 
 import ep1.usp.R;
-import ep1.usp.access.db.MapSettingsDao;
-import ep1.usp.access.db.OverlayDao;
 import ep1.usp.access.db.SettingsDao;
-import ep1.usp.maps.Overlay.MyOverlays;
+import ep1.usp.maps.Overlay.OverlayIcon;
+import ep1.usp.maps.Overlay.RouteOverlay;
 
 public class MapsSettings
 {
 	private Maps mActivity;
-	private MyOverlays myOverlays;
 	private SettingsDao settingsDao;
-	private OverlayDao overlayDao;
-	private MyLocationListener myLocationListener;
 
 	public MapsSettings(Maps mActivity)
 	{
 		this.mActivity = mActivity;
-		this.myOverlays = new MyOverlays(mActivity);
 		this.settingsDao = new SettingsDao(mActivity.getApplicationContext());
-		this.overlayDao = new OverlayDao(mActivity.getApplicationContext());
 	}
 
 	public void init()
 	{
 		getMap().setBuiltInZoomControls(true);
 		resetMaps();
-		enableGPS();
+		mActivity.getMyLocation();
 	}
 
 	public void resetMaps()
@@ -76,49 +76,34 @@ public class MapsSettings
 		getMapController().animateTo(point);
 	}
 
-	public void enableGPS()
+	public void removeMapOverlay(Overlay object)
 	{
-		LocationManager mlocManager = (LocationManager) mActivity.getSystemService(Context.LOCATION_SERVICE);
-		myLocationListener = new MyLocationListener(mActivity, mapView);
-		mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
+		getMap().getOverlays().remove(object);
+		refreshOverlay();
 	}
 
-	public int getMyLatitude()
+	public void addMapOverlay(Overlay object)
 	{
-		if (myLocationListener == null)
-			enableGPS();
-
-		return myLocationListener.getLatitude();
+		getMap().getOverlays().add(object);
+		refreshOverlay();
+	}
+	
+	public void addMapOverlayFirst(Overlay object)
+	{
+		getMap().getOverlays().add(0, object);
+		refreshOverlay();
 	}
 
-	public int getMyLongitude()
+	public void addMapOverlay(OverlayIcon object)
 	{
-		if (myLocationListener == null)
-			enableGPS();
-
-		return myLocationListener.getLongitude();
+		if (object.size() > 0)
+		{
+			getMap().getOverlays().add(object);
+			refreshOverlay();
+		}
 	}
 
-	public void drawBusStopOverlay()
-	{
-		myOverlays.drawOverlay(R.drawable.busstop, overlayDao.getByType(MapSettingsDao.BUS_STOP), getMap());
-	}
-
-	public void drawRestaurantOverlay()
-	{
-		myOverlays.drawOverlay(R.drawable.restaurant, overlayDao.getByType(MapSettingsDao.RESTAURANT), getMap());
-	}
-
-	public void drawUniversityOverlay()
-	{
-		myOverlays.drawOverlay(R.drawable.university, overlayDao.getByType(MapSettingsDao.UNIVERSITY), getMap());
-	}
-
-	public void drawGPSOverlay()
-	{
-		if (myLocationListener != null)
-			myLocationListener.setOverlay();
-	}
+	
 
 	public void clearOverlay()
 	{
