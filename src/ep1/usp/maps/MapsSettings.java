@@ -1,13 +1,5 @@
 package ep1.usp.maps;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import org.ci.geo.route.Road;
-import org.ci.geo.route.RoadProvider;
-
-import android.graphics.Color;
-
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
@@ -16,7 +8,6 @@ import com.google.android.maps.Overlay;
 import ep1.usp.R;
 import ep1.usp.access.db.SettingsDao;
 import ep1.usp.maps.Overlay.OverlayIcon;
-import ep1.usp.maps.Overlay.RouteOverlay;
 
 public class MapsSettings
 {

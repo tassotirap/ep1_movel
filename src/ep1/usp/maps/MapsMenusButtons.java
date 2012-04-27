@@ -4,7 +4,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import ep1.usp.R;
 import ep1.usp.access.db.MapSettingsDao;
-import ep1.usp.maps.Overlay.MyOverlays;
 
 public class MapsMenusButtons
 {

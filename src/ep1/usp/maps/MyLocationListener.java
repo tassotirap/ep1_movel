@@ -4,8 +4,6 @@ import java.util.List;
 
 import android.content.Context;
 import android.location.Location;
-import android.location.LocationListener;
-import android.os.Bundle;
 
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;

@@ -5,7 +5,6 @@ import android.view.View;
 import com.google.android.maps.GeoPoint;
 
 import ep1.usp.R;
-import ep1.usp.maps.Overlay.MyOverlays;
 
 public class MapsMenu
 {
@@ -59,7 +58,7 @@ public class MapsMenu
 			@Override
 			public void onClick(View v)
 			{
-				refreshOverlayClick();
+				onRefreshOverlayClick();
 			}
 		});
 
@@ -127,7 +126,7 @@ public class MapsMenu
 			@Override
 			public void onClick(View v)
 			{
-				myLocationClick();
+				onMyLocationClick();
 			}
 		});
 
@@ -146,7 +145,7 @@ public class MapsMenu
 		});
 	}
 
-	private void myLocationClick()
+	private void onMyLocationClick()
 	{
 		if (mActivity.getMyLocation().getLatitude() != 0 && mActivity.getMyLocation().getLongitude() != 0)
 		{
@@ -157,14 +156,9 @@ public class MapsMenu
 			mActivity.showDialog(mActivity.getString(R.string.msgErrorTitle), mActivity.getString(R.string.msgLocalErrorMsg));
 	}
 
-	private void refreshOverlayClick()
+	private void onRefreshOverlayClick()
 	{
 		LoadingOverlays loading = new LoadingOverlays(mActivity);
 		loading.Show();
-	}
-
-	public void sendHandlerMessage(int what)
-	{
-		this.mActivity.handler.sendEmptyMessage(what);
 	}
 }

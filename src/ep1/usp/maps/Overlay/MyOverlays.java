@@ -3,7 +3,6 @@ package ep1.usp.maps.Overlay;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.ci.geo.route.Road;
 import org.ci.geo.route.RoadProvider;
@@ -12,8 +11,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
 import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
 import ep1.usp.R;
@@ -25,19 +22,24 @@ import ep1.usp.maps.MapsAddOverlay;
 public class MyOverlays
 {
 	private Maps mActivity;
-	
+	private OverlayIcon universityOverlays = null;
+	private OverlayIcon busStopOverlays = null;
+	private OverlayIcon restaurantOverlays = null;
+	private RouteOverlay route1 = null;
+	private RouteOverlay route2 = null;
+
+	private OverlayDao overlayDao = null;
+
 	public MyOverlays(Maps mActivity)
 	{
-		this.mActivity = mActivity;	
+		this.mActivity = mActivity;
 	}
-	
-	private OverlayDao overlayDao;
+
 	public OverlayDao getOverlayDao()
 	{
 		if (overlayDao == null)
 			overlayDao = new OverlayDao(mActivity.getApplicationContext());
 		return overlayDao;
-
 	}
 
 	public void showDialogAddOverlay(int latitude, int longitude)
@@ -48,24 +50,22 @@ public class MyOverlays
 		dialog.init(latitude, longitude);
 		dialog.show();
 	}
-	
-	private OverlayIcon busStopOverlays = null;
-	
+
 	public void refreshBusStopOverlay()
 	{
 		busStopOverlays = null;
 		getBusStopOverlay();
 	}
-	
+
 	public OverlayIcon getBusStopOverlay()
 	{
-		if(busStopOverlays == null)
+		if (busStopOverlays == null)
 		{
 			Drawable drawable = mActivity.getResources().getDrawable(R.drawable.busstop);
 			busStopOverlays = new OverlayIcon(drawable, mActivity, 11, 22, true);
-			String title  = mActivity.getString(R.string.map_settingsBusStop);
-			
-			ArrayList<OverlayInfo> lstOverlay =  getOverlayDao().getByType(MapSettingsDao.BUS_STOP);
+			String title = mActivity.getString(R.string.map_settingsBusStop);
+
+			ArrayList<OverlayInfo> lstOverlay = getOverlayDao().getByType(MapSettingsDao.BUS_STOP);
 
 			for (OverlayInfo info : lstOverlay)
 			{
@@ -74,26 +74,24 @@ public class MyOverlays
 				busStopOverlays.addOverlay(overlayitem);
 			}
 		}
-		return busStopOverlays;		
+		return busStopOverlays;
 	}
-	
-	private OverlayIcon universityOverlays = null;
-	
+
 	public void refreshUniversityOverlay()
 	{
 		universityOverlays = null;
 		getUniversityOverlay();
 	}
-	
+
 	public OverlayIcon getUniversityOverlay()
 	{
-		if(universityOverlays == null)
+		if (universityOverlays == null)
 		{
 			Drawable drawable = mActivity.getResources().getDrawable(R.drawable.university);
 			universityOverlays = new OverlayIcon(drawable, mActivity, 11, 22, true);
-			String title  = mActivity.getString(R.string.map_settingsUniversity);
-			
-			ArrayList<OverlayInfo> lstOverlay =  getOverlayDao().getByType(MapSettingsDao.UNIVERSITY);
+			String title = mActivity.getString(R.string.map_settingsUniversity);
+
+			ArrayList<OverlayInfo> lstOverlay = getOverlayDao().getByType(MapSettingsDao.UNIVERSITY);
 
 			for (OverlayInfo info : lstOverlay)
 			{
@@ -102,26 +100,24 @@ public class MyOverlays
 				universityOverlays.addOverlay(overlayitem);
 			}
 		}
-		return universityOverlays;		
+		return universityOverlays;
 	}
-	
-	private OverlayIcon restaurantOverlays = null;
-	
+
 	public void refreshRestaurantOverlay()
 	{
 		restaurantOverlays = null;
 		getRestaurantOverlay();
 	}
-	
+
 	public OverlayIcon getRestaurantOverlay()
 	{
-		if(restaurantOverlays == null)
+		if (restaurantOverlays == null)
 		{
 			Drawable drawable = mActivity.getResources().getDrawable(R.drawable.restaurant);
 			restaurantOverlays = new OverlayIcon(drawable, mActivity, 11, 22, true);
-			String title  = mActivity.getString(R.string.map_settingsRestaurant);
-			
-			ArrayList<OverlayInfo> lstOverlay =  getOverlayDao().getByType(MapSettingsDao.RESTAURANT);
+			String title = mActivity.getString(R.string.map_settingsRestaurant);
+
+			ArrayList<OverlayInfo> lstOverlay = getOverlayDao().getByType(MapSettingsDao.RESTAURANT);
 			for (OverlayInfo info : lstOverlay)
 			{
 				GeoPoint point = new GeoPoint(info.getLatitude(), info.getLongitude());
@@ -129,15 +125,14 @@ public class MyOverlays
 				restaurantOverlays.addOverlay(overlayitem);
 			}
 		}
-		return restaurantOverlays;		
+		return restaurantOverlays;
 	}
-	
-	private RouteOverlay route1;	
+
 	public RouteOverlay getRoute1()
 	{
 		try
 		{
-			if(route1 == null)
+			if (route1 == null)
 			{
 				InputStream is = mActivity.getAssets().open("rota1.xml");
 				Road mRoad = RoadProvider.getRoute(is);
@@ -151,14 +146,11 @@ public class MyOverlays
 		}
 	}
 
-	
-	private RouteOverlay route2;
-	
 	public RouteOverlay getRoute2()
 	{
 		try
 		{
-			if(route2 == null)
+			if (route2 == null)
 			{
 				InputStream is = mActivity.getAssets().open("rota2.xml");
 				Road mRoad = RoadProvider.getRoute(is);

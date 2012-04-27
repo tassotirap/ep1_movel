@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import org.ci.geo.route.Road;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 
-import com.google.android.maps.Overlay;
 import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.google.android.maps.Overlay;
 
 public class RouteOverlay extends Overlay
 {
