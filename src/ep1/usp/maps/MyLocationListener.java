@@ -38,7 +38,6 @@ public class MyLocationListener extends MyLocationOverlay
 		super.onLocationChanged(location);
 		this.latitude = location.getLatitude();
 		this.longitude = location.getLongitude();
-		setOverlay();
 	}
 
 	@Override

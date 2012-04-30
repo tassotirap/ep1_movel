@@ -63,8 +63,7 @@ public class Maps extends MapActivity
 			mapsMenusButtons = new MapsMenusButtons(this);
 		return mapsMenusButtons;
 	}
-	
-	
+		
 	public MyLocationListener getMyLocation()
 	{
 		if(myLocationOverlay == null)

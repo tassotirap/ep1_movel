@@ -26,7 +26,6 @@ public class LoadingOverlays
 			{
 				try
 				{
-
 					ParseJSON parseJSON = new ParseJSON();
 					ArrayList<OverlayInfo> lstOverlayInfo = parseJSON.getOverlayInfo();
 

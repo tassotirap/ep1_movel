@@ -12,12 +12,13 @@ import ep1.usp.maps.Overlay.OverlayIcon;
 public class MapsSettings
 {
 	private Maps mActivity;
-	private SettingsDao settingsDao;
+	private SettingsDao settingsDao = null;
+	private MapController mapController = null;
+	private MapView mapView = null;
 
 	public MapsSettings(Maps mActivity)
 	{
 		this.mActivity = mActivity;
-		this.settingsDao = new SettingsDao(mActivity.getApplicationContext());
 	}
 
 	public void init()
@@ -30,10 +31,15 @@ public class MapsSettings
 	public void resetMaps()
 	{
 		setZoom(15);
-		setCenterGeoPoint(settingsDao.GetUspCenter());
+		setCenterGeoPoint(getSettingsDao().GetUspCenter());
 	}
 
-	private MapController mapController = null;
+	public SettingsDao getSettingsDao()
+	{
+		if (settingsDao == null)
+			settingsDao = new SettingsDao(mActivity.getApplicationContext());
+		return settingsDao;
+	}
 
 	public MapController getMapController()
 	{
@@ -44,8 +50,6 @@ public class MapsSettings
 
 		return mapController;
 	}
-
-	private MapView mapView = null;
 
 	public MapView getMap()
 	{
@@ -78,7 +82,7 @@ public class MapsSettings
 		getMap().getOverlays().add(object);
 		refreshOverlay();
 	}
-	
+
 	public void addMapOverlayFirst(Overlay object)
 	{
 		getMap().getOverlays().add(0, object);
@@ -93,8 +97,6 @@ public class MapsSettings
 			refreshOverlay();
 		}
 	}
-
-	
 
 	public void clearOverlay()
 	{

@@ -7,6 +7,9 @@ import ep1.usp.access.db.MapSettingsDao;
 
 public class MapsMenusButtons
 {
+	private Maps mActivity = null;
+	private MapSettingsDao mapSettingsDao;
+	
 	private ImageButton btnRefresh = null;
 	private ImageButton btnUSPCenter = null;
 	private ImageButton btnBusStop = null;
@@ -16,14 +19,12 @@ public class MapsMenusButtons
 	private ImageButton btnAddOverlay = null;
 	private Button btnRoute1 = null;
 	private Button btnRoute2 = null;
-	private Maps mActivity = null;
+	
 	private Boolean showBusStop = null;
 	private Boolean showRestaurant = null;
 	private Boolean showUniversity = null;
 	private Boolean route1 = null;
 	private Boolean route2 = null;
-
-	private MapSettingsDao mapSettingsDao;
 
 	public MapSettingsDao getMapSettingsDao()
 	{
@@ -135,7 +136,7 @@ public class MapsMenusButtons
 	public boolean getShowRoute2()
 	{
 		if (route2 == null)
-			route2 = getMapSettingsDao().getRoute1Enable();
+			route2 = getMapSettingsDao().getRoute2Enable();
 		return route2;
 	}
 
@@ -169,113 +170,22 @@ public class MapsMenusButtons
 		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getBusStopOverlay());
 		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRestaurantOverlay());
 		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getUniversityOverlay());
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute1());
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute2());
 	}
 
 	public void initDraw()
 	{
 		removeOverlays();
 		if (getShowBusStop())
-		{
 			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getBusStopOverlay());
-		}
 		if (getShowRestaurant())
-		{
-
 			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getRestaurantOverlay());
-		}
 		if (getShowUniversity())
-		{
-
 			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getUniversityOverlay());
-		}
-	}
-
-	public void onBusStopClick()
-	{
-		if (getShowBusStop())
-		{
-			setShowBusStop(false);
-			getBtnBusStop().setImageResource(R.drawable.busstop_disable);
-			mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getBusStopOverlay());
-		}
-		else
-		{
-			setShowBusStop(true);
-			getBtnBusStop().setImageResource(R.drawable.busstop_enable);
-			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getBusStopOverlay());
-		}
-
-		getMapSettingsDao().setBusStopEnable(getShowBusStop());
-
-	}
-
-	public void onRestaurantClick()
-	{
-		if (getShowRestaurant())
-		{
-			setShowRestaurant(false);
-			getBtnRestaurant().setImageResource(R.drawable.restaurant_disable);
-			mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRestaurantOverlay());
-		}
-		else
-		{
-			setShowRestaurant(true);
-			getBtnRestaurant().setImageResource(R.drawable.restaurant_enable);
-			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getRestaurantOverlay());
-		}
-
-		getMapSettingsDao().setRestaurantEnable(getShowRestaurant());
-	}
-
-	public void onUniversityClick()
-	{
-		if (getShowUniversity())
-		{
-			setShowUniversity(false);
-			getBtnUniversity().setImageResource(R.drawable.university_disable);
-			mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getUniversityOverlay());
-
-		}
-		else
-		{
-			setShowUniversity(true);
-			getBtnUniversity().setImageResource(R.drawable.university_enable);
-			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getUniversityOverlay());
-		}
-
-		getMapSettingsDao().setUniversityEnable(getShowUniversity());
-	}
-
-	public void onRoute1Click()
-	{
-		if (getShowRoute1())
-		{
-			setShowRoute1(false);
-			mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute1());
-		}
-		else
-		{
-			setShowRoute1(true);
+		if(getShowRoute1())
 			mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute1());
-		}
-
-		getMapSettingsDao().setRoute1Enable(getShowRoute1());
-	}
-
-	public void onRoute2Click()
-	{
-		if (getShowRoute2())
-		{
-			setShowRoute2(false);
-			mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute2());
-		}
-		else
-		{
-			setShowRoute2(true);
+		if(getShowRoute2())
 			mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute2());
-		}
-
-		getMapSettingsDao().setRoute1Enable(getShowRoute2());
 	}
-
 }

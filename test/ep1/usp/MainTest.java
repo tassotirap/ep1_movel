@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.content.Intent;
-import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import com.xtremelabs.robolectric.shadows.ShadowActivity;
@@ -23,21 +23,22 @@ import ep1.usp.restaurant.Restaurant;
 public class MainTest {
 
 	private Main main;
-	private Button btnMap, btnRestaurant, btnGate;
+	private FrameLayout btnMap, btnRestaurant, btnGate;
 
 	@Before
 	public void setUp() throws Exception {
 		main = new Main();
 		main.onCreate(null);
-		btnMap = (Button)main.findViewById(R.id.btn_map);
-		btnRestaurant = (Button)main.findViewById(R.id.btn_retaurant);
-		btnGate = (Button)main.findViewById(R.id.btn_gate);
+		btnMap = (FrameLayout)main.findViewById(R.id.btnMap);
+		btnRestaurant = (FrameLayout)main.findViewById(R.id.btnRetaurant);
+		btnGate = (FrameLayout)main.findViewById(R.id.btnGate);
 	}
 
 	@Test
 	public void appName() throws Exception {
 		String appName = main.getResources().getString(R.string.app_name);
-		assertThat(appName, equalTo("EP1"));
+		System.out.print(appName);
+		assertThat(appName, equalTo("Localiza Smart"));
 	}
 
 	@Test

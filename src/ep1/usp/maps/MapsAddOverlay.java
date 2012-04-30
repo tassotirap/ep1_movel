@@ -23,31 +23,31 @@ public class MapsAddOverlay extends Dialog
 	private int selectedType;
 	private int latitude, longitude;
 	private Maps mActivity;
-	
+
 	public MapsAddOverlay(Maps mActivity)
 	{
 		super(mActivity);
 		this.mActivity = mActivity;
 	}
-	
+
 	public Handler handler = new Handler()
 	{
 		@Override
 		public void handleMessage(Message msg)
 		{
 			super.handleMessage(msg);
-			
-			if(msg.what == 0)
+
+			if (msg.what == 0)
 				hide();
 		}
 	};
-	
+
 	public void init(int latitude, int longitude)
 	{
 
 		this.latitude = latitude;
 		this.longitude = longitude;
-		
+
 		loadBinds();
 		fillSpinner();
 
@@ -102,18 +102,15 @@ public class MapsAddOverlay extends Dialog
 	{
 		selectedType = spnTypes.getSelectedItemPosition() + 1;
 	}
-	{
-		super.onBackPressed();		
-	}
 
 	private void addOverlay()
 	{
 		try
 		{
 			if (latitude != 0 && longitude != 0 && selectedType != -1)
-			{			
+			{
 				LoadingAddOverlay loading = new LoadingAddOverlay(mActivity, latitude, longitude, txtName.getText().toString(), selectedType, this);
-				loading.Show();				
+				loading.Show();
 			}
 			else
 			{
