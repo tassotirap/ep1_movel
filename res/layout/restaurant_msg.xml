@@ -10,10 +10,18 @@
         android:layout_height="wrap_content"
         android:background="@drawable/border_msg" >
 
+        <ImageView
+            android:id="@+id/restaurant_imgStatus"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_all"
+            android:src="@drawable/msg1" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_all"
+            android:layout_marginBottom="@dimen/margin_all"
+            android:layout_marginTop="@dimen/margin_all"
             android:orientation="vertical" >
 
             <TextView
@@ -22,15 +30,15 @@
                 android:layout_height="wrap_content"
                 android:text="Data:"
                 android:textColor="@color/gray"
-                android:textSize="10dp" />
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/restaurant_txtDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12/02/2012"
-                android:textColor="@color/gray"
-                android:textSize="10dp" />
+                android:textColor="@color/black"
+                android:textSize="12dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -46,25 +54,17 @@
                 android:layout_height="wrap_content"
                 android:text="Comentario:"
                 android:textColor="@color/gray"
-                android:textSize="10dp" />
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/restaurant_txtMsg"
-                android:layout_width="223dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Large Text"
-                android:textColor="@color/gray"
-                android:textSize="10dp" />
+                android:textColor="@color/black"
+                android:textSize="14dp" />
 
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/restaurant_imgStatus"
-            android:layout_width="17dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_all"
-            android:src="@drawable/msg1" />
     </LinearLayout>
 
 </LinearLayout>

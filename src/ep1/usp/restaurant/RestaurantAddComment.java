@@ -70,7 +70,14 @@ public class RestaurantAddComment extends Dialog
 			@Override
 			public void onClick(View v)
 			{
-				AddMessageClick();
+				if(getTxtComment().getText().toString().length() > 0)
+				{
+					AddMessageClick();
+				}
+				else
+				{
+					mActivity.handler.sendEmptyMessage(4);
+				}					
 			}
 		});
 	}

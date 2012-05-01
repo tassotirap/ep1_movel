@@ -28,8 +28,10 @@ public class LoadingGetMsg
 				try
 				{
 					ArrayList<MessageInfo> msgs = new ParseJSON().getRestaurantComment(restaurantId, 10);
+					RestaurantInfo restaurantInfo = new ParseJSON().getRestaurant(restaurantId);					
 					mActivity.getRestaurantCommentDao().clear();
 					mActivity.getRestaurantCommentDao().setList(msgs);
+					mActivity.getRestaurantsDao().update(restaurantInfo);
 					mActivity.handler.sendEmptyMessage(3);
 				}
 				catch (Exception e)

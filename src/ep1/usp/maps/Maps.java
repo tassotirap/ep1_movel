@@ -18,8 +18,61 @@ public class Maps extends MapActivity
 	private MapsSettings mapsSettings = null;
 	private MyLocationListener myLocationOverlay = null;
 	private MyOverlays myOverlays = null;	
+	private OverlayDao overlayDao = null;
 
-	private OverlayDao overlayDao;
+	public Handler handler = new Handler()
+	{
+		@Override
+		public void handleMessage(Message msg)
+		{
+			super.handleMessage(msg);
+			if (msg.what == 0)
+				showDialog(getApplicationContext().getString(R.string.msgErrorTitle), getApplicationContext().getString(R.string.msgErrorMsg));
+			else
+				showDialog("Sucesso", "Ponto adicionado com sucesso!");
+		}
+	};
+
+	@Override
+	protected boolean isRouteDisplayed()
+	{
+		return false;
+	}
+
+	public MapsMenu getMapsMenus()
+	{
+		if (mapsMenus == null)
+			mapsMenus = new MapsMenu(this);
+		return mapsMenus;
+	}
+
+	public MapsMenusButtons getMapsMenusButtons()
+	{
+		if (mapsMenusButtons == null)
+			mapsMenusButtons = new MapsMenusButtons(this);
+		return mapsMenusButtons;
+	}
+
+	public MapsSettings getMapsSettings()
+	{
+		if (mapsSettings == null)
+			mapsSettings = new MapsSettings(this);
+		return mapsSettings;
+	}
+		
+	public MyLocationListener getMyLocation()
+	{
+		if(myLocationOverlay == null)
+			myLocationOverlay = new MyLocationListener(this, getMapsSettings().getMap());
+		return myLocationOverlay;
+	}
+
+	public MyOverlays getMyOverlays()
+	{
+		if (myOverlays == null)
+			myOverlays = new MyOverlays(this);
+		return myOverlays;
+	}
 
 	public OverlayDao getOverlayDao()
 	{
@@ -36,75 +89,13 @@ public class Maps extends MapActivity
 		getMapsMenusButtons().initDraw();
 	}
 
-	public MapsMenu getMapsMenus()
-	{
-		if (mapsMenus == null)
-			mapsMenus = new MapsMenu(this);
-		return mapsMenus;
-	}
-
-	public MapsSettings getMapsSettings()
-	{
-		if (mapsSettings == null)
-			mapsSettings = new MapsSettings(this);
-		return mapsSettings;
-	}
-
-	public MyOverlays getMyOverlays()
-	{
-		if (myOverlays == null)
-			myOverlays = new MyOverlays(this);
-		return myOverlays;
-	}
-
-	public MapsMenusButtons getMapsMenusButtons()
-	{
-		if (mapsMenusButtons == null)
-			mapsMenusButtons = new MapsMenusButtons(this);
-		return mapsMenusButtons;
-	}
-		
-	public MyLocationListener getMyLocation()
-	{
-		if(myLocationOverlay == null)
-			myLocationOverlay = new MyLocationListener(this, getMapsSettings().getMap());
-		return myLocationOverlay;
-	}
-
-	public Handler handler = new Handler()
-	{
-		@Override
-		public void handleMessage(Message msg)
-		{
-			super.handleMessage(msg);
-
-			if (msg.what == 0)
-				showDialog(getApplicationContext().getString(R.string.msgErrorTitle), getApplicationContext().getString(R.string.msgErrorMsg));
-			else
-				showDialog("Sucesso", "Ponto adicionado com sucesso!");
-		}
-	};
-
-	@Override
-	protected void onResume()
-	{
-		super.onResume();
-		getMapsMenus().setButtons();
-		getMapsSettings().refreshOverlay();
-	}
-
-	@Override
-	protected boolean isRouteDisplayed()
-	{
-		return false;
-	}
-
 	public void showDialog(String title, String message)
 	{
 		Builder alert = new AlertDialog.Builder(this);
 		alert.setTitle(title);
 		alert.setMessage(message);
 		alert.setNeutralButton("OK", null);
-		new AlertDialog.Builder(this).setTitle(title).setMessage(message).setNeutralButton("OK", null).show();
+		AlertDialog dialog = alert.create();
+		dialog.show();
 	}
 }

@@ -101,7 +101,7 @@ public class ParseJSON
 
 		try
 		{
-			
+
 			comment = URLEncoder.encode(comment, "UTF-8");
 			String url = URL + "SetRestaurantComment?restaurantId=" + restaurantId + "&comment=" + comment + "&status=" + statusId;
 			new GetHttp(url);
@@ -113,13 +113,13 @@ public class ParseJSON
 			return false;
 		}
 	}
-	
+
 	public ArrayList<MessageInfo> getRestaurantComment(int restaurantId, int qtde)
 	{
 		ArrayList<MessageInfo> messageInfos = new ArrayList<MessageInfo>();
 		try
 		{
-			GetHttp httpGet = new GetHttp(URL + "GetRestaurantComment?restaurantId="+restaurantId+"&qtde="+qtde);
+			GetHttp httpGet = new GetHttp(URL + "GetRestaurantComment?restaurantId=" + restaurantId + "&qtde=" + qtde);
 			if (httpGet.getResponse() != null)
 			{
 				JSONObject object = (JSONObject) new JSONTokener(httpGet.getResponse()).nextValue();
@@ -136,6 +136,29 @@ public class ParseJSON
 				}
 			}
 			return messageInfos;
+
+		}
+		catch (Exception e)
+		{
+			return null;
+		}
+	}
+
+	public RestaurantInfo getRestaurant(int restaurantId)
+	{
+		RestaurantInfo restaurantInfo = new RestaurantInfo();
+		try
+		{
+			GetHttp httpGet = new GetHttp(URL + "GetRestaurant?restaurantId=" + restaurantId);
+			if (httpGet.getResponse() != null)
+			{
+				JSONObject object = (JSONObject) new JSONTokener(httpGet.getResponse()).nextValue();
+				JSONObject message = object.getJSONObject("d");
+				restaurantInfo.setId(message.getInt("Id"));
+				restaurantInfo.setName(message.getString("Name"));
+				restaurantInfo.setStatus(message.getInt("Status"));
+			}
+			return restaurantInfo;
 
 		}
 		catch (Exception e)

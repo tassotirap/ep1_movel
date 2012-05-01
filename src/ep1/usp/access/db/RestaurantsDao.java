@@ -14,14 +14,14 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 	{
 		super(ctx);
 		TABLE_NAME = "RESTAURANTS";
-		COLUMNS =  new String[] { "id", "name", "status" }; 
+		COLUMNS = new String[] { "id", "name", "status" };
 	}
-	
+
 	public ArrayList<RestaurantInfo> getAll()
 	{
 		ArrayList<RestaurantInfo> restaurants = new ArrayList<RestaurantInfo>();
-		
-		SQLiteDatabase db =  getWritableDatabase();
+
+		SQLiteDatabase db = getWritableDatabase();
 		Cursor c = db.query(TABLE_NAME, COLUMNS, null, null, null, null, null);
 
 		while (c.moveToNext())
@@ -32,9 +32,9 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 		c.close();
 		db.close();
 
-		return restaurants;	
+		return restaurants;
 	}
-	
+
 	public void setList(ArrayList<RestaurantInfo> restaurants)
 	{
 		for (RestaurantInfo restaurant : restaurants)
@@ -45,7 +45,7 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 				contentValues.put(COLUMNS[0], restaurant.getId());
 				contentValues.put(COLUMNS[1], restaurant.getName());
 				contentValues.put(COLUMNS[2], restaurant.getStatus());
-				SQLiteDatabase db =  getWritableDatabase();
+				SQLiteDatabase db = getWritableDatabase();
 				db.insertOrThrow(TABLE_NAME, null, contentValues);
 				db.close();
 			}
@@ -55,26 +55,26 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 			}
 		}
 	}
-	
+
 	public ArrayList<String> getNames()
 	{
 		ArrayList<String> names = new ArrayList<String>();
-		
-		SQLiteDatabase db =  getWritableDatabase();
-		Cursor c = db.query(TABLE_NAME, new String[]{ COLUMNS[1] }, null, null, null, null, null);
+
+		SQLiteDatabase db = getWritableDatabase();
+		Cursor c = db.query(TABLE_NAME, new String[] { COLUMNS[1] }, null, null, null, null, null);
 		while (c.moveToNext())
 		{
 			names.add(c.getString(0));
 		}
 		c.close();
 		db.close();
-		return names;			
+		return names;
 	}
-	
+
 	public int getIdByName(String name)
 	{
-		SQLiteDatabase db =  getWritableDatabase();
-		Cursor c = db.query(TABLE_NAME, new String[]{ COLUMNS[0] }, COLUMNS[1] + "=?", new String[]{name}, null, null, null);
+		SQLiteDatabase db = getWritableDatabase();
+		Cursor c = db.query(TABLE_NAME, new String[] { COLUMNS[0] }, COLUMNS[1] + "=?", new String[] { name }, null, null, null);
 
 		while (c.moveToNext())
 		{
@@ -84,13 +84,43 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 		}
 		c.close();
 		db.close();
-		return -1;			
+		return -1;
+	}
+
+	public int getStatusById(int id)
+	{
+		SQLiteDatabase db = getWritableDatabase();
+		Cursor c = db.query(TABLE_NAME, new String[] { COLUMNS[2] }, COLUMNS[0] + "=?", new String[] { String.valueOf(id) }, null, null, null);
+
+		while (c.moveToNext())
+		{
+			int status = c.getInt(0);
+			c.close();
+			return status;
+		}
+		c.close();
+		db.close();
+		return 1;
 	}
 
 	@Override
 	public void set(RestaurantInfo object)
 	{
-		// TODO Auto-generated method stub
-		
+
+	}
+
+	public void update(RestaurantInfo restaurantInfo)
+	{
+
+		SQLiteDatabase db = getWritableDatabase();
+
+		ContentValues contentValues = new ContentValues();
+		contentValues.put(COLUMNS[0], restaurantInfo.getId());
+		contentValues.put(COLUMNS[1], restaurantInfo.getName());
+		contentValues.put(COLUMNS[2], restaurantInfo.getStatus());
+
+		db.update(TABLE_NAME, contentValues, COLUMNS[0] + "=?", new String[] { String.valueOf(restaurantInfo.getId()) });
+		db.close();
+
 	}
 }
