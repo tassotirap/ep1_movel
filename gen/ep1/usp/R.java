@@ -121,6 +121,7 @@ public final class R {
         public static final int lblSettings=0x7f040005;
         public static final int lbl_gate=0x7f04001d;
         public static final int lbl_maps=0x7f04001b;
+        public static final int lbl_menu=0x7f04001f;
         public static final int lbl_restaurant=0x7f04001c;
         public static final int lbl_settings=0x7f04001e;
         public static final int map_addOverlayName=0x7f04000e;

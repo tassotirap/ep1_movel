@@ -13,15 +13,15 @@
         <ImageView
             android:id="@+id/restaurant_imgStatus"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.94"
-            android:src="@drawable/msg1" />
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/msg1"
+            android:contentDescription="@string/lbl_menu" />
 
         <Spinner
             android:id="@+id/restaurant_ids"
-            android:layout_width="260dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:prompt="@string/restaurants_lblRestaurantInit" />
     </LinearLayout>
 
@@ -35,13 +35,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:contentDescription="@string/lbl_menu"
             android:src="@drawable/add" />
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cardapio" />
+            android:text="@string/lbl_menu" />
 
         <Button
             android:id="@+id/restaurant_BtnRefresh"
@@ -54,8 +55,8 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.06" >
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
         <LinearLayout
             android:id="@+id/textLayout"
