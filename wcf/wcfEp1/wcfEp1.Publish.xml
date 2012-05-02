@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="C:\Users\Tasso\Desktop\EP1" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="bin/wcfEp1.pdb" publishTime="04/23/2012 22:19:40" />
+    <file relUrl="bin/wcfEp1.pdb" publishTime="04/30/2012 23:34:13" />
+    <file relUrl="Ep1Service.svc" publishTime="04/06/2012 18:18:20" />
     <file relUrl="bin/MySql.Data.Entity.dll" publishTime="09/23/2011 20:25:00" />
     <file relUrl="Web.config" publishTime="04/08/2012 19:39:13" />
-    <file relUrl="bin/wcfEp1.dll" publishTime="04/23/2012 22:19:40" />
-    <file relUrl="bin/Ep1Dao.dll" publishTime="04/23/2012 22:16:52" />
-    <file relUrl="bin/Ep1Dao.pdb" publishTime="04/23/2012 22:16:52" />
-    <file relUrl="Ep1Service.svc" publishTime="04/06/2012 18:18:20" />
+    <file relUrl="bin/Ep1Dao.dll" publishTime="04/30/2012 23:21:13" />
+    <file relUrl="bin/Ep1Dao.pdb" publishTime="04/30/2012 23:21:13" />
+    <file relUrl="bin/wcfEp1.dll" publishTime="04/30/2012 23:34:13" />
     <file relUrl="bin/MySql.Data.dll" publishTime="09/23/2011 20:24:56" />
   </publishProfile>
 </publishData>

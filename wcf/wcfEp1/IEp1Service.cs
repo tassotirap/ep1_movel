@@ -43,11 +43,17 @@ namespace wcfEp1
 
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
+        Restaurant GetRestaurant(int restaurantId);
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
         void SetRestaurantComment(int RestaurantId, string comment, int status);
 
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
         List<RestaurantComment> GetRestaurantComment(int RestaurantId, int qtde);
+
+
 
         #endregion Restaurants
     }

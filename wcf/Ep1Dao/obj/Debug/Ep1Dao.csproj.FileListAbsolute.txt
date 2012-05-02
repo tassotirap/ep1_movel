@@ -4,3 +4,9 @@ C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\Ep1Dao\bin\Debug\Ep1
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\Ep1Dao\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\Ep1Dao\obj\Debug\Ep1Dao.dll
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\Ep1Dao\obj\Debug\Ep1Dao.pdb
+F:\ep1_movel\wcf\Ep1Dao\bin\Debug\Ep1Dao.dll.config
+F:\ep1_movel\wcf\Ep1Dao\bin\Debug\Ep1Dao.dll
+F:\ep1_movel\wcf\Ep1Dao\bin\Debug\Ep1Dao.pdb
+F:\ep1_movel\wcf\Ep1Dao\obj\Debug\ResolveAssemblyReference.cache
+F:\ep1_movel\wcf\Ep1Dao\obj\Debug\Ep1Dao.dll
+F:\ep1_movel\wcf\Ep1Dao\obj\Debug\Ep1Dao.pdb

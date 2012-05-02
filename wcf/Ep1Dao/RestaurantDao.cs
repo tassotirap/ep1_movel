@@ -29,5 +29,15 @@ namespace Ep1Dao
 
             return post;
         }
+
+        public List<restaurants_posts> getComment(int restaurantId, DateTime dtIni, DateTime dtFim)
+        {
+            var post = (from p in contexto.restaurants_posts
+                        where p.restaurant_id == restaurantId
+                        && dtIni <= p.date && p.date <= dtFim
+                        orderby p.date descending
+                        select p).ToList();
+            return post;
+        }
     }
 }

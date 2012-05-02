@@ -205,12 +205,39 @@ namespace wcfEp1
             restaurantDao.setComment(post);
         }
 
+        public Restaurant GetRestaurant(int restaurantId)
+        {
+            restaurant restaurante = menuDao.getRestaurant(restaurantId);
+
+            DateTime dtFim = DateTime.Now;
+            DateTime dtIni = dtFim.AddMinutes(-15);
+
+            int status = 1;
+
+            var posts = restaurantDao.getComment(restaurantId, dtIni, dtFim);
+            if (posts.Count > 5)
+            {
+                status = (int)posts.Average(t => t.status_id);
+            }
+
+            restaurante.status_id = status;
+
+
+            menuDao.setRestaurant(restaurante);
+
+
+            return new Restaurant
+            {
+                Id = restaurante.id,
+                Name = restaurante.name,
+                Status = restaurante.status_id
+            };
+        }
+
         public List<RestaurantComment> GetRestaurantComment(int restaurantId, int qtde)
         {
             List<RestaurantComment> comments = new List<RestaurantComment>();
 
-            DateTime dtIni = DateTime.Now;
-            DateTime dtFim = dtIni.AddMinutes(-5);
             var posts = restaurantDao.getComment(restaurantId, qtde);
 
             foreach (restaurants_posts post in posts)
@@ -219,7 +246,7 @@ namespace wcfEp1
                 {
                     RestaurantId = post.restaurant_id,
                     Comment = post.comment,
-                    Date = post.date.ToString("yyyy-MM-dd"),
+                    Date = post.date.ToString("yyyy-MM-dd hh:mm:ss"),
                     Status = post.status_id
                 });
             }
