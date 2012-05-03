@@ -11,15 +11,17 @@ using System.Data;
 
 namespace wcfEp1
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     public class Ep1Service : IEp1Service
     {
+        #region variable
 
         OverlayDao overlayDao;
         GatesDao gatesDao;
         MenuDao menuDao;
         RestaurantDao restaurantDao;
         Ep1Entities contexto;
+
+        #endregion variable
 
         public Ep1Service()
         {
@@ -154,31 +156,11 @@ namespace wcfEp1
 
         #endregion Gates
 
-        public Menu GetMenu(int restaurantId, DateTime date)
-        {
-            var menus = menuDao.getMenu(restaurantId, date);
-
-            Menu menu = new Menu();
-
-            menu.Itens = (from m in menus
-                                  from i in m.items
-                                  where i.type == (int)MenuDao.Type.Itens
-                                  select i.name).ToList();
-            menu.Desserts = (from m in menus
-                                     from i in m.items
-                                     where i.type == (int)MenuDao.Type.Desserts
-                                     select i.name).ToList();
-
-            menu.Drinks = (from m in menus
-                           from i in m.items
-                           where i.type == (int)MenuDao.Type.Drinks
-                           select i.name).ToList();
-            return menu;                    
-        }
+        #region Restaurant
 
         public List<Restaurant> GetRestaurants()
         {
-            var restaurants = menuDao.getRestaurants();
+            var restaurants = restaurantDao.getRestaurants();
 
             List<Restaurant> restaurantsDto = new List<Restaurant>();
 
@@ -188,26 +170,18 @@ namespace wcfEp1
                 {
                     Id = restaurant.id,
                     Name = restaurant.name,
-                    Status = restaurant.status_id
+                    Status = restaurant.status_id,
+                    URL = restaurant.url,
+                    ClearURL = restaurant.clear_url
                 });
             }
 
             return restaurantsDto;
         }
-        
-        public void SetRestaurantComment(int restaurantId, string comment, int status)
-        {
-            restaurants_posts post = new restaurants_posts();
-            post.restaurant_id = restaurantId;
-            post.comment = comment;
-            post.status_id = status;
-            post.date = DateTime.Now;
-            restaurantDao.setComment(post);
-        }
 
         public Restaurant GetRestaurant(int restaurantId)
         {
-            restaurant restaurante = menuDao.getRestaurant(restaurantId);
+            restaurant restaurante = restaurantDao.getRestaurant(restaurantId);
 
             DateTime dtFim = DateTime.Now;
             DateTime dtIni = dtFim.AddMinutes(-15);
@@ -223,15 +197,27 @@ namespace wcfEp1
             restaurante.status_id = status;
 
 
-            menuDao.setRestaurant(restaurante);
+            restaurantDao.setRestaurant(restaurante);
 
 
             return new Restaurant
             {
                 Id = restaurante.id,
                 Name = restaurante.name,
-                Status = restaurante.status_id
+                Status = restaurante.status_id,
+                URL = restaurante.url,
+                ClearURL = restaurante.clear_url
             };
+        }
+        
+        public void SetRestaurantComment(int restaurantId, string comment, int status)
+        {
+            restaurants_posts post = new restaurants_posts();
+            post.restaurant_id = restaurantId;
+            post.comment = comment;
+            post.status_id = status;
+            post.date = DateTime.Now;
+            restaurantDao.setComment(post);
         }
 
         public List<RestaurantComment> GetRestaurantComment(int restaurantId, int qtde)
@@ -253,7 +239,7 @@ namespace wcfEp1
 
             return comments;
         }
-
-
+        
+        #endregion Restaurant
     }
 }

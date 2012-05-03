@@ -25,25 +25,5 @@ namespace Ep1Dao
 
             return retorno;
         }
-
-        public List<restaurant> getRestaurants()
-        {
-            var retorno = (from r in contexto.restaurants
-                           select r).ToList();
-            return retorno;
-        }
-
-        public restaurant getRestaurant(int restaurantId)
-        {
-            var retorno = (from r in contexto.restaurants
-                           where r.id == restaurantId
-                           select r).FirstOrDefault();
-            return retorno;
-        }
-
-        public void setRestaurant(restaurant restaurant)
-        {
-            contexto.SaveChanges();
-        }
     }
 }

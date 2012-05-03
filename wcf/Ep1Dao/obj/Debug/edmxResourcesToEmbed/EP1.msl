@@ -88,6 +88,8 @@
     <EntitySetMapping Name="restaurants">
       <EntityTypeMapping TypeName="Ep1Model.restaurant">
         <MappingFragment StoreEntitySet="restaurants">
+          <ScalarProperty Name="clear_url" ColumnName="clear_url" />
+          <ScalarProperty Name="url" ColumnName="url" />
           <ScalarProperty Name="status_id" ColumnName="status_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />

@@ -161,6 +161,8 @@
     <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="200" />
     <Property Name="status_id" Type="int" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="150" />
+    <Property Name="clear_url" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="restaurants_posts">
     <Key>

@@ -153,6 +153,8 @@
     <NavigationProperty Name="restaurant_menu" Relationship="Ep1Model.fk_restaurant_menu" FromRole="restaurant" ToRole="restaurant_menu" />
     <NavigationProperty Name="restaurants_status" Relationship="Ep1Model.fk_restaurant_status" FromRole="restaurant" ToRole="restaurants_status" />
     <NavigationProperty Name="restaurants_posts" Relationship="Ep1Model.fk_restaurants" FromRole="restaurant" ToRole="restaurants_posts" />
+    <Property Type="String" Name="url" />
+    <Property Type="String" Name="clear_url" />
   </EntityType>
   <EntityType Name="restaurants_posts">
     <Key>
