@@ -2,7 +2,169 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_geral"
     android:orientation="vertical" >
-    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_logo"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_logo" >
+
+            <ImageView
+                android:id="@+id/gates_img1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/msg1" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/margin"
+                android:text="Portao 1"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distancia:"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/gate_txtDistance1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 m"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_logo" >
+
+            <ImageView
+                android:id="@+id/gates_img2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/msg1" />
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/margin"
+                android:text="Portao 2"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distancia:"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/gate_txtDistance2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 m"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_logo" >
+
+            <ImageView
+                android:id="@+id/gates_img3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/msg1" />
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/margin"
+                android:text="Portao 3"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/TextView05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distancia:"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/gate_txtDistance3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 m"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" >
+
+            <Button
+                android:id="@+id/gate_btnRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Atualizar" />
+
+            <Button
+                android:id="@+id/gate_btnSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estou na fila!" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
