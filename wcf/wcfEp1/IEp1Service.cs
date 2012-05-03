@@ -8,7 +8,6 @@ using System.Text;
 
 namespace wcfEp1
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface IEp1Service
     {
@@ -30,11 +29,6 @@ namespace wcfEp1
 
         #endregion Gates
 
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
-        Menu GetMenu(int restaurantId, DateTime date);
-
-
         #region Restaurants
 
         [OperationContract]
@@ -53,13 +47,10 @@ namespace wcfEp1
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
         List<RestaurantComment> GetRestaurantComment(int RestaurantId, int qtde);
 
-
-
         #endregion Restaurants
     }
 
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
     public class Overlay
     {
@@ -136,6 +127,8 @@ namespace wcfEp1
         private int id;
         private string name;
         private int status;
+        private string url;
+        private string clearURL;
 
         [DataMember]
         public int Id
@@ -156,6 +149,20 @@ namespace wcfEp1
         {
             get { return status; }
             set { status = value; }
+        }
+
+        [DataMember]
+        public string URL
+        {
+            get { return url; }
+            set { url = value; }
+        }
+
+        [DataMember]
+        public string ClearURL
+        {
+            get { return clearURL; }
+            set { clearURL = value; }
         }
     }
 

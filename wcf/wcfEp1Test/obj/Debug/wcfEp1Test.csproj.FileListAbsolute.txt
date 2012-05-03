@@ -11,3 +11,16 @@ C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\bin\Debug
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\obj\Debug\wcfEp1Test.dll
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1Test\obj\Debug\wcfEp1Test.pdb
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\wcfEp1Test.dll
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\wcfEp1Test.pdb
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\Ep1Dao.dll
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\MySql.Data.dll
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\MySql.Data.Entity.dll
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\wcfEp1.dll
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\Ep1Dao.pdb
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\wcfEp1.pdb
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\wcfEp1_Accessor.dll
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\wcfEp1_Accessor.pdb
+F:\ep1_movel\wcf\wcfEp1Test\obj\Debug\ResolveAssemblyReference.cache
+F:\ep1_movel\wcf\wcfEp1Test\obj\Debug\wcfEp1Test.dll
+F:\ep1_movel\wcf\wcfEp1Test\obj\Debug\wcfEp1Test.pdb

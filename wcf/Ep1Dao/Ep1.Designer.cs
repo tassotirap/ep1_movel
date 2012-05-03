@@ -1742,6 +1742,54 @@ namespace Ep1Dao
         private global::System.Int32 _status_id;
         partial void Onstatus_idChanging(global::System.Int32 value);
         partial void Onstatus_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String url
+        {
+            get
+            {
+                return _url;
+            }
+            set
+            {
+                OnurlChanging(value);
+                ReportPropertyChanging("url");
+                _url = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("url");
+                OnurlChanged();
+            }
+        }
+        private global::System.String _url;
+        partial void OnurlChanging(global::System.String value);
+        partial void OnurlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String clear_url
+        {
+            get
+            {
+                return _clear_url;
+            }
+            set
+            {
+                Onclear_urlChanging(value);
+                ReportPropertyChanging("clear_url");
+                _clear_url = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("clear_url");
+                Onclear_urlChanged();
+            }
+        }
+        private global::System.String _clear_url;
+        partial void Onclear_urlChanging(global::System.String value);
+        partial void Onclear_urlChanged();
 
         #endregion
     
