@@ -7,3 +7,12 @@ C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1\bin\Ep1Dao.dl
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1\bin\Ep1Dao.pdb
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1\bin\MySql.Data.dll
 C:\Users\Tasso\documents\visual studio 2010\Projects\wcfEp1\wcfEp1\bin\MySql.Data.Entity.dll
+F:\ep1_movel\wcf\wcfEp1\obj\Debug\ResolveAssemblyReference.cache
+F:\ep1_movel\wcf\wcfEp1\obj\Debug\wcfEp1.dll
+F:\ep1_movel\wcf\wcfEp1\obj\Debug\wcfEp1.pdb
+F:\ep1_movel\wcf\wcfEp1\bin\wcfEp1.dll
+F:\ep1_movel\wcf\wcfEp1\bin\wcfEp1.pdb
+F:\ep1_movel\wcf\wcfEp1\bin\Ep1Dao.dll
+F:\ep1_movel\wcf\wcfEp1\bin\MySql.Data.dll
+F:\ep1_movel\wcf\wcfEp1\bin\MySql.Data.Entity.dll
+F:\ep1_movel\wcf\wcfEp1\bin\Ep1Dao.pdb
