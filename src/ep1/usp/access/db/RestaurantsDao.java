@@ -14,7 +14,7 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 	{
 		super(ctx);
 		TABLE_NAME = "RESTAURANTS";
-		COLUMNS = new String[] { "id", "name", "status" };
+		COLUMNS = new String[] { "id", "name", "status", "url", "clear_url" };
 	}
 
 	public ArrayList<RestaurantInfo> getAll()
@@ -45,6 +45,8 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 				contentValues.put(COLUMNS[0], restaurant.getId());
 				contentValues.put(COLUMNS[1], restaurant.getName());
 				contentValues.put(COLUMNS[2], restaurant.getStatus());
+				contentValues.put(COLUMNS[3], restaurant.getUrl());
+				contentValues.put(COLUMNS[4], restaurant.getClearUrl());
 				SQLiteDatabase db = getWritableDatabase();
 				db.insertOrThrow(TABLE_NAME, null, contentValues);
 				db.close();
@@ -118,9 +120,33 @@ public class RestaurantsDao extends BaseDao<RestaurantInfo>
 		contentValues.put(COLUMNS[0], restaurantInfo.getId());
 		contentValues.put(COLUMNS[1], restaurantInfo.getName());
 		contentValues.put(COLUMNS[2], restaurantInfo.getStatus());
+		contentValues.put(COLUMNS[3], restaurantInfo.getUrl());
+		contentValues.put(COLUMNS[4], restaurantInfo.getClearUrl());
 
 		db.update(TABLE_NAME, contentValues, COLUMNS[0] + "=?", new String[] { String.valueOf(restaurantInfo.getId()) });
 		db.close();
 
+	}
+
+	public RestaurantInfo get(int id)
+	{
+		RestaurantInfo restaurantInfo = new RestaurantInfo();
+		SQLiteDatabase db = getWritableDatabase();
+
+		Cursor c = db.query(TABLE_NAME, null, COLUMNS[0] + "=?", new String[] { String.valueOf(id) }, null, null, null);
+
+		while (c.moveToNext())
+		{
+			restaurantInfo.setId(c.getInt(0));
+			restaurantInfo.setName(c.getString(1));
+			restaurantInfo.setStatus(c.getInt(2));
+			restaurantInfo.setUrl(c.getString(3));
+			restaurantInfo.setClearUrl(c.getString(4));
+			c.close();
+			return restaurantInfo;
+		}
+		c.close();
+		db.close();
+		return null;
 	}
 }

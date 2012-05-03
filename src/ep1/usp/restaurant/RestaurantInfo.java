@@ -5,6 +5,8 @@ public class RestaurantInfo
 	private int id;
 	private String name;
 	private int status;
+	private String url;
+	private String clearUrl;
 
 	public RestaurantInfo()
 	{
@@ -46,6 +48,26 @@ public class RestaurantInfo
 	public void setStatus(int status)
 	{
 		this.status = status;
+	}
+
+	public String getUrl()
+	{
+		return url;
+	}
+
+	public void setUrl(String url)
+	{
+		this.url = url;
+	}
+
+	public String getClearUrl()
+	{
+		return clearUrl;
+	}
+
+	public void setClearUrl(String clearUrl)
+	{
+		this.clearUrl = clearUrl;
 	}
 
 }

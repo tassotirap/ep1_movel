@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -27,16 +28,17 @@ public class Restaurant extends Activity
 {
 	int tryNumber = 0;
 	int restaurantId = 0;
-	
+
 	private ImageView imgStatus = null;
 	private RestaurantCommentDao restaurantCommentDao = null;
-	
+
 	private RestaurantsDao restaurantsDao = null;
 	private LinearLayout txtComments = null;
 
 	protected Spinner spnRestaurants = null;
 	private Button btnRefresh = null;
-	
+	private Button btnMenu = null;
+
 	private ImageButton btnNewComment = null;
 	protected ArrayAdapter<String> mAdapterRestaurant;
 
@@ -58,10 +60,10 @@ public class Restaurant extends Activity
 					break;
 				case 2:
 					showDialog("OK", "Comentario enviado com sucesso!");
-					if(dialogAddComment != null)
+					if (dialogAddComment != null)
 					{
 						dialogAddComment.hide();
-						dialogAddComment = null;		
+						dialogAddComment = null;
 					}
 					break;
 				case 3:
@@ -77,20 +79,22 @@ public class Restaurant extends Activity
 
 	private void AddComment(MessageInfo msg)
 	{
-		AddComment(msg, false);	
+		AddComment(msg, false);
 	}
+
 	private void AddComment(MessageInfo msg, Boolean first)
 	{
 		RestaurantMsgView txt = new RestaurantMsgView(this);
-		
+
 		txt.getDate().setText(DateAndTime.ParseToStringPrint(msg.getDate()));
-		txt.getComment().setText(msg.getMessage());			
+		txt.getComment().setText(msg.getMessage());
 		txt.getStatus().setImageResource(getStatusImageResource(msg.getStaus()));
-		if(first)
+		if (first)
 			getTxtComments().addView(txt.getView(), 0);
 		else
 			getTxtComments().addView(txt.getView());
 	}
+
 	private int getStatusImageResource(int status)
 	{
 		switch (status)
@@ -108,27 +112,28 @@ public class Restaurant extends Activity
 		}
 		return R.drawable.msg1;
 	}
-	
+
 	private void refreshMsg()
 	{
 		LoadingGetMsg load = new LoadingGetMsg(this, restaurantId);
 		load.Show();
 	}
+
 	private void RestaurantStatus()
 	{
-		int status = getRestaurantsDao().getStatusById(restaurantId);	
+		int status = getRestaurantsDao().getStatusById(restaurantId);
 		getImgStatus().setImageResource(getStatusImageResource(status));
 	}
-	
+
 	private void showAddComment()
 	{
 		dialogAddComment = new RestaurantAddComment(this);
 		dialogAddComment.setContentView(R.layout.restaurant_add_msg);
 		dialogAddComment.setTitle("Adicionar Comentario");
 		dialogAddComment.init();
-		dialogAddComment.show();			
+		dialogAddComment.show();
 	}
-	
+
 	public void bindElements()
 	{
 		getBtnRefresh().setOnClickListener(new OnClickListener()
@@ -140,7 +145,7 @@ public class Restaurant extends Activity
 				refreshMsg();
 			}
 		});
-		
+
 		getSpnRestaurants().setOnItemSelectedListener(new OnItemSelectedListener()
 		{
 
@@ -155,10 +160,10 @@ public class Restaurant extends Activity
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0)
 			{
-				getTxtComments().removeAllViews();				
+				getTxtComments().removeAllViews();
 			}
-		} );
-		
+		});
+
 		getBtnNewComment().setOnClickListener(new View.OnClickListener()
 		{
 			@Override
@@ -167,6 +172,25 @@ public class Restaurant extends Activity
 				showAddComment();
 			}
 		});
+		
+		getBtnMenu().setOnClickListener(new OnClickListener()
+		{
+			
+			@Override
+			public void onClick(View v)
+			{
+				showMenu();				
+			}
+		});
+	}
+	
+	private void showMenu()
+	{
+		Bundle bundle = new Bundle();
+		bundle.putInt("restaurantId", restaurantId);
+		Intent intentMenu = new Intent(this, RestaurantMenu.class);
+		intentMenu.putExtras(bundle);
+		startActivity(intentMenu);		
 	}
 
 	public void fillComments()
@@ -184,6 +208,7 @@ public class Restaurant extends Activity
 		refreshAdapterRestaurants();
 		getSpnRestaurants().setAdapter(getAdapterRestaurant());
 	}
+
 	public ArrayAdapter<String> getAdapterRestaurant()
 	{
 		if (mAdapterRestaurant == null)
@@ -193,8 +218,7 @@ public class Restaurant extends Activity
 		}
 		return mAdapterRestaurant;
 	}
-	
-	
+
 	public ImageButton getBtnNewComment()
 	{
 		if (btnNewComment == null)
@@ -211,11 +235,18 @@ public class Restaurant extends Activity
 
 	public ImageView getImgStatus()
 	{
-		if(imgStatus == null)
-			imgStatus = (ImageView)findViewById(R.id.restaurant_imgStatus);
+		if (imgStatus == null)
+			imgStatus = (ImageView) findViewById(R.id.restaurant_imgStatus);
 		return imgStatus;
 	}
 
+	public Button getBtnMenu()
+	{
+		if(btnMenu == null)
+			btnMenu = (Button)findViewById(R.id.restaurant_btnMenu);
+		return btnMenu;	
+	}
+	
 	public RestaurantCommentDao getRestaurantCommentDao()
 	{
 		if (restaurantCommentDao == null)
@@ -223,13 +254,14 @@ public class Restaurant extends Activity
 		return restaurantCommentDao;
 
 	}
-	
+
 	public RestaurantsDao getRestaurantsDao()
 	{
 		if (restaurantsDao == null)
 			restaurantsDao = new RestaurantsDao(getApplicationContext());
 		return restaurantsDao;
-	}	
+	}
+
 	public Spinner getSpnRestaurants()
 	{
 		if (spnRestaurants == null)
@@ -238,15 +270,13 @@ public class Restaurant extends Activity
 
 	}
 
-	
-
 	public LinearLayout getTxtComments()
 	{
 		if (txtComments == null)
 			txtComments = (LinearLayout) findViewById(R.id.textLayout);
 		return txtComments;
 	}
-	
+
 	public void onCreate(Bundle savedInstanceState)
 	{
 

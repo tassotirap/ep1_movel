@@ -39,7 +39,7 @@
             android:src="@drawable/add" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/restaurant_btnMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lbl_menu" />

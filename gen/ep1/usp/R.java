@@ -65,7 +65,6 @@ public final class R {
         public static final int btnMap=0x7f080003;
         public static final int btnRetaurant=0x7f080005;
         public static final int btnSettings=0x7f080009;
-        public static final int button1=0x7f08001d;
         public static final int horizontalScrollView1=0x7f08000b;
         public static final int linearLayout1=0x7f080002;
         public static final int map_add_overlay_btnSave=0x7f080018;
@@ -83,19 +82,21 @@ public final class R {
         public static final int mapview=0x7f080015;
         public static final int restaurant_BtnRefresh=0x7f08001e;
         public static final int restaurant_btnComment=0x7f08001c;
+        public static final int restaurant_btnMenu=0x7f08001d;
         public static final int restaurant_btnSend=0x7f080024;
         public static final int restaurant_comment=0x7f080023;
         public static final int restaurant_ids=0x7f08001b;
         public static final int restaurant_imgStatus=0x7f08001a;
         public static final int restaurant_status=0x7f080022;
-        public static final int restaurant_txtDate=0x7f080025;
-        public static final int restaurant_txtMsg=0x7f080026;
+        public static final int restaurant_txtDate=0x7f080026;
+        public static final int restaurant_txtMsg=0x7f080027;
         public static final int scrollView1=0x7f08001f;
         public static final int textLayout=0x7f080020;
         public static final int textView1=0x7f080004;
         public static final int textView2=0x7f080006;
         public static final int textView3=0x7f080008;
         public static final int textView4=0x7f08000a;
+        public static final int webviewMenu=0x7f080025;
     }
     public static final class layout {
         public static final int gate=0x7f030000;
@@ -106,7 +107,8 @@ public final class R {
         public static final int maps_add_overlay=0x7f030005;
         public static final int restaurant=0x7f030006;
         public static final int restaurant_add_msg=0x7f030007;
-        public static final int restaurant_msg=0x7f030008;
+        public static final int restaurant_menu=0x7f030008;
+        public static final int restaurant_msg=0x7f030009;
     }
     public static final class string {
         public static final int app_name=0x7f040017;

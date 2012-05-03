@@ -86,6 +86,8 @@ public class ParseJSON
 					restaurantInfo.setId(lines.getInt("Id"));
 					restaurantInfo.setName(lines.getString("Name"));
 					restaurantInfo.setStatus(lines.getInt("Status"));
+					restaurantInfo.setUrl(lines.getString("URL"));
+					restaurantInfo.setClearUrl(lines.getString("ClearURL"));
 					restaurantInfos.add(restaurantInfo);
 				}
 			}
@@ -157,6 +159,8 @@ public class ParseJSON
 				restaurantInfo.setId(message.getInt("Id"));
 				restaurantInfo.setName(message.getString("Name"));
 				restaurantInfo.setStatus(message.getInt("Status"));
+				restaurantInfo.setUrl(message.getString("URL"));
+				restaurantInfo.setClearUrl(message.getString("ClearURL"));
 			}
 			return restaurantInfo;
 
