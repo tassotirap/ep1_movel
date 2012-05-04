@@ -143,7 +143,14 @@ public class Gate extends Activity implements LocationListener
 				LoadingSendGate sendGate = new LoadingSendGate(this, gateId, dist);
 				sendGate.Show();
 			}
+			else
+			{
+				showDialog(getString(R.string.msgErrorTitle), getString(R.string.msgOutUSP));
+			}
 		}
+		else
+			showDialog(getString(R.string.msgErrorTitle), getString(R.string.msgLocalErrorMsg));
+			
 	}
 
 	private void startListening()

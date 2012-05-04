@@ -31,6 +31,7 @@ public class LoadingGetGate
 					String minutosGate = prefs.getString("lstGateMin", "5");
 					ParseJSON parseJSON = new ParseJSON();
 					ArrayList<GateDto> gates = parseJSON.getGates(minutosGate);
+					mActivity.getGatesDao().clear();
 					mActivity.getGatesDao().setList(gates);
 					mActivity.handler.sendEmptyMessage(1);		
 				}

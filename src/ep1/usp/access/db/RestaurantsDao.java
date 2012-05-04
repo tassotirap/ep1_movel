@@ -107,7 +107,13 @@ public class RestaurantsDao extends BaseDao<RestaurantDto>
 	@Override
 	public void set(RestaurantDto object)
 	{
-
+		ContentValues contentValues = new ContentValues();
+		contentValues.put(COLUMNS[0], object.getId());
+		contentValues.put(COLUMNS[1], object.getName());
+		contentValues.put(COLUMNS[2], object.getStatus());
+		contentValues.put(COLUMNS[3], object.getUrl());
+		contentValues.put(COLUMNS[4], object.getClearUrl());
+		getWritableDatabase().insertOrThrow(TABLE_NAME, null, contentValues);
 	}
 
 	public void update(RestaurantDto restaurantInfo)

@@ -7,4 +7,6 @@
 	<string name="msgLocalErrorMsg">Local não encotrado!</string>
 	<string name="msgSucess">Sucesso</string>
 	<string name="msgLocalSend">Local enviado com sucesso</string>
+	<string name="msgOutUSP">Local fora da USP</string>
+	
 </resources>
