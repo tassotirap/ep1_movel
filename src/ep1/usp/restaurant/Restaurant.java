@@ -317,7 +317,7 @@ public class Restaurant extends Activity
 		alert.setTitle(title);
 		alert.setMessage(message);
 		alert.setNeutralButton("OK", null);
-		new AlertDialog.Builder(this).setTitle(title).setMessage(message).setNeutralButton("OK", null).show();
+		alert.show();
 	}
 
 }

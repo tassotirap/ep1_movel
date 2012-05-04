@@ -42,6 +42,11 @@
             android:name="ep1.usp.restaurant.RestaurantMenu"
             android:label="@string/lbl_gate" >
         </activity>
+        
+        <activity
+            android:name="ep1.usp.preference.MyPreference"
+            android:label="@string/lbl_gate" >
+        </activity>
     </application>
 
 </manifest>

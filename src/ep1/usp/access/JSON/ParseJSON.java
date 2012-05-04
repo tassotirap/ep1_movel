@@ -18,13 +18,13 @@ public class ParseJSON
 
 	private String URL = "http://www.tassotirapani.com.br/ep1/Ep1Service.svc/";
 
-	public ArrayList<GateInfo> getGates()
+	public ArrayList<GateInfo> getGates(String min)
 	{
 		ArrayList<GateInfo> gates = new ArrayList<GateInfo>();
 
 		try
 		{
-			GetHttp httpGet = new GetHttp(URL + "GetGates");
+			GetHttp httpGet = new GetHttp(URL + "GetGates?min=" + min);
 			if (httpGet.getResponse() != null)
 			{
 				JSONObject object = (JSONObject) new JSONTokener(httpGet.getResponse()).nextValue();
@@ -81,12 +81,12 @@ public class ParseJSON
 
 	}
 
-	public RestaurantInfo getRestaurant(int restaurantId)
+	public RestaurantInfo getRestaurant(int restaurantId, String min)
 	{
 		RestaurantInfo restaurantInfo = new RestaurantInfo();
 		try
 		{
-			GetHttp httpGet = new GetHttp(URL + "GetRestaurant?restaurantId=" + restaurantId);
+			GetHttp httpGet = new GetHttp(URL + "GetRestaurant?restaurantId=" + restaurantId + "&min=" + min);
 			if (httpGet.getResponse() != null)
 			{
 				JSONObject object = (JSONObject) new JSONTokener(httpGet.getResponse()).nextValue();
@@ -106,7 +106,7 @@ public class ParseJSON
 		}
 	}
 
-	public ArrayList<MessageInfo> getRestaurantComment(int restaurantId, int qtde)
+	public ArrayList<MessageInfo> getRestaurantComment(int restaurantId, String qtde)
 	{
 		ArrayList<MessageInfo> messageInfos = new ArrayList<MessageInfo>();
 		try
@@ -183,7 +183,6 @@ public class ParseJSON
 
 		try
 		{
-
 			String url = URL + "SetOverlay?latitude=" + latitude + "&longitude=" + longitude + "&name=" + name + "&type=" + type;
 
 			new GetHttp(url);

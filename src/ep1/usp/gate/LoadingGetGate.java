@@ -3,6 +3,8 @@ package ep1.usp.gate;
 import java.util.ArrayList;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import ep1.usp.R;
 import ep1.usp.access.JSON.ParseJSON;
 
@@ -25,8 +27,10 @@ public class LoadingGetGate
 			{
 				try
 				{
+					SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity.getBaseContext());
+					String minutosGate = prefs.getString("lstGateMin", "5");
 					ParseJSON parseJSON = new ParseJSON();
-					ArrayList<GateInfo> gates = parseJSON.getGates();
+					ArrayList<GateInfo> gates = parseJSON.getGates(minutosGate);
 					mActivity.getGatesDao().setList(gates);
 					mActivity.handler.sendEmptyMessage(1);
 					

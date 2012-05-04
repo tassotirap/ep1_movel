@@ -3,7 +3,6 @@ package ep1.usp.gate;
 import android.app.ProgressDialog;
 import ep1.usp.R;
 import ep1.usp.access.JSON.ParseJSON;
-import ep1.usp.restaurant.Restaurant;
 
 public class LoadingSendGate
 {

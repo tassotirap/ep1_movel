@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -48,12 +50,14 @@ public class Gate extends Activity implements LocationListener
 			switch (msg.what)
 			{
 				case 0:
-					// error
+					showDialog("Erro", "Erro ao conectar com o Servidor");
 					break;
 				case 1:
 					refreshGates();
 					break;
-
+				case 2:
+					showDialog("Sucesso", "Local enviado com sucesso!");
+					break;
 				default:
 					break;
 			}
@@ -331,6 +335,15 @@ public class Gate extends Activity implements LocationListener
 		if (txtDistance3 == null)
 			txtDistance3 = (TextView) findViewById(R.id.gate_txtDistance3);
 		return txtDistance3;
+	}
+	
+	public void showDialog(String title, String message)
+	{
+		Builder alert = new AlertDialog.Builder(this);
+		alert.setTitle(title);
+		alert.setMessage(message);
+		alert.setNeutralButton("OK", null);
+		alert.show();
 	}
 
 }

@@ -157,7 +157,7 @@
                 android:id="@+id/gate_btnRefresh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Atualizar" />
+                android:text="@string/lblRefresh" />
 
             <Button
                 android:id="@+id/gate_btnSend"

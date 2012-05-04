@@ -3,6 +3,8 @@ package ep1.usp.restaurant;
 import java.util.ArrayList;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import ep1.usp.R;
 import ep1.usp.access.JSON.ParseJSON;
 
@@ -27,8 +29,11 @@ public class LoadingGetMsg
 			{
 				try
 				{
-					ArrayList<MessageInfo> msgs = new ParseJSON().getRestaurantComment(restaurantId, 10);
-					RestaurantInfo restaurantInfo = new ParseJSON().getRestaurant(restaurantId);					
+					SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity.getBaseContext());
+					String minutosRestaurant = prefs.getString("listRestauratMin", "5");
+					String qtdeRestaurant = prefs.getString("listRestauratqtde", "5");
+					ArrayList<MessageInfo> msgs = new ParseJSON().getRestaurantComment(restaurantId, qtdeRestaurant);
+					RestaurantInfo restaurantInfo = new ParseJSON().getRestaurant(restaurantId, minutosRestaurant);					
 					mActivity.getRestaurantCommentDao().clear();
 					mActivity.getRestaurantCommentDao().setList(msgs);
 					mActivity.getRestaurantsDao().update(restaurantInfo);

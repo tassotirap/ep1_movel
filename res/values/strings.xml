@@ -10,6 +10,22 @@
     <string name="lbl_settings">Configurar</string>
     <string name="lbl_menu">Cardapio</string>
     
+    <string-array name="arrayMins">
+        <item>5 Minutos</item>
+        <item>10 Minutos</item>
+        <item>20 Minutos</item>     
+    </string-array>
+    
+    <string-array name="arrayQts">
+        <item>5 Comentarios</item>
+        <item>10 Comentarios</item>
+        <item>20 Comentarios</item>     
+    </string-array>
+    <string-array name="arrayValues">
+        <item >5</item>
+        <item >10</item>
+        <item >20</item>
+    </string-array>
     
    
 </resources>

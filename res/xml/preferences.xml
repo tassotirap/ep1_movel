@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory
+                android:title="Bandejao">
+                <ListPreference
+                        android:title="Minutos de Atualizacao"
+                        android:summary="Comentario dos ultimos x minutos"
+                        android:key="listRestauratMin"
+                        android:entries="@array/arrayMins"
+                        android:entryValues="@array/arrayValues" />
+                
+                <ListPreference
+                        android:title="Quantidade de Comentarios"
+                        android:summary="Quantidade de comentarios a serem carregados"
+                        android:key="listRestauratqtde"
+                        android:entries="@array/arrayQts"
+                        android:entryValues="@array/arrayValues" />
+        </PreferenceCategory>
+         <PreferenceCategory
+                android:title="Portao">
+                <ListPreference
+                        android:title="Minutos de Atualizacao"
+                        android:summary="Posts dos ultimos x minutos"
+                        android:key="lstGateMin"
+                        android:entries="@array/arrayMins"
+                        android:entryValues="@array/arrayValues" />
+        </PreferenceCategory>
+</PreferenceScreen>
