@@ -78,29 +78,52 @@ namespace wcfEp1
 
         #region Gates
 
+        public void SetGate(int gateId, double distance)
+        {
+            try
+            {
+                gate_posts gate_post = new gate_posts
+                {
+                    date = DateTime.Now,
+                    gate_id = gateId,
+                    distance = distance,
+                };
+                gatesDao.saveGatePost(gate_post);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<Gate> GetGates()
         {
             try
             {
-                DateTime dtIni = DateTime.Now.AddMinutes(-5);
+                DateTime dtIni = DateTime.Now.AddMinutes(-10);
                 List<gate> gates = gatesDao.getGates();
                 List<Gate> lstGates = new List<Gate>();
 
                 foreach (gate gate in gates)
                 {
                     double distancia = 0;
+                    gate.status_id = 1;
                     List<gate_posts> posts = gatesDao.getGatePostByIdAndTime(gate.id, dtIni, DateTime.Now);
 
                     if (posts.Count > 0)
                     {
                         foreach (gate_posts post in posts)
-                            distancia += Math.Abs(CalcularDistancia(gate.latitude, gate.longitude, post.latitude, post.longitude));
+                            distancia += post.distance;
 
                         distancia = distancia / posts.Count;
 
-                        if (distancia > 3)
+                        if (distancia > 1500)
+                            gate.status_id = 5;
+                        else if (distancia > 1000)
+                            gate.status_id = 4;
+                        else if (distancia > 500)
                             gate.status_id = 3;
-                        else if (distancia > 2)
+                        else if (distancia > 250)
                             gate.status_id = 2;
                         else
                             gate.status_id = 1;
@@ -110,6 +133,7 @@ namespace wcfEp1
 
                     lstGates.Add(new Gate
                     {
+                        Id = gate.id,
                         Latitude = gate.latitude,
                         Longitude = gate.longitude,
                         Name = gate.name,
@@ -123,35 +147,6 @@ namespace wcfEp1
             {
                 throw e;
             }
-        }
-
-        private double CalcularDistancia(int latitude1, int longitude1, int latitude2, int longitude2)
-        {
-            double dLatitude1 = ConvertCoord(latitude1);
-            double dLongitude1 = ConvertCoord(longitude1);
-            double dLatitude2 = ConvertCoord(latitude2);
-            double dLongitude2 = ConvertCoord(longitude2);
-
-            double distancia = 6371 *
-                Math.Acos(Math.Cos(Math.PI * (90 - dLatitude1) / 180) * Math.Cos((90 - dLatitude2) *
-                Math.PI / 180) + Math.Sin((90 - dLatitude1) * Math.PI / 180) * Math.Sin((90 - dLatitude2) * Math.PI / 180) *
-                Math.Cos((dLongitude2 - dLongitude1) * Math.PI / 180));
-
-            return distancia;
-
-        }
-
-        private double ConvertCoord(int coord)
-        {
-            string coordStr = Math.Abs(coord).ToString();
-            double retorno = 0;
-            if (coordStr.Length >= 6)
-                retorno = Convert.ToDouble(String.Concat(coordStr[0], coordStr[1])) + Convert.ToDouble(String.Concat(coordStr[2], coordStr[3])) / 60 + Convert.ToDouble(String.Concat(coordStr[4], coordStr[5])) / 3600;
-
-            if (coord < 0)
-                return -1 * retorno;
-
-            return retorno;
         }
 
         #endregion Gates
@@ -209,7 +204,7 @@ namespace wcfEp1
                 ClearURL = restaurante.clear_url
             };
         }
-        
+
         public void SetRestaurantComment(int restaurantId, string comment, int status)
         {
             restaurants_posts post = new restaurants_posts();
@@ -239,7 +234,7 @@ namespace wcfEp1
 
             return comments;
         }
-        
+
         #endregion Restaurant
     }
 }

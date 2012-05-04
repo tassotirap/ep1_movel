@@ -10,7 +10,6 @@
     <EntitySet Name="menu_item" EntityType="Ep1Model.Store.menu_item" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="overlay" EntityType="Ep1Model.Store.overlay" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="overlay_type" EntityType="Ep1Model.Store.overlay_type" store:Type="Tables" Schema="tassotirap" />
-    <EntitySet Name="restaurant_menu" EntityType="Ep1Model.Store.restaurant_menu" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="restaurants" EntityType="Ep1Model.Store.restaurants" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="restaurants_posts" EntityType="Ep1Model.Store.restaurants_posts" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="restaurants_status" EntityType="Ep1Model.Store.restaurants_status" store:Type="Tables" Schema="tassotirap" />
@@ -37,14 +36,6 @@
     <AssociationSet Name="fk_overlay_type" Association="Ep1Model.Store.fk_overlay_type">
       <End Role="overlay_type" EntitySet="overlay_type" />
       <End Role="overlay" EntitySet="overlay" />
-    </AssociationSet>
-    <AssociationSet Name="fk_restaurant_menu" Association="Ep1Model.Store.fk_restaurant_menu">
-      <End Role="restaurants" EntitySet="restaurants" />
-      <End Role="restaurant_menu" EntitySet="restaurant_menu" />
-    </AssociationSet>
-    <AssociationSet Name="fk_restaurant_menu2" Association="Ep1Model.Store.fk_restaurant_menu2">
-      <End Role="menu" EntitySet="menu" />
-      <End Role="restaurant_menu" EntitySet="restaurant_menu" />
     </AssociationSet>
     <AssociationSet Name="fk_restaurant_status" Association="Ep1Model.Store.fk_restaurant_status">
       <End Role="restaurants_status" EntitySet="restaurants_status" />
@@ -87,8 +78,7 @@
     </Key>
     <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="gate_id" Type="int" Nullable="false" />
-    <Property Name="latitude" Type="int" Nullable="false" />
-    <Property Name="longitude" Type="int" Nullable="false" />
+    <Property Name="distance" Type="double" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="gate_status">
@@ -144,15 +134,6 @@
     </Key>
     <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="150" />
-  </EntityType>
-  <EntityType Name="restaurant_menu">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="restaurant_id" Type="int" Nullable="false" />
-    <Property Name="menu_id" Type="int" Nullable="false" />
-    <Property Name="date" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="restaurants">
     <Key>
@@ -237,30 +218,6 @@
       </Principal>
       <Dependent Role="overlay">
         <PropertyRef Name="type_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_restaurant_menu">
-    <End Role="restaurants" Type="Ep1Model.Store.restaurants" Multiplicity="1" />
-    <End Role="restaurant_menu" Type="Ep1Model.Store.restaurant_menu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="restaurants">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="restaurant_menu">
-        <PropertyRef Name="restaurant_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_restaurant_menu2">
-    <End Role="menu" Type="Ep1Model.Store.menu" Multiplicity="1" />
-    <End Role="restaurant_menu" Type="Ep1Model.Store.restaurant_menu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="menu">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="restaurant_menu">
-        <PropertyRef Name="menu_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
