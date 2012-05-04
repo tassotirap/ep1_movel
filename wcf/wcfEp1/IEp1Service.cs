@@ -27,6 +27,10 @@ namespace wcfEp1
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
         List<Gate> GetGates();
 
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
+        void SetGate(int gateId, double distance);
+
         #endregion Gates
 
         #region Restaurants
@@ -89,8 +93,15 @@ namespace wcfEp1
     [DataContract]
     public class Gate
     {
-        int latitude, longitude, status;
+        int id, latitude, longitude, status;
         string name;
+
+        [DataMember]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         [DataMember]
         public int Latitude

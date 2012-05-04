@@ -15,15 +15,5 @@ namespace Ep1Dao
         {
             this.contexto = contexto;
         }
-
-        public List<menu> getMenu(int restaurantId, DateTime date)
-        {
-            var retorno = (from m in contexto.menus
-                           from rm in m.restaurant_menu
-                           where rm.date == date && rm.restaurant_id == restaurantId
-                           select m).ToList();
-
-            return retorno;
-        }
     }
 }

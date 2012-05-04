@@ -38,5 +38,13 @@ namespace Ep1Dao
 
             contexto.SaveChanges();
         }
+
+        public void saveGatePost(gate_posts gate_post)
+        {
+            if (gate_post.EntityKey == null)
+                contexto.AddTogate_posts(gate_post);
+
+            contexto.SaveChanges();
+        }
     }
 }

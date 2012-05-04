@@ -15,7 +15,6 @@
           <EntitySet Name="menu_item" EntityType="Ep1Model.Store.menu_item" store:Type="Tables" Schema="tassotirap" />
           <EntitySet Name="overlay" EntityType="Ep1Model.Store.overlay" store:Type="Tables" Schema="tassotirap" />
           <EntitySet Name="overlay_type" EntityType="Ep1Model.Store.overlay_type" store:Type="Tables" Schema="tassotirap" />
-          <EntitySet Name="restaurant_menu" EntityType="Ep1Model.Store.restaurant_menu" store:Type="Tables" Schema="tassotirap" />
           <EntitySet Name="restaurants" EntityType="Ep1Model.Store.restaurants" store:Type="Tables" Schema="tassotirap" />
           <EntitySet Name="restaurants_posts" EntityType="Ep1Model.Store.restaurants_posts" store:Type="Tables" Schema="tassotirap" />
           <EntitySet Name="restaurants_status" EntityType="Ep1Model.Store.restaurants_status" store:Type="Tables" Schema="tassotirap" />
@@ -42,14 +41,6 @@
           <AssociationSet Name="fk_overlay_type" Association="Ep1Model.Store.fk_overlay_type">
             <End Role="overlay_type" EntitySet="overlay_type" />
             <End Role="overlay" EntitySet="overlay" />
-          </AssociationSet>
-          <AssociationSet Name="fk_restaurant_menu" Association="Ep1Model.Store.fk_restaurant_menu">
-            <End Role="restaurants" EntitySet="restaurants" />
-            <End Role="restaurant_menu" EntitySet="restaurant_menu" />
-          </AssociationSet>
-          <AssociationSet Name="fk_restaurant_menu2" Association="Ep1Model.Store.fk_restaurant_menu2">
-            <End Role="menu" EntitySet="menu" />
-            <End Role="restaurant_menu" EntitySet="restaurant_menu" />
           </AssociationSet>
           <AssociationSet Name="fk_restaurant_status" Association="Ep1Model.Store.fk_restaurant_status">
             <End Role="restaurants_status" EntitySet="restaurants_status" />
@@ -92,8 +83,7 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="gate_id" Type="int" Nullable="false" />
-          <Property Name="latitude" Type="int" Nullable="false" />
-          <Property Name="longitude" Type="int" Nullable="false" />
+          <Property Name="distance" Type="double" Nullable="false" />
           <Property Name="date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="gate_status">
@@ -149,15 +139,6 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="varchar" Nullable="false" MaxLength="150" />
-        </EntityType>
-        <EntityType Name="restaurant_menu">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="restaurant_id" Type="int" Nullable="false" />
-          <Property Name="menu_id" Type="int" Nullable="false" />
-          <Property Name="date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="restaurants">
           <Key>
@@ -245,30 +226,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_restaurant_menu">
-          <End Role="restaurants" Type="Ep1Model.Store.restaurants" Multiplicity="1" />
-          <End Role="restaurant_menu" Type="Ep1Model.Store.restaurant_menu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="restaurants">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="restaurant_menu">
-              <PropertyRef Name="restaurant_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_restaurant_menu2">
-          <End Role="menu" Type="Ep1Model.Store.menu" Multiplicity="1" />
-          <End Role="restaurant_menu" Type="Ep1Model.Store.restaurant_menu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="menu">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="restaurant_menu">
-              <PropertyRef Name="menu_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_restaurant_status">
           <End Role="restaurants_status" Type="Ep1Model.Store.restaurants_status" Multiplicity="1" />
           <End Role="restaurants" Type="Ep1Model.Store.restaurants" Multiplicity="*" />
@@ -347,22 +304,16 @@
       <Schema Namespace="Ep1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="Ep1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="gates" EntityType="Ep1Model.gate" />
-          <EntitySet Name="gate_posts" EntityType="Ep1Model.gate_posts" />
           <EntitySet Name="gate_status" EntityType="Ep1Model.gate_status" />
           <EntitySet Name="items" EntityType="Ep1Model.item" />
           <EntitySet Name="item_type" EntityType="Ep1Model.item_type" />
           <EntitySet Name="menus" EntityType="Ep1Model.menu" />
           <EntitySet Name="overlays" EntityType="Ep1Model.overlay" />
           <EntitySet Name="overlay_type" EntityType="Ep1Model.overlay_type" />
-          <EntitySet Name="restaurant_menu" EntityType="Ep1Model.restaurant_menu" />
           <EntitySet Name="restaurants" EntityType="Ep1Model.restaurant" />
           <EntitySet Name="restaurants_posts" EntityType="Ep1Model.restaurants_posts" />
           <EntitySet Name="restaurants_status" EntityType="Ep1Model.restaurants_status" />
           <EntitySet Name="settings" EntityType="Ep1Model.setting" />
-          <AssociationSet Name="fk_gate" Association="Ep1Model.fk_gate">
-            <End Role="gate" EntitySet="gates" />
-            <End Role="gate_posts" EntitySet="gate_posts" />
-          </AssociationSet>
           <AssociationSet Name="fk_gate_status" Association="Ep1Model.fk_gate_status">
             <End Role="gate_status" EntitySet="gate_status" />
             <End Role="gate" EntitySet="gates" />
@@ -371,17 +322,9 @@
             <End Role="item_type" EntitySet="item_type" />
             <End Role="item" EntitySet="items" />
           </AssociationSet>
-          <AssociationSet Name="fk_restaurant_menu2" Association="Ep1Model.fk_restaurant_menu2">
-            <End Role="menu" EntitySet="menus" />
-            <End Role="restaurant_menu" EntitySet="restaurant_menu" />
-          </AssociationSet>
           <AssociationSet Name="fk_overlay_type" Association="Ep1Model.fk_overlay_type">
             <End Role="overlay_type" EntitySet="overlay_type" />
             <End Role="overlay" EntitySet="overlays" />
-          </AssociationSet>
-          <AssociationSet Name="fk_restaurant_menu" Association="Ep1Model.fk_restaurant_menu">
-            <End Role="restaurant" EntitySet="restaurants" />
-            <End Role="restaurant_menu" EntitySet="restaurant_menu" />
           </AssociationSet>
           <AssociationSet Name="fk_restaurant_status" Association="Ep1Model.fk_restaurant_status">
             <End Role="restaurants_status" EntitySet="restaurants_status" />
@@ -399,6 +342,11 @@
             <End Role="menu" EntitySet="menus" />
             <End Role="item" EntitySet="items" />
           </AssociationSet>
+          <EntitySet Name="gate_posts" EntityType="Ep1Model.gate_posts" />
+          <AssociationSet Name="fk_gate" Association="Ep1Model.fk_gate">
+            <End Role="gate" EntitySet="gates" />
+            <End Role="gate_posts" EntitySet="gate_posts" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="gate">
           <Key>
@@ -409,19 +357,8 @@
           <Property Type="Int32" Name="status_id" Nullable="false" />
           <Property Type="Int32" Name="latitude" Nullable="false" />
           <Property Type="Int32" Name="longitude" Nullable="false" />
-          <NavigationProperty Name="gate_posts" Relationship="Ep1Model.fk_gate" FromRole="gate" ToRole="gate_posts" />
           <NavigationProperty Name="gate_status" Relationship="Ep1Model.fk_gate_status" FromRole="gate" ToRole="gate_status" />
-        </EntityType>
-        <EntityType Name="gate_posts">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="gate_id" Nullable="false" />
-          <Property Type="Int32" Name="latitude" Nullable="false" />
-          <Property Type="Int32" Name="longitude" Nullable="false" />
-          <Property Type="DateTime" Name="date" Nullable="false" />
-          <NavigationProperty Name="gate" Relationship="Ep1Model.fk_gate" FromRole="gate_posts" ToRole="gate" />
+          <NavigationProperty Name="gate_posts" Relationship="Ep1Model.fk_gate" FromRole="gate" ToRole="gate_posts" />
         </EntityType>
         <EntityType Name="gate_status">
           <Key>
@@ -454,7 +391,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="restaurant_menu" Relationship="Ep1Model.fk_restaurant_menu2" FromRole="menu" ToRole="restaurant_menu" />
           <NavigationProperty Name="items" Relationship="Ep1Model.menu_item" FromRole="menu" ToRole="item" />
         </EntityType>
         <EntityType Name="overlay">
@@ -477,17 +413,6 @@
           <Property Type="String" Name="name" Nullable="false" />
           <NavigationProperty Name="overlays" Relationship="Ep1Model.fk_overlay_type" FromRole="overlay_type" ToRole="overlay" />
         </EntityType>
-        <EntityType Name="restaurant_menu">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="restaurant_id" Nullable="false" />
-          <Property Type="Int32" Name="menu_id" Nullable="false" />
-          <Property Type="DateTime" Name="date" Nullable="false" />
-          <NavigationProperty Name="menu" Relationship="Ep1Model.fk_restaurant_menu2" FromRole="restaurant_menu" ToRole="menu" />
-          <NavigationProperty Name="restaurant" Relationship="Ep1Model.fk_restaurant_menu" FromRole="restaurant_menu" ToRole="restaurant" />
-        </EntityType>
         <EntityType Name="restaurant">
           <Key>
             <PropertyRef Name="id" />
@@ -495,7 +420,6 @@
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="name" Nullable="false" />
           <Property Type="Int32" Name="status_id" Nullable="false" />
-          <NavigationProperty Name="restaurant_menu" Relationship="Ep1Model.fk_restaurant_menu" FromRole="restaurant" ToRole="restaurant_menu" />
           <NavigationProperty Name="restaurants_status" Relationship="Ep1Model.fk_restaurant_status" FromRole="restaurant" ToRole="restaurants_status" />
           <NavigationProperty Name="restaurants_posts" Relationship="Ep1Model.fk_restaurants" FromRole="restaurant" ToRole="restaurants_posts" />
           <Property Type="String" Name="url" />
@@ -542,18 +466,6 @@
           <Property Type="Int32" Name="usp_gate3_latitude" Nullable="false" />
           <Property Type="Int32" Name="usp_gate3_longitude" Nullable="false" />
         </EntityType>
-        <Association Name="fk_gate">
-          <End Type="Ep1Model.gate" Role="gate" Multiplicity="1" />
-          <End Type="Ep1Model.gate_posts" Role="gate_posts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="gate">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="gate_posts">
-              <PropertyRef Name="gate_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_gate_status">
           <End Type="Ep1Model.gate_status" Role="gate_status" Multiplicity="1" />
           <End Type="Ep1Model.gate" Role="gate" Multiplicity="*" />
@@ -578,18 +490,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_restaurant_menu2">
-          <End Type="Ep1Model.menu" Role="menu" Multiplicity="1" />
-          <End Type="Ep1Model.restaurant_menu" Role="restaurant_menu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="menu">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="restaurant_menu">
-              <PropertyRef Name="menu_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_overlay_type">
           <End Type="Ep1Model.overlay_type" Role="overlay_type" Multiplicity="1" />
           <End Type="Ep1Model.overlay" Role="overlay" Multiplicity="*" />
@@ -599,18 +499,6 @@
             </Principal>
             <Dependent Role="overlay">
               <PropertyRef Name="type_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_restaurant_menu">
-          <End Type="Ep1Model.restaurant" Role="restaurant" Multiplicity="1" />
-          <End Type="Ep1Model.restaurant_menu" Role="restaurant_menu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="restaurant">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="restaurant_menu">
-              <PropertyRef Name="restaurant_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -654,6 +542,28 @@
           <End Type="Ep1Model.menu" Role="menu" Multiplicity="*" />
           <End Type="Ep1Model.item" Role="item" Multiplicity="*" />
         </Association>
+        <EntityType Name="gate_posts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="gate_id" Nullable="false" />
+          <Property Type="Double" Name="distance" Nullable="false" />
+          <Property Type="DateTime" Name="date" Nullable="false" />
+          <NavigationProperty Name="gate" Relationship="Ep1Model.fk_gate" FromRole="gate_posts" ToRole="gate" />
+        </EntityType>
+        <Association Name="fk_gate">
+          <End Type="Ep1Model.gate" Role="gate" Multiplicity="1" />
+          <End Type="Ep1Model.gate_posts" Role="gate_posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gate">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gate_posts">
+              <PropertyRef Name="gate_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -667,17 +577,6 @@
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="status_id" ColumnName="status_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="gate_posts">
-            <EntityTypeMapping TypeName="Ep1Model.gate_posts">
-              <MappingFragment StoreEntitySet="gate_posts">
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="longitude" ColumnName="longitude" />
-                <ScalarProperty Name="latitude" ColumnName="latitude" />
-                <ScalarProperty Name="gate_id" ColumnName="gate_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -734,16 +633,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="restaurant_menu">
-            <EntityTypeMapping TypeName="Ep1Model.restaurant_menu">
-              <MappingFragment StoreEntitySet="restaurant_menu">
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
-                <ScalarProperty Name="restaurant_id" ColumnName="restaurant_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="restaurants">
             <EntityTypeMapping TypeName="Ep1Model.restaurant">
               <MappingFragment StoreEntitySet="restaurants">
@@ -796,6 +685,16 @@
               <ScalarProperty Name="id" ColumnName="menu_id" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="gate_posts">
+            <EntityTypeMapping TypeName="Ep1Model.gate_posts">
+              <MappingFragment StoreEntitySet="gate_posts">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="gate_id" ColumnName="gate_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -818,22 +717,16 @@
     <Diagrams>
       <Diagram Name="Ep1">
         <EntityTypeShape EntityType="Ep1Model.gate" Width="1.5" PointX="8" PointY="10" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="Ep1Model.gate_posts" Width="1.5" PointX="10.25" PointY="10" Height="2.1725878906250031" />
         <EntityTypeShape EntityType="Ep1Model.gate_status" Width="1.5" PointX="5.75" PointY="10.375" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="Ep1Model.item" Width="1.5" PointX="5.25" PointY="0.75" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="Ep1Model.item_type" Width="1.5" PointX="3" PointY="10.625" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="Ep1Model.menu" Width="1.5" PointX="3" PointY="4" Height="1.595683593749996" />
         <EntityTypeShape EntityType="Ep1Model.overlay" Width="1.5" PointX="10" PointY="5" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="Ep1Model.overlay_type" Width="1.5" PointX="7.75" PointY="5.375" Height="1.595683593749996" />
-        <EntityTypeShape EntityType="Ep1Model.restaurant_menu" Width="1.5" PointX="5.25" PointY="6.625" Height="2.1725878906250102" />
         <EntityTypeShape EntityType="Ep1Model.restaurant" Width="1.5" PointX="3" PointY="6.625" Height="2.1725878906250102" />
         <EntityTypeShape EntityType="Ep1Model.restaurants_posts" Width="1.5" PointX="5.25" PointY="3.5" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="Ep1Model.restaurants_status" Width="1.5" PointX="0.75" PointY="6.875" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="Ep1Model.setting" Width="1.5" PointX="0.75" PointY="13.75" Height="2.5571907552083228" />
-        <AssociationConnector Association="Ep1Model.fk_gate" >
-          <ConnectorPoint PointX="9.5" PointY="11.086293945312502" />
-          <ConnectorPoint PointX="10.25" PointY="11.086293945312502" />
-        </AssociationConnector>
         <AssociationConnector Association="Ep1Model.fk_gate_status" >
           <ConnectorPoint PointX="7.25" PointY="11.172841796875002" />
           <ConnectorPoint PointX="8" PointY="11.172841796875002" />
@@ -841,40 +734,23 @@
         <AssociationConnector Association="Ep1Model.item_fk" >
           <ConnectorPoint PointX="4.5" PointY="10.626152846153847" />
           <ConnectorPoint PointX="4.875" PointY="10.251152846153847" />
-          <ConnectorPoint PointX="4.875" PointY="1.7401432291666694" />
-          <ConnectorPoint PointX="5.25" PointY="1.7401432291666694" />
-        </AssociationConnector>
-        <AssociationConnector Association="Ep1Model.fk_restaurant_menu2" >
-          <ConnectorPoint PointX="4.5" PointY="5.5333749014423033" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="5.8494493363434241" />
-          <ConnectorPoint PointX="4.9964255650988791" PointY="6.0298004665411824" />
-          <ConnectorPoint PointX="5.0625" PointY="6.0958749014423033" />
-          <ConnectorPoint PointX="5.0625" PointY="7.7112939453125051" />
-          <ConnectorPoint PointX="5.25" PointY="7.7112939453125051" />
+          <ConnectorPoint PointX="4.875" PointY="2.2664668437500048" />
+          <ConnectorPoint PointX="5.25" PointY="2.2664668437500048" />
         </AssociationConnector>
         <AssociationConnector Association="Ep1Model.fk_overlay_type" >
           <ConnectorPoint PointX="9.25" PointY="6.172841796874998" />
           <ConnectorPoint PointX="10" PointY="6.172841796874998" />
-        </AssociationConnector>
-        <AssociationConnector Association="Ep1Model.fk_restaurant_menu" >
-          <ConnectorPoint PointX="4.5" PointY="7.1056469726562526" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="7.1056469726562517" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="7.1056469726562526" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="7.1056469726562517" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="7.1056469726562526" />
-          <ConnectorPoint PointX="5.25" PointY="7.1056469726562526" />
         </AssociationConnector>
         <AssociationConnector Association="Ep1Model.fk_restaurant_status" >
           <ConnectorPoint PointX="2.25" PointY="7.7689925130208337" />
           <ConnectorPoint PointX="3" PointY="7.7689925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="Ep1Model.fk_restaurants" >
-          <ConnectorPoint PointX="4.5" PointY="6.6873066923076925" />
-          <ConnectorPoint PointX="4.8160744349011209" PointY="6.3712322574065707" />
-          <ConnectorPoint PointX="4.9339255650988791" PointY="6.2533811272088133" />
-          <ConnectorPoint PointX="4.9375" PointY="6.2498066923076934" />
-          <ConnectorPoint PointX="4.9375" PointY="4.6824446614583337" />
-          <ConnectorPoint PointX="5.25" PointY="4.6824446614583337" />
+          <ConnectorPoint PointX="4.5" PointY="7.8074446614583337" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.8074446614583328" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.8074446614583337" />
+          <ConnectorPoint PointX="6" PointY="7.8074446614583337" />
+          <ConnectorPoint PointX="6" PointY="5.8648893229166674" />
         </AssociationConnector>
         <AssociationConnector Association="Ep1Model.fk_restaurants_status" >
           <ConnectorPoint PointX="1.5" PointY="6.875" />
@@ -887,10 +763,13 @@
         </AssociationConnector>
         <AssociationConnector Association="Ep1Model.menu_item" >
           <ConnectorPoint PointX="3.75" PointY="4" />
-          <ConnectorPoint PointX="3.75" PointY="2.2664673437500049" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="2.2664673437500045" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="2.2664673437500049" />
-          <ConnectorPoint PointX="5.25" PointY="2.2664673437500049" />
+          <ConnectorPoint PointX="3.75" PointY="1.4769809218750016" />
+          <ConnectorPoint PointX="5.25" PointY="1.4769809218750016" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Ep1Model.gate_posts" Width="1.5" PointX="10.25" PointY="10.25" Height="1.9802864583333388" />
+        <AssociationConnector Association="Ep1Model.fk_gate" >
+          <ConnectorPoint PointX="9.5" PointY="11.240143229166669" />
+          <ConnectorPoint PointX="10.25" PointY="11.240143229166669" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

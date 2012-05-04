@@ -12,17 +12,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="gate_posts">
-      <EntityTypeMapping TypeName="Ep1Model.gate_posts">
-        <MappingFragment StoreEntitySet="gate_posts">
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="longitude" ColumnName="longitude" />
-          <ScalarProperty Name="latitude" ColumnName="latitude" />
-          <ScalarProperty Name="gate_id" ColumnName="gate_id" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="gate_status">
       <EntityTypeMapping TypeName="Ep1Model.gate_status">
         <MappingFragment StoreEntitySet="gate_status">
@@ -71,16 +60,6 @@
       <EntityTypeMapping TypeName="Ep1Model.overlay_type">
         <MappingFragment StoreEntitySet="overlay_type">
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="restaurant_menu">
-      <EntityTypeMapping TypeName="Ep1Model.restaurant_menu">
-        <MappingFragment StoreEntitySet="restaurant_menu">
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
-          <ScalarProperty Name="restaurant_id" ColumnName="restaurant_id" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -137,5 +116,15 @@
         <ScalarProperty Name="id" ColumnName="menu_id" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="gate_posts">
+      <EntityTypeMapping TypeName="Ep1Model.gate_posts">
+        <MappingFragment StoreEntitySet="gate_posts">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="gate_id" ColumnName="gate_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

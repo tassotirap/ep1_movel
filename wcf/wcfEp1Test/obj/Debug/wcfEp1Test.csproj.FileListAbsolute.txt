@@ -24,3 +24,4 @@ F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\wcfEp1_Accessor.pdb
 F:\ep1_movel\wcf\wcfEp1Test\obj\Debug\ResolveAssemblyReference.cache
 F:\ep1_movel\wcf\wcfEp1Test\obj\Debug\wcfEp1Test.dll
 F:\ep1_movel\wcf\wcfEp1Test\obj\Debug\wcfEp1Test.pdb
+F:\ep1_movel\wcf\wcfEp1Test\bin\Debug\wcfEp1Test.dll.config
