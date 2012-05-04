@@ -167,11 +167,11 @@ public class ParseJSON
 		return restaurantInfos;
 	}
 
-	public void setGates(int gateId, int latitude, int longitude)
+	public void setGates(int gateId, double distance)
 	{
 		try
 		{
-			new GetHttp(URL + "SetGates?gateId=" + gateId + "&latitude=" + latitude + "&longitude=" + longitude);
+			new GetHttp(URL + "SetGate?gateId=" + gateId + "&distance=" + distance);
 		}
 		catch (Exception e)
 		{

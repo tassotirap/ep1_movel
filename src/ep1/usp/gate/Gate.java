@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import ep1.usp.R;
 import ep1.usp.access.db.GatesDao;
-import ep1.usp.maps.MyLocationListener;
 
 public class Gate extends Activity implements LocationListener
 {
@@ -36,6 +35,8 @@ public class Gate extends Activity implements LocationListener
 
 	private int latitude;
 	private int longitude;
+
+	private double dist1 = 0, dist2 = 0, dist3 = 0;
 
 	public Handler handler = new Handler()
 	{
@@ -77,17 +78,51 @@ public class Gate extends Activity implements LocationListener
 			}
 		});
 
+		getBtnSend().setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				sendPost();
+			}
+		});
+
+	}
+
+	private void sendPost()
+	{
+		if (latitude != 0 && longitude != 0)
+		{
+			if (-23575000 <= latitude && latitude <= -23550900 && -46746500 <= longitude && longitude <= -46711400)
+			{
+				int gateId = 0;
+				double dist = 0;
+				if (dist1 < dist2 && dist1 < dist3)
+				{
+					gateId = 1;
+					dist = dist1;
+				}
+				else if (dist2 < dist3)
+				{
+					gateId = 2;
+					dist = dist2;
+				}
+				else
+				{
+					gateId = 3;
+					dist = dist3;
+				}
+				LoadingSendGate sendGate = new LoadingSendGate(this, gateId, dist);
+				sendGate.Show();
+			}
+		}
 	}
 
 	private void loadGates()
 	{
 		LoadingGetGate loadingGetGates = new LoadingGetGate(this);
 		loadingGetGates.Show();
-	}
-
-	private void setIntents()
-	{
-
 	}
 
 	public Button getBtnRefresh()
@@ -140,7 +175,6 @@ public class Gate extends Activity implements LocationListener
 		setContentView(R.layout.gate);
 
 		myManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-		setIntents();
 		setElements();
 		bindListeners();
 		refreshGates();
@@ -193,13 +227,13 @@ public class Gate extends Activity implements LocationListener
 		ArrayList<GateInfo> gates = getGatesDao().getAll();
 		if (gates.size() > 0)
 		{
-			double d1 = refreshDistanceGate(location, gates.get(0));
-			double d2 = refreshDistanceGate(location, gates.get(1));
-			double d3 = refreshDistanceGate(location, gates.get(2));
+			dist1 = refreshDistanceGate(location, gates.get(0));
+			dist2 = refreshDistanceGate(location, gates.get(1));
+			dist3 = refreshDistanceGate(location, gates.get(2));
 
-			writeDistance(getTxtDistance1(), d1);
-			writeDistance(getTxtDistance2(), d2);
-			writeDistance(getTxtDistance3(), d3);
+			writeDistance(getTxtDistance1(), dist1);
+			writeDistance(getTxtDistance2(), dist2);
+			writeDistance(getTxtDistance3(), dist3);
 		}
 	}
 
@@ -232,6 +266,8 @@ public class Gate extends Activity implements LocationListener
 	@Override
 	public void onProviderDisabled(String arg0)
 	{
+		latitude = 0;
+		longitude = 0;
 	}
 
 	@Override
