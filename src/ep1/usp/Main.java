@@ -29,10 +29,10 @@ public class Main extends Activity
 		setElements();
 		bindListeners();
 		
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		Editor editor = prefs.edit();
-		editor.clear();
-        editor.commit();
+		//SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		//Editor editor = prefs.edit();
+		//editor.clear();
+        //editor.commit();
 	}
 
 	private void setIntents()
