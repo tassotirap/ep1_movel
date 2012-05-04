@@ -3,7 +3,7 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_geral"
+    android:background="@color/ligth_blue"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -12,14 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/margin_all"
+        android:layout_margin="@dimen/margin5dp"
         android:orientation="vertical" >
 
         <Spinner
             android:id="@+id/restaurant_status"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:prompt="@string/restaurants_lblStatusInit" />
+            android:prompt="@string/restaurant_lblStatusInit" />
 
         <EditText
             android:id="@+id/restaurant_comment"

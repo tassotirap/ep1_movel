@@ -9,7 +9,7 @@ public class MapsMenusButtons
 {
 	private Maps mActivity = null;
 	private MapSettingsDao mapSettingsDao;
-	
+
 	private ImageButton btnRefresh = null;
 	private ImageButton btnUSPCenter = null;
 	private ImageButton btnBusStop = null;
@@ -19,37 +19,23 @@ public class MapsMenusButtons
 	private ImageButton btnAddOverlay = null;
 	private Button btnRoute1 = null;
 	private Button btnRoute2 = null;
-	
+
 	private Boolean showBusStop = null;
 	private Boolean showRestaurant = null;
 	private Boolean showUniversity = null;
 	private Boolean route1 = null;
 	private Boolean route2 = null;
 
-	public MapSettingsDao getMapSettingsDao()
-	{
-		if (mapSettingsDao == null)
-			mapSettingsDao = new MapSettingsDao(mActivity.getApplicationContext());
-		return mapSettingsDao;
-	}
-
 	public MapsMenusButtons(Maps mActivity)
 	{
 		this.mActivity = mActivity;
 	}
 
-	public ImageButton getBtnRefresh()
+	public ImageButton getBtnAddOverlay()
 	{
-		if (btnRefresh == null)
-			btnRefresh = (ImageButton) mActivity.findViewById(R.id.map_btnRefresh);
-		return btnRefresh;
-	}
-
-	public ImageButton getBtnUSPCenter()
-	{
-		if (btnUSPCenter == null)
-			btnUSPCenter = (ImageButton) mActivity.findViewById(R.id.map_btnUSPCenter);
-		return btnUSPCenter;
+		if (btnAddOverlay == null)
+			btnAddOverlay = (ImageButton) mActivity.findViewById(R.id.map_btnAddOverlay);
+		return btnAddOverlay;
 	}
 
 	public ImageButton getBtnBusStop()
@@ -59,20 +45,6 @@ public class MapsMenusButtons
 		return btnBusStop;
 	}
 
-	public ImageButton getBtnRestaurant()
-	{
-		if (btnRestaurant == null)
-			btnRestaurant = (ImageButton) mActivity.findViewById(R.id.map_btnRestaurant);
-		return btnRestaurant;
-	}
-
-	public ImageButton getBtnUniversity()
-	{
-		if (btnUniversity == null)
-			btnUniversity = (ImageButton) mActivity.findViewById(R.id.map_btnUniversity);
-		return btnUniversity;
-	}
-
 	public ImageButton getBtnMyLocation()
 	{
 		if (btnMyLocation == null)
@@ -80,11 +52,18 @@ public class MapsMenusButtons
 		return btnMyLocation;
 	}
 
-	public ImageButton getBtnAddOverlay()
+	public ImageButton getBtnRefresh()
 	{
-		if (btnAddOverlay == null)
-			btnAddOverlay = (ImageButton) mActivity.findViewById(R.id.map_btnAddOverlay);
-		return btnAddOverlay;
+		if (btnRefresh == null)
+			btnRefresh = (ImageButton) mActivity.findViewById(R.id.map_btnRefresh);
+		return btnRefresh;
+	}
+
+	public ImageButton getBtnRestaurant()
+	{
+		if (btnRestaurant == null)
+			btnRestaurant = (ImageButton) mActivity.findViewById(R.id.map_btnRestaurant);
+		return btnRestaurant;
 	}
 
 	public Button getBtnRoute1()
@@ -99,6 +78,27 @@ public class MapsMenusButtons
 		if (btnRoute2 == null)
 			btnRoute2 = (Button) mActivity.findViewById(R.id.map_btnRout2);
 		return btnRoute2;
+	}
+
+	public ImageButton getBtnUniversity()
+	{
+		if (btnUniversity == null)
+			btnUniversity = (ImageButton) mActivity.findViewById(R.id.map_btnUniversity);
+		return btnUniversity;
+	}
+
+	public ImageButton getBtnUSPCenter()
+	{
+		if (btnUSPCenter == null)
+			btnUSPCenter = (ImageButton) mActivity.findViewById(R.id.map_btnUSPCenter);
+		return btnUSPCenter;
+	}
+
+	public MapSettingsDao getMapSettingsDao()
+	{
+		if (mapSettingsDao == null)
+			mapSettingsDao = new MapSettingsDao(mActivity.getApplicationContext());
+		return mapSettingsDao;
 	}
 
 	public boolean getShowBusStop()
@@ -117,14 +117,6 @@ public class MapsMenusButtons
 		return showRestaurant;
 	}
 
-	public boolean getShowUniversity()
-	{
-		if (showUniversity == null)
-			showUniversity = getMapSettingsDao().getUniversityEnable();
-
-		return showUniversity;
-	}
-
 	public boolean getShowRoute1()
 	{
 		if (route1 == null)
@@ -140,6 +132,38 @@ public class MapsMenusButtons
 		return route2;
 	}
 
+	public boolean getShowUniversity()
+	{
+		if (showUniversity == null)
+			showUniversity = getMapSettingsDao().getUniversityEnable();
+
+		return showUniversity;
+	}
+
+	public void initDraw()
+	{
+		removeOverlays();
+		if (getShowBusStop())
+			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getBusStopOverlay());
+		if (getShowRestaurant())
+			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getRestaurantOverlay());
+		if (getShowUniversity())
+			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getUniversityOverlay());
+		if (getShowRoute1())
+			mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute1());
+		if (getShowRoute2())
+			mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute2());
+	}
+
+	public void removeOverlays()
+	{
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getBusStopOverlay());
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRestaurantOverlay());
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getUniversityOverlay());
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute1());
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute2());
+	}
+
 	public void setShowBusStop(boolean value)
 	{
 		showBusStop = value;
@@ -148,11 +172,6 @@ public class MapsMenusButtons
 	public void setShowRestaurant(boolean value)
 	{
 		showRestaurant = value;
-	}
-
-	public void setShowUniversity(boolean value)
-	{
-		showUniversity = value;
 	}
 
 	public void setShowRoute1(boolean value)
@@ -165,27 +184,8 @@ public class MapsMenusButtons
 		route2 = value;
 	}
 
-	public void removeOverlays()
+	public void setShowUniversity(boolean value)
 	{
-		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getBusStopOverlay());
-		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRestaurantOverlay());
-		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getUniversityOverlay());
-		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute1());
-		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute2());
-	}
-
-	public void initDraw()
-	{
-		removeOverlays();
-		if (getShowBusStop())
-			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getBusStopOverlay());
-		if (getShowRestaurant())
-			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getRestaurantOverlay());
-		if (getShowUniversity())
-			mActivity.getMapsSettings().addMapOverlay(mActivity.getMyOverlays().getUniversityOverlay());
-		if(getShowRoute1())
-			mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute1());
-		if(getShowRoute2())
-			mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute2());
+		showUniversity = value;
 	}
 }

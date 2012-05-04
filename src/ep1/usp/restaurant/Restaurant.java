@@ -77,12 +77,12 @@ public class Restaurant extends Activity
 		}
 	};
 
-	private void AddComment(MessageInfo msg)
+	private void AddComment(MessageDto msg)
 	{
 		AddComment(msg, false);
 	}
 
-	private void AddComment(MessageInfo msg, Boolean first)
+	private void AddComment(MessageDto msg, Boolean first)
 	{
 		RestaurantMsgView txt = new RestaurantMsgView(this);
 
@@ -134,6 +134,15 @@ public class Restaurant extends Activity
 		dialogAddComment.show();
 	}
 
+	private void showMenu()
+	{
+		Bundle bundle = new Bundle();
+		bundle.putInt("restaurantId", restaurantId);
+		Intent intentMenu = new Intent(this, RestaurantMenu.class);
+		intentMenu.putExtras(bundle);
+		startActivity(intentMenu);
+	}
+
 	public void bindElements()
 	{
 		getBtnRefresh().setOnClickListener(new OnClickListener()
@@ -172,32 +181,23 @@ public class Restaurant extends Activity
 				showAddComment();
 			}
 		});
-		
+
 		getBtnMenu().setOnClickListener(new OnClickListener()
 		{
-			
+
 			@Override
 			public void onClick(View v)
 			{
-				showMenu();				
+				showMenu();
 			}
 		});
-	}
-	
-	private void showMenu()
-	{
-		Bundle bundle = new Bundle();
-		bundle.putInt("restaurantId", restaurantId);
-		Intent intentMenu = new Intent(this, RestaurantMenu.class);
-		intentMenu.putExtras(bundle);
-		startActivity(intentMenu);		
 	}
 
 	public void fillComments()
 	{
-		ArrayList<MessageInfo> msgs = getRestaurantCommentDao().getAll();
+		ArrayList<MessageDto> msgs = getRestaurantCommentDao().getAll();
 		getTxtComments().removeAllViews();
-		for (MessageInfo msg : msgs)
+		for (MessageDto msg : msgs)
 		{
 			AddComment(msg);
 		}
@@ -217,6 +217,13 @@ public class Restaurant extends Activity
 			mAdapterRestaurant.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		}
 		return mAdapterRestaurant;
+	}
+
+	public Button getBtnMenu()
+	{
+		if (btnMenu == null)
+			btnMenu = (Button) findViewById(R.id.restaurant_btnMenu);
+		return btnMenu;
 	}
 
 	public ImageButton getBtnNewComment()
@@ -240,13 +247,6 @@ public class Restaurant extends Activity
 		return imgStatus;
 	}
 
-	public Button getBtnMenu()
-	{
-		if(btnMenu == null)
-			btnMenu = (Button)findViewById(R.id.restaurant_btnMenu);
-		return btnMenu;	
-	}
-	
 	public RestaurantCommentDao getRestaurantCommentDao()
 	{
 		if (restaurantCommentDao == null)

@@ -2,12 +2,12 @@ package ep1.usp.access.db;
 
 import java.util.ArrayList;
 
-import ep1.usp.maps.Overlay.OverlayInfo;
+import ep1.usp.maps.Overlay.OverlayDto;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-public class OverlayDao extends BaseDao<OverlayInfo>
+public class OverlayDao extends BaseDao<OverlayDto>
 {
 	public OverlayDao(Context ctx)
 	{
@@ -16,31 +16,20 @@ public class OverlayDao extends BaseDao<OverlayInfo>
 		COLUMNS = new String[] { "type", "latitude", "longitude", "name" };
 	}
 
-	public ArrayList<OverlayInfo> getByType(Integer type)
+	public void deleteByName(String name)
 	{
-		ArrayList<OverlayInfo> overlays = new ArrayList<OverlayInfo>();
-
-		Cursor c = getWritableDatabase().query(TABLE_NAME, COLUMNS, "type=?", new String[] { type.toString() }, null, null, null);
-
-		while (c.moveToNext())
-		{
-			overlays.add(new OverlayInfo(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3)));
-		}
-
-		c.close();
-
-		return overlays;
+		deleteByColumn(3, name);
 	}
 
-	public ArrayList<OverlayInfo> getAll()
+	public ArrayList<OverlayDto> getAll()
 	{
-		ArrayList<OverlayInfo> overlays = new ArrayList<OverlayInfo>();
+		ArrayList<OverlayDto> overlays = new ArrayList<OverlayDto>();
 
 		Cursor c = getWritableDatabase().query(TABLE_NAME, COLUMNS, null, null, null, null, null);
 
 		while (c.moveToNext())
 		{
-			overlays.add(new OverlayInfo(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3)));
+			overlays.add(new OverlayDto(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3)));
 		}
 
 		c.close();
@@ -48,27 +37,23 @@ public class OverlayDao extends BaseDao<OverlayInfo>
 		return overlays;
 	}
 
-	public void setList(ArrayList<OverlayInfo> lstOverlayInfo)
+	public ArrayList<OverlayDto> getByType(Integer type)
 	{
-		for (OverlayInfo overlayinfo : lstOverlayInfo)
+		ArrayList<OverlayDto> overlays = new ArrayList<OverlayDto>();
+
+		Cursor c = getWritableDatabase().query(TABLE_NAME, COLUMNS, "type=?", new String[] { type.toString() }, null, null, null);
+
+		while (c.moveToNext())
 		{
-			try
-			{
-				ContentValues contentValues = new ContentValues();
-				contentValues.put(COLUMNS[0], overlayinfo.getType());
-				contentValues.put(COLUMNS[1], overlayinfo.getLatitude());
-				contentValues.put(COLUMNS[2], overlayinfo.getLongitude());
-				contentValues.put(COLUMNS[3], overlayinfo.getName());
-				getWritableDatabase().insertOrThrow(TABLE_NAME, null, contentValues);
-			}
-			catch (Exception e)
-			{
-				e.getMessage();
-			}
+			overlays.add(new OverlayDto(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3)));
 		}
+
+		c.close();
+
+		return overlays;
 	}
 
-	public void set(OverlayInfo overlayInfo)
+	public void set(OverlayDto overlayInfo)
 	{
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(COLUMNS[0], overlayInfo.getType());
@@ -76,10 +61,5 @@ public class OverlayDao extends BaseDao<OverlayInfo>
 		contentValues.put(COLUMNS[2], overlayInfo.getLongitude());
 		contentValues.put(COLUMNS[3], overlayInfo.getName());
 		getWritableDatabase().insertOrThrow(TABLE_NAME, null, contentValues);
-	}
-
-	public void deleteByName(String name)
-	{
-		deleteByColumn(3, name);
 	}
 }

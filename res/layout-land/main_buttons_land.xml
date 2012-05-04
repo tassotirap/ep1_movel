@@ -10,7 +10,7 @@
             android:id="@+id/btnMap"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin_all"
+            android:layout_margin="@dimen/margin5dp"
             android:layout_weight=".5"
             android:background="@drawable/border" >
 
@@ -18,7 +18,7 @@
                 android:layout_width="68dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin"
+                android:layout_marginTop="@dimen/margin10dp"
                 android:background="@drawable/mapausp_icone_transparente" >
             </FrameLayout>
 
@@ -27,8 +27,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:layout_marginBottom="@dimen/margin"
-                android:text="@string/btn_map"
+                android:layout_marginBottom="@dimen/margin10dp"
+                android:text="@string/lblMap"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/gray"
                 android:textSize="16dp"
@@ -39,7 +39,7 @@
             android:id="@+id/btnRetaurant"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin_all"
+            android:layout_margin="@dimen/margin5dp"
             android:layout_weight=".5"
             android:background="@drawable/border" >
 
@@ -47,7 +47,7 @@
                 android:layout_width="68dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin"
+                android:layout_marginTop="@dimen/margin10dp"
                 android:background="@drawable/bandejao_icone_transparente" >
             </FrameLayout>
 
@@ -56,8 +56,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:layout_marginBottom="@dimen/margin"
-                android:text="@string/btn_retaurant"
+                android:layout_marginBottom="@dimen/margin10dp"
+                android:text="@string/lblRetaurant"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/gray"
                 android:textSize="16dp"
@@ -74,7 +74,7 @@
             android:id="@+id/btnGate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin_all"
+            android:layout_margin="@dimen/margin5dp"
             android:layout_weight=".5"
             android:background="@drawable/border" >
 
@@ -82,7 +82,7 @@
                 android:layout_width="68dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin"
+                android:layout_marginTop="@dimen/margin10dp"
                 android:background="@drawable/portaria_icone_transparente" >
             </FrameLayout>
 
@@ -91,8 +91,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:layout_marginBottom="@dimen/margin"
-                android:text="@string/lbl_gate"
+                android:layout_marginBottom="@dimen/margin10dp"
+                android:text="@string/lblGateFromUSP"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/gray"
                 android:textSize="16dp"
@@ -104,7 +104,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:layout_margin="@dimen/margin_all"
+            android:layout_margin="@dimen/margin5dp"
             android:layout_weight=".5"
             android:background="@drawable/border" >
 
@@ -112,7 +112,7 @@
                 android:layout_width="68dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin"
+                android:layout_marginTop="@dimen/margin10dp"
                 android:background="@drawable/configuracoes_icone_transparente" >
             </FrameLayout>
 
@@ -121,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginBottom="@dimen/margin10dp"
                 android:text="@string/lblSettings"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/gray"

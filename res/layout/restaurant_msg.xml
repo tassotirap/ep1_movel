@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_geral"
+    android:background="@color/ligth_blue"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -14,21 +14,22 @@
             android:id="@+id/restaurant_imgStatus"
             android:layout_width="24dp"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin_all"
-            android:src="@drawable/msg1" />
+            android:layout_margin="@dimen/margin5dp"
+            android:src="@drawable/msg1"
+            android:contentDescription="@string/lblImage" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_all"
-            android:layout_marginTop="@dimen/margin_all"
+            android:layout_marginBottom="@dimen/margin5dp"
+            android:layout_marginTop="@dimen/margin5dp"
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data:"
+                android:text="@string/lblDate"
                 android:textColor="@color/gray"
                 android:textSize="12dp" />
 
@@ -36,15 +37,15 @@
                 android:id="@+id/restaurant_txtDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12/02/2012"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="12dp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_all"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/margin5dp"
             android:layout_weight="0.85"
             android:orientation="vertical" >
 
@@ -52,7 +53,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Comentario:"
+                android:text="@string/lblComment"
                 android:textColor="@color/gray"
                 android:textSize="12dp" />
 
@@ -60,10 +61,9 @@
                 android:id="@+id/restaurant_txtMsg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Large Text"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="14dp" />
-
         </LinearLayout>
     </LinearLayout>
 

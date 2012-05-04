@@ -17,7 +17,7 @@ public class Maps extends MapActivity
 	private MapsMenusButtons mapsMenusButtons = null;
 	private MapsSettings mapsSettings = null;
 	private MyLocationListener myLocationOverlay = null;
-	private MyOverlays myOverlays = null;	
+	private MyOverlays myOverlays = null;
 	private OverlayDao overlayDao = null;
 
 	public Handler handler = new Handler()
@@ -59,10 +59,10 @@ public class Maps extends MapActivity
 			mapsSettings = new MapsSettings(this);
 		return mapsSettings;
 	}
-		
+
 	public MyLocationListener getMyLocation()
 	{
-		if(myLocationOverlay == null)
+		if (myLocationOverlay == null)
 			myLocationOverlay = new MyLocationListener(this, getMapsSettings().getMap());
 		return myLocationOverlay;
 	}

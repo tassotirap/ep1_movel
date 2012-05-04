@@ -32,8 +32,8 @@ public class LoadingGetMsg
 					SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity.getBaseContext());
 					String minutosRestaurant = prefs.getString("listRestauratMin", "5");
 					String qtdeRestaurant = prefs.getString("listRestauratqtde", "5");
-					ArrayList<MessageInfo> msgs = new ParseJSON().getRestaurantComment(restaurantId, qtdeRestaurant);
-					RestaurantInfo restaurantInfo = new ParseJSON().getRestaurant(restaurantId, minutosRestaurant);					
+					ArrayList<MessageDto> msgs = new ParseJSON().getRestaurantComment(restaurantId, qtdeRestaurant);
+					RestaurantDto restaurantInfo = new ParseJSON().getRestaurant(restaurantId, minutosRestaurant);					
 					mActivity.getRestaurantCommentDao().clear();
 					mActivity.getRestaurantCommentDao().setList(msgs);
 					mActivity.getRestaurantsDao().update(restaurantInfo);

@@ -3,14 +3,14 @@
     android:id="@+id/FrameLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/background_geral" >
+    android:background="@color/ligth_blue" >
 
     <ImageView
         android:id="@+id/appImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill"
-        android:layout_marginTop="@dimen/margin_logo"
+        android:layout_marginTop="@dimen/margin25dp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo" />
 
@@ -19,10 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_margin="@dimen/margin_all"
+        android:layout_margin="@dimen/margin5dp"
         android:orientation="vertical" >
 
-        <include layout="@layout/main_buttons"  android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/main_buttons" />
     </LinearLayout>
 
 </FrameLayout>

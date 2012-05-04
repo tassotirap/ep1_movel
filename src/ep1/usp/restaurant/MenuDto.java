@@ -2,7 +2,7 @@ package ep1.usp.restaurant;
 
 import java.util.List;
 
-public class MenuInfo
+public class MenuDto
 {
 	private int restaurantId;
 	private List<String> itens;

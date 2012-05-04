@@ -7,7 +7,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="8"/>
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="8" />
 
     <application
         android:icon="@drawable/icon_localiza"
@@ -25,27 +28,15 @@
 
         <uses-library android:name="com.google.android.maps" />
 
-        <activity
-            android:name="ep1.usp.maps.Maps"
-            android:label="@string/lbl_maps" >
+        <activity android:name="ep1.usp.maps.Maps" >
         </activity>
-        <activity
-            android:name="ep1.usp.restaurant.Restaurant"
-            android:label="@string/btn_retaurant" >
+        <activity android:name="ep1.usp.restaurant.Restaurant" >
         </activity>
-        <activity
-            android:name="ep1.usp.gate.Gate"
-            android:label="@string/lbl_gate" >
+        <activity android:name="ep1.usp.gate.Gate" >
         </activity>
-        
-        <activity
-            android:name="ep1.usp.restaurant.RestaurantMenu"
-            android:label="@string/lbl_gate" >
+        <activity android:name="ep1.usp.restaurant.RestaurantMenu" >
         </activity>
-        
-        <activity
-            android:name="ep1.usp.preference.MyPreference"
-            android:label="@string/lbl_gate" >
+        <activity android:name="ep1.usp.preference.MyPreference" >
         </activity>
     </application>
 

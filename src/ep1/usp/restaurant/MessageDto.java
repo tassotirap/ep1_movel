@@ -2,7 +2,7 @@ package ep1.usp.restaurant;
 
 import java.util.Date;
 
-public class MessageInfo
+public class MessageDto
 {
 	private int restaurantId;
 	
@@ -12,7 +12,7 @@ public class MessageInfo
 
 	private int status = 0;
 
-	public MessageInfo(int restaurantId, String message, Date date, int status)
+	public MessageDto(int restaurantId, String message, Date date, int status)
 	{
 		this.restaurantId = restaurantId;
 		this.message = message;
@@ -20,7 +20,7 @@ public class MessageInfo
 		this.status = status;
 	}
 
-	public MessageInfo()
+	public MessageDto()
 	{
 	}
 

@@ -1,6 +1,6 @@
 package ep1.usp.gate;
 
-public class GateInfo
+public class GateDto
 {
 	private int id;
 	private String name;
@@ -8,7 +8,7 @@ public class GateInfo
 	private int latitude;
 	private int longitude;
 
-	public GateInfo(int id, String name, int status, int latitude, int longitude)
+	public GateDto(int id, String name, int status, int latitude, int longitude)
 	{
 		this.id = id;
 		this.name = name;
@@ -17,7 +17,7 @@ public class GateInfo
 		this.longitude = longitude;
 	}
 
-	public GateInfo()
+	public GateDto()
 	{
 
 	}

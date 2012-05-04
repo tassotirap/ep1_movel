@@ -63,11 +63,11 @@ public class MyOverlays
 		{
 			Drawable drawable = mActivity.getResources().getDrawable(R.drawable.busstop);
 			busStopOverlays = new OverlayIcon(drawable, mActivity, 11, 22, true);
-			String title = mActivity.getString(R.string.map_settingsBusStop);
+			String title = mActivity.getString(R.string.map_lblBusStop);
 
-			ArrayList<OverlayInfo> lstOverlay = getOverlayDao().getByType(MapSettingsDao.BUS_STOP);
+			ArrayList<OverlayDto> lstOverlay = getOverlayDao().getByType(MapSettingsDao.BUS_STOP);
 
-			for (OverlayInfo info : lstOverlay)
+			for (OverlayDto info : lstOverlay)
 			{
 				GeoPoint point = new GeoPoint(info.getLatitude(), info.getLongitude());
 				OverlayItem overlayitem = new OverlayItem(point, title, info.getName());
@@ -89,11 +89,11 @@ public class MyOverlays
 		{
 			Drawable drawable = mActivity.getResources().getDrawable(R.drawable.university);
 			universityOverlays = new OverlayIcon(drawable, mActivity, 11, 22, true);
-			String title = mActivity.getString(R.string.map_settingsUniversity);
+			String title = mActivity.getString(R.string.map_lblUniversity);
 
-			ArrayList<OverlayInfo> lstOverlay = getOverlayDao().getByType(MapSettingsDao.UNIVERSITY);
+			ArrayList<OverlayDto> lstOverlay = getOverlayDao().getByType(MapSettingsDao.UNIVERSITY);
 
-			for (OverlayInfo info : lstOverlay)
+			for (OverlayDto info : lstOverlay)
 			{
 				GeoPoint point = new GeoPoint(info.getLatitude(), info.getLongitude());
 				OverlayItem overlayitem = new OverlayItem(point, title, info.getName());
@@ -115,10 +115,10 @@ public class MyOverlays
 		{
 			Drawable drawable = mActivity.getResources().getDrawable(R.drawable.restaurant);
 			restaurantOverlays = new OverlayIcon(drawable, mActivity, 11, 22, true);
-			String title = mActivity.getString(R.string.map_settingsRestaurant);
+			String title = mActivity.getString(R.string.map_lblRestaurant);
 
-			ArrayList<OverlayInfo> lstOverlay = getOverlayDao().getByType(MapSettingsDao.RESTAURANT);
-			for (OverlayInfo info : lstOverlay)
+			ArrayList<OverlayDto> lstOverlay = getOverlayDao().getByType(MapSettingsDao.RESTAURANT);
+			for (OverlayDto info : lstOverlay)
 			{
 				GeoPoint point = new GeoPoint(info.getLatitude(), info.getLongitude());
 				OverlayItem overlayitem = new OverlayItem(point, title, info.getName());

@@ -24,42 +24,17 @@ public class OverlayIcon extends ItemizedOverlay<OverlayItem>
 	public OverlayIcon(Drawable defaultMarker, Context context, int width, int height, Boolean center)
 	{
 		super(boundCenterBottom(defaultMarker));
-		if(center)
-			defaultMarker.setBounds(-width,-height, width, height);
+		if (center)
+			defaultMarker.setBounds(-width, -height, width, height);
 		else
-			defaultMarker.setBounds(0,0, width,height);			
+			defaultMarker.setBounds(0, 0, width, height);
 		mContext = context;
-	}
-	
-	@Override
-	public void draw( Canvas c, MapView m, boolean shadow ) {
-		super.draw( c, m, false );
-		
-		
 	}
 
 	@Override
 	protected OverlayItem createItem(int i)
 	{
 		return mOverlays.get(i);
-	}
-
-	@Override
-	public int size()
-	{
-		return mOverlays.size();
-	}
-
-	public void addOverlay(OverlayItem overlay)
-	{
-		mOverlays.add(overlay);
-		populate();
-	}
-	
-	public void clear()
-	{
-		mOverlays.clear();
-		populate();
 	}
 
 	@Override
@@ -71,5 +46,30 @@ public class OverlayIcon extends ItemizedOverlay<OverlayItem>
 		dialog.setMessage(item.getSnippet());
 		dialog.show();
 		return true;
+	}
+
+	public void addOverlay(OverlayItem overlay)
+	{
+		mOverlays.add(overlay);
+		populate();
+	}
+
+	public void clear()
+	{
+		mOverlays.clear();
+		populate();
+	}
+
+	@Override
+	public void draw(Canvas c, MapView m, boolean shadow)
+	{
+		super.draw(c, m, false);
+
+	}
+
+	@Override
+	public int size()
+	{
+		return mOverlays.size();
 	}
 }

@@ -1,6 +1,6 @@
 package ep1.usp.restaurant;
 
-public class RestaurantInfo
+public class RestaurantDto
 {
 	private int id;
 	private String name;
@@ -8,12 +8,12 @@ public class RestaurantInfo
 	private String url;
 	private String clearUrl;
 
-	public RestaurantInfo()
+	public RestaurantDto()
 	{
 
 	}
 
-	public RestaurantInfo(int id, String name, int status)
+	public RestaurantDto(int id, String name, int status)
 	{
 		this.id = id;
 		this.name = name;

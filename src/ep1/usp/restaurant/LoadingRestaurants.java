@@ -27,7 +27,7 @@ public class LoadingRestaurants
 				{
 
 					ParseJSON parseJSON = new ParseJSON();
-					ArrayList<RestaurantInfo> lstRestaurantInfo = parseJSON.getRestaurantInfo();
+					ArrayList<RestaurantDto> lstRestaurantInfo = parseJSON.getRestaurantInfo();
 
 					if (lstRestaurantInfo.size() > 0)
 					{

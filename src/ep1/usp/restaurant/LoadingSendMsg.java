@@ -11,7 +11,7 @@ public class LoadingSendMsg
 	private int restaurantId;
 	private String comment;
 	private int statusId;
-	
+
 	public LoadingSendMsg(Restaurant mActivity, int restaurantId, String comment, int statusId)
 	{
 		this.mActivity = mActivity;
@@ -46,5 +46,5 @@ public class LoadingSendMsg
 		Thread t = new Thread(runnable);
 		t.start();
 	}
-	
+
 }

@@ -50,13 +50,13 @@ public class Gate extends Activity implements LocationListener
 			switch (msg.what)
 			{
 				case 0:
-					showDialog("Erro", "Erro ao conectar com o Servidor");
+					showDialog(getString(R.string.msgErrorTitle), getString(R.string.msgErrorMsg));
 					break;
 				case 1:
 					refreshGates();
 					break;
 				case 2:
-					showDialog("Sucesso", "Local enviado com sucesso!");
+					showDialog(getString(R.string.msgSucess), getString(R.string.msgLocalSend));
 					break;
 				default:
 					break;
@@ -66,11 +66,6 @@ public class Gate extends Activity implements LocationListener
 	};
 
 	private void bindListeners()
-	{
-
-	}
-
-	private void setElements()
 	{
 		getBtnRefresh().setOnClickListener(new OnClickListener()
 		{
@@ -91,7 +86,35 @@ public class Gate extends Activity implements LocationListener
 				sendPost();
 			}
 		});
+	}
 
+	private void loadGates()
+	{
+		LoadingGetGate loadingGetGates = new LoadingGetGate(this);
+		loadingGetGates.Show();
+	}
+
+	private void refreshDistance(Location location)
+	{
+		ArrayList<GateDto> gates = getGatesDao().getAll();
+		if (gates.size() > 0)
+		{
+			dist1 = refreshDistanceGate(location, gates.get(0));
+			dist2 = refreshDistanceGate(location, gates.get(1));
+			dist3 = refreshDistanceGate(location, gates.get(2));
+
+			writeDistance(getTxtDistance1(), dist1);
+			writeDistance(getTxtDistance2(), dist2);
+			writeDistance(getTxtDistance3(), dist3);
+		}
+	}
+
+	private double refreshDistanceGate(Location location, GateDto gate)
+	{
+		Location locationGate1 = new Location("reverseGeocoded");
+		locationGate1.setLatitude(gate.getLatitude() / 1e6);
+		locationGate1.setLongitude(gate.getLongitude() / 1e6);
+		return location.distanceTo(locationGate1);
 	}
 
 	private void sendPost()
@@ -123,10 +146,54 @@ public class Gate extends Activity implements LocationListener
 		}
 	}
 
-	private void loadGates()
+	private void startListening()
 	{
-		LoadingGetGate loadingGetGates = new LoadingGetGate(this);
-		loadingGetGates.Show();
+		myManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+	}
+
+	private void stopListening()
+	{
+		if (myManager != null)
+			myManager.removeUpdates(this);
+	}
+
+	private void writeDistance(TextView text, double dist)
+	{
+		DecimalFormat df = new DecimalFormat("#,##0.00");
+		String sDist;
+		if (dist > 10000)
+			sDist = df.format(dist / 1000) + "km";
+		else if (dist > 1)
+			sDist = df.format(dist) + "m";
+		else
+			sDist = df.format(dist * 100) + "cm";
+
+		sDist = sDist.replace('.', '#');
+		sDist = sDist.replace(',', '.');
+		sDist = sDist.replace('#', ',');
+		text.setText(sDist);
+
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		stopListening();
+		super.onDestroy();
+	}
+
+	@Override
+	protected void onPause()
+	{
+		stopListening();
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume()
+	{
+		startListening();
+		super.onResume();
 	}
 
 	public Button getBtnRefresh()
@@ -153,7 +220,7 @@ public class Gate extends Activity implements LocationListener
 	public ImageView getImg1()
 	{
 		if (img1 == null)
-			img1 = (ImageView) findViewById(R.id.gates_img1);
+			img1 = (ImageView) findViewById(R.id.gate_imgGate1);
 		return img1;
 	}
 
@@ -161,32 +228,75 @@ public class Gate extends Activity implements LocationListener
 	{
 
 		if (img2 == null)
-			img2 = (ImageView) findViewById(R.id.gates_img2);
+			img2 = (ImageView) findViewById(R.id.gate_imgGate2);
 		return img2;
 	}
 
 	public ImageView getImg3()
 	{
 		if (img3 == null)
-			img3 = (ImageView) findViewById(R.id.gates_img3);
+			img3 = (ImageView) findViewById(R.id.gate_imgGate3);
 		return img3;
+	}
+
+	public TextView getTxtDistance1()
+	{
+		if (txtDistance1 == null)
+			txtDistance1 = (TextView) findViewById(R.id.gate_txtDistance1);
+		return txtDistance1;
+	}
+
+	public TextView getTxtDistance2()
+	{
+		if (txtDistance2 == null)
+			txtDistance2 = (TextView) findViewById(R.id.gate_txtDistance2);
+		return txtDistance2;
+	}
+
+	public TextView getTxtDistance3()
+	{
+		if (txtDistance3 == null)
+			txtDistance3 = (TextView) findViewById(R.id.gate_txtDistance3);
+		return txtDistance3;
 	}
 
 	public void onCreate(Bundle savedInstanceState)
 	{
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gate);
-
 		myManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-		setElements();
 		bindListeners();
 		refreshGates();
 	}
 
+	@Override
+	public void onLocationChanged(Location location)
+	{
+		latitude = (int) (location.getLatitude() * 1e6);
+		longitude = (int) (location.getLongitude() * 1e6);
+		refreshDistance(location);
+	}
+
+	@Override
+	public void onProviderDisabled(String arg0)
+	{
+		latitude = 0;
+		longitude = 0;
+	}
+
+	@Override
+	public void onProviderEnabled(String arg0)
+	{
+	}
+
+	@Override
+	public void onStatusChanged(String arg0, int arg1, Bundle arg2)
+	{
+	}
+
 	public void refreshGates()
 	{
-		ArrayList<GateInfo> gates = getGatesDao().getAll();
+		ArrayList<GateDto> gates = getGatesDao().getAll();
 		if (gates.size() > 0)
 		{
 			refreshImage(getImg1(), gates.get(0).getStatus());
@@ -218,125 +328,6 @@ public class Gate extends Activity implements LocationListener
 
 	}
 
-	@Override
-	public void onLocationChanged(Location location)
-	{
-		latitude = (int) (location.getLatitude() * 1e6);
-		longitude = (int) (location.getLongitude() * 1e6);
-		refreshDistance(location);
-	}
-
-	private void refreshDistance(Location location)
-	{
-		ArrayList<GateInfo> gates = getGatesDao().getAll();
-		if (gates.size() > 0)
-		{
-			dist1 = refreshDistanceGate(location, gates.get(0));
-			dist2 = refreshDistanceGate(location, gates.get(1));
-			dist3 = refreshDistanceGate(location, gates.get(2));
-
-			writeDistance(getTxtDistance1(), dist1);
-			writeDistance(getTxtDistance2(), dist2);
-			writeDistance(getTxtDistance3(), dist3);
-		}
-	}
-
-	private void writeDistance(TextView text, double dist)
-	{
-		DecimalFormat df = new DecimalFormat("#,##0.00");
-		String sDist;
-		if (dist > 10000)
-			sDist = df.format(dist / 1000) + "km";
-		else if (dist > 1)
-			sDist = df.format(dist) + "m";
-		else
-			sDist = df.format(dist * 100) + "cm";
-
-		sDist = sDist.replace('.', '#');
-		sDist = sDist.replace(',', '.');
-		sDist = sDist.replace('#', ',');
-		text.setText(sDist);
-
-	}
-
-	private double refreshDistanceGate(Location location, GateInfo gate)
-	{
-		Location locationGate1 = new Location("reverseGeocoded");
-		locationGate1.setLatitude(gate.getLatitude() / 1e6);
-		locationGate1.setLongitude(gate.getLongitude() / 1e6);
-		return location.distanceTo(locationGate1);
-	}
-
-	@Override
-	public void onProviderDisabled(String arg0)
-	{
-		latitude = 0;
-		longitude = 0;
-	}
-
-	@Override
-	public void onProviderEnabled(String arg0)
-	{
-	}
-
-	@Override
-	public void onStatusChanged(String arg0, int arg1, Bundle arg2)
-	{
-	}
-
-	private void startListening()
-	{
-		myManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-	}
-
-	private void stopListening()
-	{
-		if (myManager != null)
-			myManager.removeUpdates(this);
-	}
-
-	@Override
-	protected void onDestroy()
-	{
-		stopListening();
-		super.onDestroy();
-	}
-
-	@Override
-	protected void onPause()
-	{
-		stopListening();
-		super.onPause();
-	}
-
-	@Override
-	protected void onResume()
-	{
-		startListening();
-		super.onResume();
-	}
-
-	public TextView getTxtDistance1()
-	{
-		if (txtDistance1 == null)
-			txtDistance1 = (TextView) findViewById(R.id.gate_txtDistance1);
-		return txtDistance1;
-	}
-
-	public TextView getTxtDistance2()
-	{
-		if (txtDistance2 == null)
-			txtDistance2 = (TextView) findViewById(R.id.gate_txtDistance2);
-		return txtDistance2;
-	}
-
-	public TextView getTxtDistance3()
-	{
-		if (txtDistance3 == null)
-			txtDistance3 = (TextView) findViewById(R.id.gate_txtDistance3);
-		return txtDistance3;
-	}
-	
 	public void showDialog(String title, String message)
 	{
 		Builder alert = new AlertDialog.Builder(this);

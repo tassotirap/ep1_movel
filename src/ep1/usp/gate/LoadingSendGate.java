@@ -10,7 +10,7 @@ public class LoadingSendGate
 	private Gate mActivity;
 	private double dist;
 	private int gateId;
-	
+
 	public LoadingSendGate(Gate mActivity, int gateId, double dist)
 	{
 		this.mActivity = mActivity;

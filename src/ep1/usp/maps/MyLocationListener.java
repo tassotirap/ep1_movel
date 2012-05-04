@@ -25,11 +25,14 @@ public class MyLocationListener extends MyLocationOverlay
 		setOverlay();
 	}
 
-	public void setOverlay()
+	public int getLatitude()
 	{
-		List<Overlay> mapOverlays = mapView.getOverlays();
-		mapOverlays.add(this);
-		mapView.postInvalidate();
+		return (int) (latitude * 1e6);
+	}
+
+	public int getLongitude()
+	{
+		return (int) (longitude * 1e6);
 	}
 
 	@Override
@@ -48,14 +51,11 @@ public class MyLocationListener extends MyLocationOverlay
 		this.longitude = 0;
 	}
 
-	public int getLatitude()
+	public void setOverlay()
 	{
-		return (int) (latitude * 1e6);
-	}
-
-	public int getLongitude()
-	{
-		return (int) (longitude * 1e6);
+		List<Overlay> mapOverlays = mapView.getOverlays();
+		mapOverlays.add(this);
+		mapView.postInvalidate();
 	}
 
 }

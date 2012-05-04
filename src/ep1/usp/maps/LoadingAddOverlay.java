@@ -13,14 +13,14 @@ public class LoadingAddOverlay
 	private String name;
 	private int type;
 	private MapsAddOverlay dialog;
-	
+
 	public LoadingAddOverlay(Maps mActivity, int latitude, int longitude, String name, int type, MapsAddOverlay dialog)
 	{
 		this.dialog = dialog;
 		this.name = name;
 		this.type = type;
 		this.latitude = latitude;
-		this.longitude = longitude;				
+		this.longitude = longitude;
 		this.mActivity = mActivity;
 	}
 
@@ -37,7 +37,7 @@ public class LoadingAddOverlay
 					parseJSON.setOverlay(latitude, longitude, name, type);
 					dialog.handler.sendEmptyMessage(0);
 					mActivity.handler.sendEmptyMessage(1);
-					
+
 				}
 				catch (Exception e)
 				{
@@ -54,7 +54,5 @@ public class LoadingAddOverlay
 		Thread t = new Thread(runnable);
 		t.start();
 	}
-	
-	
 
 }

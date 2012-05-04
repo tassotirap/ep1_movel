@@ -1,17 +1,17 @@
 package ep1.usp.maps;
+
 import java.util.ArrayList;
 
 import android.app.ProgressDialog;
 import ep1.usp.R;
 import ep1.usp.access.JSON.ParseJSON;
-import ep1.usp.maps.Overlay.OverlayInfo;
-
+import ep1.usp.maps.Overlay.OverlayDto;
 
 public class LoadingOverlays
 {
 	private ProgressDialog progressDialog;
 	private Maps mActivity;
-	
+
 	public LoadingOverlays(Maps mActivity)
 	{
 		this.mActivity = mActivity;
@@ -27,7 +27,7 @@ public class LoadingOverlays
 				try
 				{
 					ParseJSON parseJSON = new ParseJSON();
-					ArrayList<OverlayInfo> lstOverlayInfo = parseJSON.getOverlayInfo();
+					ArrayList<OverlayDto> lstOverlayInfo = parseJSON.getOverlayInfo();
 
 					if (lstOverlayInfo.size() > 0)
 					{
@@ -58,5 +58,5 @@ public class LoadingOverlays
 		Thread t = new Thread(runnable);
 		t.start();
 	}
-	
+
 }

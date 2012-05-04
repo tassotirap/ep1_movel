@@ -8,9 +8,8 @@
         android:id="@+id/horizontalScrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" 
-        android:background="#DDDDDD"
-        >
+        android:layout_gravity="center_horizontal"
+        android:background="#DDDDDD" >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -38,40 +37,40 @@
                 style="@android:style/Widget.Button.Inset"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/busstop_enable"
-                android:contentDescription="@string/map_settingsBusStop" />
+                android:contentDescription="@string/lblImage"
+                android:src="@drawable/busstop_enable" />
 
             <ImageButton
                 android:id="@+id/map_btnRestaurant"
                 style="@android:style/Widget.Button.Inset"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/restaurant_enable"
-                android:contentDescription="@string/map_settingsRestaurant" />
+                android:contentDescription="@string/lblImage"
+                android:src="@drawable/restaurant_enable" />
 
             <ImageButton
                 android:id="@+id/map_btnUniversity"
                 style="@android:style/Widget.Button.Inset"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/university_enable"
-                android:contentDescription="@string/map_settingsUniversity" />
+                android:contentDescription="@string/lblImage"
+                android:src="@drawable/university_enable" />
 
             <ImageButton
                 android:id="@+id/map_btnUSPCenter"
                 style="@android:style/Widget.Button.Inset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/home"
-                android:contentDescription="@string/map_settingsUSPCenter" />
+                android:contentDescription="@string/lblImage"
+                android:src="@drawable/home" />
 
             <ImageButton
                 android:id="@+id/map_btnMyLocation"
                 style="@android:style/Widget.Button.Inset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/location"
-                android:contentDescription="@string/map_settingsMyLocation" />
+                android:contentDescription="@string/lblImage"
+                android:src="@drawable/location" />
 
             <ImageButton
                 android:id="@+id/map_btnRefresh"
@@ -79,17 +78,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:src="@drawable/refresh"
-                android:contentDescription="@string/map_settingsRefresh" />
+                android:contentDescription="@string/lblImage"
+                android:src="@drawable/refresh" />
 
             <ImageButton
                 android:id="@+id/map_btnAddOverlay"
                 style="@android:style/Widget.Button.Inset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/map_settingsAddOVerlay"
+                android:contentDescription="@string/lblImage"
                 android:src="@drawable/add" />
-
         </LinearLayout>
     </HorizontalScrollView>
 

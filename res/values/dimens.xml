@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin">10dp</dimen>
-    <dimen name="margin_all">5dp</dimen>
-    <dimen name="margin_logo">25dp</dimen>
-    <dimen name="margin_1">1dp</dimen>
+    <dimen name="margin10dp">10dp</dimen>
+    <dimen name="margin5dp">5dp</dimen>
+    <dimen name="margin25dp">25dp</dimen>
+    <dimen name="margin1dp">1dp</dimen>
 </resources>

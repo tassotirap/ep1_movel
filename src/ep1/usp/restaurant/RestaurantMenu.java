@@ -12,6 +12,23 @@ public class RestaurantMenu extends Activity
 	private int restaurantId;
 	private RestaurantsDao restaurantsDao = null;
 
+	private void loadWeb(int id)
+	{
+		RestaurantDto restaurant = getRestaurantsDao().get(id);
+		if (restaurant != null)
+		{
+			myWebView.setWebViewClient(new MyWeb(restaurant.getClearUrl()));
+			myWebView.loadUrl(restaurant.getUrl());
+		}
+	}
+
+	public RestaurantsDao getRestaurantsDao()
+	{
+		if (restaurantsDao == null)
+			restaurantsDao = new RestaurantsDao(getApplicationContext());
+		return restaurantsDao;
+	}
+
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -27,24 +44,6 @@ public class RestaurantMenu extends Activity
 		myWebView.getSettings().setUseWideViewPort(true);
 
 		loadWeb(restaurantId);
-	}
-
-	private void loadWeb(int id)
-	{
-		RestaurantInfo restaurant = getRestaurantsDao().get(id);
-		if (restaurant != null)
-		{
-			myWebView.setWebViewClient(new MyWeb(restaurant.getClearUrl()));
-			myWebView.loadUrl(restaurant.getUrl());
-		}
-
-	}
-
-	public RestaurantsDao getRestaurantsDao()
-	{
-		if (restaurantsDao == null)
-			restaurantsDao = new RestaurantsDao(getApplicationContext());
-		return restaurantsDao;
 	}
 
 }

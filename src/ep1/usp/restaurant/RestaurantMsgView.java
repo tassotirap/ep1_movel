@@ -11,31 +11,18 @@ public class RestaurantMsgView
 
 	private Context context;
 
-	public RestaurantMsgView(Context context)
-	{
-		this.context = context;
-
-	}
-
 	private View view;
-
-	public View getView()
-	{
-		if (view == null)
-			view = View.inflate(context, R.layout.restaurant_msg, null);
-		return view;
-	}
 
 	private TextView date = null;
 
-	public TextView getDate()
-	{
-		if (date == null)
-			date = (TextView) getView().findViewById(R.id.restaurant_txtDate);
-		return date;
-	}
-
 	private TextView comment = null;
+
+	private ImageView status = null;
+
+	public RestaurantMsgView(Context context)
+	{
+		this.context = context;
+	}
 
 	public TextView getComment()
 	{
@@ -44,12 +31,24 @@ public class RestaurantMsgView
 		return comment;
 	}
 
-	private ImageView status = null;
+	public TextView getDate()
+	{
+		if (date == null)
+			date = (TextView) getView().findViewById(R.id.restaurant_txtDate);
+		return date;
+	}
 
 	public ImageView getStatus()
 	{
 		if (status == null)
 			status = (ImageView) getView().findViewById(R.id.restaurant_imgStatus);
 		return status;
+	}
+
+	public View getView()
+	{
+		if (view == null)
+			view = View.inflate(context, R.layout.restaurant_msg, null);
+		return view;
 	}
 }

@@ -6,22 +6,21 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import ep1.usp.lib.DateAndTime;
-import ep1.usp.restaurant.MessageInfo;
+import ep1.usp.restaurant.MessageDto;
 
-public class RestaurantCommentDao extends BaseDao<MessageInfo>
+public class RestaurantCommentDao extends BaseDao<MessageDto>
 {
-
 	public RestaurantCommentDao(Context ctx)
 	{
 		super(ctx);
 		TABLE_NAME = "RESTAURANT_COMMENTS";
-		COLUMNS = new String[] { "idRestaurant", "comment", "date", "status"};
+		COLUMNS = new String[] { "idRestaurant", "comment", "date", "status" };
 	}
 
 	@Override
-	public ArrayList<MessageInfo> getAll()
+	public ArrayList<MessageDto> getAll()
 	{
-		ArrayList<MessageInfo> msg = new ArrayList<MessageInfo>();
+		ArrayList<MessageDto> msg = new ArrayList<MessageDto>();
 
 		Cursor c = getWritableDatabase().query(TABLE_NAME, COLUMNS, null, null, null, null, null);
 
@@ -29,9 +28,10 @@ public class RestaurantCommentDao extends BaseDao<MessageInfo>
 		{
 			try
 			{
-			msg.add(new MessageInfo(c.getInt(0), c.getString(1), DateAndTime.ParseToDate(c.getString(2)), c.getInt(3)));
+				msg.add(new MessageDto(c.getInt(0), c.getString(1), DateAndTime.ParseToDate(c.getString(2)), c.getInt(3)));
 			}
-			catch (Exception e) {
+			catch (Exception e)
+			{
 				e.printStackTrace();
 			}
 		}
@@ -42,32 +42,22 @@ public class RestaurantCommentDao extends BaseDao<MessageInfo>
 	}
 
 	@Override
-	public void setList(ArrayList<MessageInfo> object)
+	public void set(MessageDto msg)
 	{
-		for (MessageInfo msg : object)
+		try
 		{
-			try
-			{
-				ContentValues contentValues = new ContentValues();
-				contentValues.put(COLUMNS[0], msg.getRestaurantId());
-				contentValues.put(COLUMNS[1], msg.getMessage());
-				contentValues.put(COLUMNS[2], DateAndTime.ParseToString(msg.getDate()));
-				contentValues.put(COLUMNS[3], msg.getStaus());
-				getWritableDatabase().insertOrThrow(TABLE_NAME, null, contentValues);
-			}
-			catch (Exception e)
-			{
-				e.getMessage();
-			}
+			ContentValues contentValues = new ContentValues();
+			contentValues.put(COLUMNS[0], msg.getRestaurantId());
+			contentValues.put(COLUMNS[1], msg.getMessage());
+			contentValues.put(COLUMNS[2], DateAndTime.ParseToString(msg.getDate()));
+			contentValues.put(COLUMNS[3], msg.getStaus());
+			getWritableDatabase().insertOrThrow(TABLE_NAME, null, contentValues);
 		}
-		
-	}
+		catch (Exception e)
+		{
+			e.getMessage();
+		}
 
-	@Override
-	public void set(MessageInfo object)
-	{
-		// TODO Auto-generated method stub
-		
 	}
 
 }

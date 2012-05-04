@@ -3,7 +3,7 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_geral"
+    android:background="@color/ligth_blue"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -16,13 +16,13 @@
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/msg1"
-            android:contentDescription="@string/lbl_menu" />
+            android:contentDescription="@string/lblMenu" />
 
         <Spinner
             android:id="@+id/restaurant_ids"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:prompt="@string/restaurants_lblRestaurantInit" />
+            android:prompt="@string/restaurant_lblRestaurantInit" />
     </LinearLayout>
 
     <LinearLayout
@@ -35,14 +35,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:contentDescription="@string/lbl_menu"
+            android:contentDescription="@string/lblMenu"
             android:src="@drawable/add" />
 
         <Button
             android:id="@+id/restaurant_btnMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lbl_menu" />
+            android:text="@string/lblMenu" />
 
         <Button
             android:id="@+id/restaurant_BtnRefresh"

@@ -2,65 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@color/background_geral"
-    android:orientation="vertical" >
-    
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="@dimen/margin"
+    android:background="@color/ligth_blue"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/map_addOverlayName"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/gray" />
-
-    <EditText
-        android:id="@+id/map_add_overlay_txt_name"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:ems="10"
-        android:inputType="text"
-        android:maxLength="100" >
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin10dp"
+        android:orientation="vertical" >
 
-        <requestFocus />
-    </EditText>
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/map_addOverlayName"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/gray" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/map_add_overlay_txt_name"
-        android:text="@string/map_addOverlayTypes"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/gray" />
+        <EditText
+            android:id="@+id/map_add_overlay_txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:ems="10"
+            android:inputType="text"
+            android:maxLength="100" >
 
-    <Spinner
-        android:id="@+id/map_add_overlay_ddlType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2" />
+            <requestFocus />
+        </EditText>
 
-    <Button
-        android:id="@+id/map_add_overlay_btnSave"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/map_add_overlay_ddlType"
-        android:text="@string/lblSave" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/map_add_overlay_txt_name"
+            android:text="@string/map_addOverlayTypes"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/gray" />
 
-    
+        <Spinner
+            android:id="@+id/map_add_overlay_ddlType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView2" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/map_add_overlay_btnSave"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/map_add_overlay_ddlType"
+            android:text="@string/lblSave" />
+    </RelativeLayout>
+
 </LinearLayout>

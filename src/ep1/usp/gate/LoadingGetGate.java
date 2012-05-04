@@ -30,10 +30,9 @@ public class LoadingGetGate
 					SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity.getBaseContext());
 					String minutosGate = prefs.getString("lstGateMin", "5");
 					ParseJSON parseJSON = new ParseJSON();
-					ArrayList<GateInfo> gates = parseJSON.getGates(minutosGate);
+					ArrayList<GateDto> gates = parseJSON.getGates(minutosGate);
 					mActivity.getGatesDao().setList(gates);
-					mActivity.handler.sendEmptyMessage(1);
-					
+					mActivity.handler.sendEmptyMessage(1);		
 				}
 				catch (Exception e)
 				{

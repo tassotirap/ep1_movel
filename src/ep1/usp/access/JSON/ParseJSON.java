@@ -7,20 +7,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import ep1.usp.gate.GateInfo;
+import ep1.usp.gate.GateDto;
 import ep1.usp.lib.DateAndTime;
-import ep1.usp.maps.Overlay.OverlayInfo;
-import ep1.usp.restaurant.MessageInfo;
-import ep1.usp.restaurant.RestaurantInfo;
+import ep1.usp.maps.Overlay.OverlayDto;
+import ep1.usp.restaurant.MessageDto;
+import ep1.usp.restaurant.RestaurantDto;
 
 public class ParseJSON
 {
-
 	private String URL = "http://www.tassotirapani.com.br/ep1/Ep1Service.svc/";
 
-	public ArrayList<GateInfo> getGates(String min)
+	public ArrayList<GateDto> getGates(String min)
 	{
-		ArrayList<GateInfo> gates = new ArrayList<GateInfo>();
+		ArrayList<GateDto> gates = new ArrayList<GateDto>();
 
 		try
 		{
@@ -32,7 +31,7 @@ public class ParseJSON
 				for (int i = 0; i < message.length(); i++)
 				{
 					JSONObject lines = (JSONObject) new JSONTokener(message.getString(i)).nextValue();
-					GateInfo gate = new GateInfo();
+					GateDto gate = new GateDto();
 					gate.setId(lines.getInt("Id"));
 					gate.setName(lines.getString("Name"));
 					gate.setStatus(lines.getInt("Status"));
@@ -49,10 +48,10 @@ public class ParseJSON
 		}
 	}
 
-	public ArrayList<OverlayInfo> getOverlayInfo()
+	public ArrayList<OverlayDto> getOverlayInfo()
 	{
 
-		ArrayList<OverlayInfo> overlayInfos = new ArrayList<OverlayInfo>();
+		ArrayList<OverlayDto> overlayInfos = new ArrayList<OverlayDto>();
 
 		try
 		{
@@ -65,7 +64,7 @@ public class ParseJSON
 				for (int i = 0; i < message.length(); i++)
 				{
 					JSONObject lines = (JSONObject) new JSONTokener(message.getString(i)).nextValue();
-					OverlayInfo overlayInfo = new OverlayInfo();
+					OverlayDto overlayInfo = new OverlayDto();
 					overlayInfo.setType(lines.getInt("Type"));
 					overlayInfo.setLatitude(lines.getInt("Latitude"));
 					overlayInfo.setLongitude(lines.getInt("Longitude"));
@@ -81,9 +80,9 @@ public class ParseJSON
 
 	}
 
-	public RestaurantInfo getRestaurant(int restaurantId, String min)
+	public RestaurantDto getRestaurant(int restaurantId, String min)
 	{
-		RestaurantInfo restaurantInfo = new RestaurantInfo();
+		RestaurantDto restaurantInfo = new RestaurantDto();
 		try
 		{
 			GetHttp httpGet = new GetHttp(URL + "GetRestaurant?restaurantId=" + restaurantId + "&min=" + min);
@@ -106,9 +105,9 @@ public class ParseJSON
 		}
 	}
 
-	public ArrayList<MessageInfo> getRestaurantComment(int restaurantId, String qtde)
+	public ArrayList<MessageDto> getRestaurantComment(int restaurantId, String qtde)
 	{
-		ArrayList<MessageInfo> messageInfos = new ArrayList<MessageInfo>();
+		ArrayList<MessageDto> messageInfos = new ArrayList<MessageDto>();
 		try
 		{
 			GetHttp httpGet = new GetHttp(URL + "GetRestaurantComment?restaurantId=" + restaurantId + "&qtde=" + qtde);
@@ -119,7 +118,7 @@ public class ParseJSON
 				for (int i = 0; i < message.length(); i++)
 				{
 					JSONObject lines = (JSONObject) new JSONTokener(message.getString(i)).nextValue();
-					MessageInfo messageInfo = new MessageInfo();
+					MessageDto messageInfo = new MessageDto();
 					messageInfo.setRestaurantId(lines.getInt("RestaurantId"));
 					messageInfo.setMessage(lines.getString("Comment"));
 					messageInfo.setDate(DateAndTime.ParseToDate(lines.getString("Date")));
@@ -136,9 +135,9 @@ public class ParseJSON
 		}
 	}
 
-	public ArrayList<RestaurantInfo> getRestaurantInfo()
+	public ArrayList<RestaurantDto> getRestaurantInfo()
 	{
-		ArrayList<RestaurantInfo> restaurantInfos = new ArrayList<RestaurantInfo>();
+		ArrayList<RestaurantDto> restaurantInfos = new ArrayList<RestaurantDto>();
 
 		try
 		{
@@ -151,7 +150,7 @@ public class ParseJSON
 				for (int i = 0; i < message.length(); i++)
 				{
 					JSONObject lines = (JSONObject) new JSONTokener(message.getString(i)).nextValue();
-					RestaurantInfo restaurantInfo = new RestaurantInfo();
+					RestaurantDto restaurantInfo = new RestaurantDto();
 					restaurantInfo.setId(lines.getInt("Id"));
 					restaurantInfo.setName(lines.getString("Name"));
 					restaurantInfo.setStatus(lines.getInt("Status"));

@@ -24,12 +24,6 @@ public class MapsAddOverlay extends Dialog
 	private int latitude, longitude;
 	private Maps mActivity;
 
-	public MapsAddOverlay(Maps mActivity)
-	{
-		super(mActivity);
-		this.mActivity = mActivity;
-	}
-
 	public Handler handler = new Handler()
 	{
 		@Override
@@ -42,65 +36,10 @@ public class MapsAddOverlay extends Dialog
 		}
 	};
 
-	public void init(int latitude, int longitude)
+	public MapsAddOverlay(Maps mActivity)
 	{
-
-		this.latitude = latitude;
-		this.longitude = longitude;
-
-		loadBinds();
-		fillSpinner();
-
-	}
-
-	private void loadBinds()
-	{
-		btnSave = (Button) findViewById(R.id.map_add_overlay_btnSave);
-		txtName = (EditText) findViewById(R.id.map_add_overlay_txt_name);
-
-		btnSave.setOnClickListener(new View.OnClickListener()
-		{
-
-			@Override
-			public void onClick(View v)
-			{
-				addOverlay();
-			}
-		});
-
-		spnTypes = (Spinner) findViewById(R.id.map_add_overlay_ddlType);
-	}
-
-	private void fillSpinner()
-	{
-
-		mAdapterTypes = ArrayAdapter.createFromResource(getContext(), R.array.map_addOverlayTypes, android.R.layout.simple_spinner_item);
-
-		mAdapterTypes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-		spnTypes.setAdapter(mAdapterTypes);
-
-		spnTypes.setOnItemSelectedListener(new OnItemSelectedListener()
-		{
-
-			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3)
-			{
-				spinnerChanged();
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0)
-			{
-
-			}
-		});
-
-	}
-
-	private void spinnerChanged()
-	{
-		selectedType = spnTypes.getSelectedItemPosition() + 1;
+		super(mActivity);
+		this.mActivity = mActivity;
 	}
 
 	private void addOverlay()
@@ -131,5 +70,66 @@ public class MapsAddOverlay extends Dialog
 		catch (Exception e)
 		{
 		}
+	}
+
+	private void fillSpinner()
+	{
+
+		mAdapterTypes = ArrayAdapter.createFromResource(getContext(), R.array.map_addOverlayTypes, android.R.layout.simple_spinner_item);
+
+		mAdapterTypes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+		spnTypes.setAdapter(mAdapterTypes);
+
+		spnTypes.setOnItemSelectedListener(new OnItemSelectedListener()
+		{
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3)
+			{
+				spinnerChanged();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0)
+			{
+
+			}
+		});
+
+	}
+
+	private void loadBinds()
+	{
+		btnSave = (Button) findViewById(R.id.map_add_overlay_btnSave);
+		txtName = (EditText) findViewById(R.id.map_add_overlay_txt_name);
+
+		btnSave.setOnClickListener(new View.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				addOverlay();
+			}
+		});
+
+		spnTypes = (Spinner) findViewById(R.id.map_add_overlay_ddlType);
+	}
+
+	private void spinnerChanged()
+	{
+		selectedType = spnTypes.getSelectedItemPosition() + 1;
+	}
+
+	public void init(int latitude, int longitude)
+	{
+
+		this.latitude = latitude;
+		this.longitude = longitude;
+
+		loadBinds();
+		fillSpinner();
+
 	}
 }

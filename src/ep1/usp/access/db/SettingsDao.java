@@ -17,6 +17,12 @@ public class SettingsDao extends BaseDao<Object>
 		COLUMNS = new String[] { "usp_center_latitude", "usp_center_longitude" }; 
 	}
 
+	@Override
+	public ArrayList<Object> getAll()
+	{
+		return null;
+	}
+
 	public GeoPoint GetUspCenter()
 	{
 		GeoPoint geoPoint = null;
@@ -33,23 +39,8 @@ public class SettingsDao extends BaseDao<Object>
 	}
 
 	@Override
-	public ArrayList<Object> getAll()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setList(ArrayList<Object> object)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void set(Object object)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 }

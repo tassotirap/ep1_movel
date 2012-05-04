@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>  
-    <string-array name="restaurants_status">
+    <string-array name="restaurant_status">
         <item>Sem Fila</item>
         <item>Pequena</item>
         <item>Media</item>
         <item>Grande</item>
         <item>Muito Grande</item>
     </string-array> 
-    <string name="restaurants_lblRestaurantInit">Selecione um local</string>
-    <string name="restaurants_lblStatusInit">Selecione o tamanho da fila</string>
+    <string name="restaurant_lblRestaurantInit">Selecione um local</string>
+    <string name="restaurant_lblStatusInit">Selecione o tamanho da fila</string>
 </resources>

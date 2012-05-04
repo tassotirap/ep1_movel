@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Localiza Smart</string>
-    <string name="btn_map">Mapa da USP</string>
-    <string name="btn_retaurant">Bandejão</string>
-    <string name="btn_gate">Portão</string>
-    <string name="lbl_maps">Mapa da USP</string>
-    <string name="lbl_restaurant">Bandejão</string>
-    <string name="lbl_gate">Portões da USP</string>
-    <string name="lbl_settings">Configurar</string>
-    <string name="lbl_menu">Cardapio</string>
-    
+    <string name="lblMaps">Mapa da USP</string>
+    <string name="lblRestaurant">Bandejão</string>
+    <string name="lblGateFromUSP">Portões da USP</string>
+    <string name="lblMenu">Cardapio</string>
+    <string name="lblDistance">Distancia:</string>
+    <string name="lblNoGPS">Sem localizacao</string>
+    <string name="lblImage">Image</string>
+    <string name="lblGate1">Portao 1</string>
+    <string name="lblGate2">Portao 2</string>
+    <string name="lblGate3">Portao 3</string>
+    <string name="lblDate">Data:</string>
+    <string name="lblComment">Comentario:</string>
+
     <string-array name="arrayMins">
         <item>5 Minutos</item>
         <item>10 Minutos</item>
-        <item>20 Minutos</item>     
+        <item>20 Minutos</item>
     </string-array>
-    
     <string-array name="arrayQts">
         <item>5 Comentarios</item>
         <item>10 Comentarios</item>
-        <item>20 Comentarios</item>     
+        <item>20 Comentarios</item>
     </string-array>
     <string-array name="arrayValues">
-        <item >5</item>
-        <item >10</item>
-        <item >20</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
     </string-array>
-    
-   
+
 </resources>

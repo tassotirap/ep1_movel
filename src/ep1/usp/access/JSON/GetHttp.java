@@ -13,7 +13,6 @@ import org.apache.http.params.CoreProtocolPNames;
 
 public class GetHttp
 {
-
 	private String strResponse = null;
 
 	public GetHttp(String URL) throws Exception

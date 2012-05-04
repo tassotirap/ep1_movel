@@ -5,11 +5,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import ep1.usp.gate.GateInfo;
+import ep1.usp.gate.GateDto;
 
-public class GatesDao extends BaseDao<GateInfo>
+public class GatesDao extends BaseDao<GateDto>
 {
-
 	public GatesDao(Context ctx)
 	{
 		super(ctx);
@@ -18,16 +17,16 @@ public class GatesDao extends BaseDao<GateInfo>
 	}
 
 	@Override
-	public ArrayList<GateInfo> getAll()
+	public ArrayList<GateDto> getAll()
 	{
-		ArrayList<GateInfo> gates = new ArrayList<GateInfo>();
+		ArrayList<GateDto> gates = new ArrayList<GateDto>();
 
 		SQLiteDatabase db = getWritableDatabase();
 		Cursor c = db.query(TABLE_NAME, COLUMNS, null, null, null, null, null);
 
 		while (c.moveToNext())
 		{
-			gates.add(new GateInfo(c.getInt(0), c.getString(1), c.getInt(2), c.getInt(3), c.getInt(4)));
+			gates.add(new GateDto(c.getInt(0), c.getString(1), c.getInt(2), c.getInt(3), c.getInt(4)));
 		}
 
 		c.close();
@@ -37,36 +36,7 @@ public class GatesDao extends BaseDao<GateInfo>
 	}
 
 	@Override
-	public void setList(ArrayList<GateInfo> gates)
-	{
-		ClearAll();
-		SQLiteDatabase db = getWritableDatabase();
-		try
-		{
-			for (GateInfo gate : gates)
-			{
-
-				ContentValues contentValues = new ContentValues();
-				contentValues.put(COLUMNS[0], gate.getId());
-				contentValues.put(COLUMNS[1], gate.getName());
-				contentValues.put(COLUMNS[2], gate.getStatus());
-				contentValues.put(COLUMNS[3], gate.getLatitude());
-				contentValues.put(COLUMNS[4], gate.getLongitude());
-				db.insertOrThrow(TABLE_NAME, null, contentValues);
-			}
-		}
-		catch (Exception e)
-		{
-			e.getMessage();
-		}
-		finally
-		{
-			db.close();
-		}
-	}
-
-	@Override
-	public void set(GateInfo gate)
+	public void set(GateDto gate)
 	{
 		try
 		{
@@ -78,17 +48,10 @@ public class GatesDao extends BaseDao<GateInfo>
 			contentValues.put(COLUMNS[4], gate.getLongitude());
 			SQLiteDatabase db = getWritableDatabase();
 			db.insertOrThrow(TABLE_NAME, null, contentValues);
-			db.close();
 		}
 		catch (Exception e)
 		{
 			e.getMessage();
 		}
-	}
-	
-	public void ClearAll()
-	{
-		SQLiteDatabase db = getWritableDatabase();
-		db.delete(TABLE_NAME, null, null);
 	}
 }
