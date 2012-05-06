@@ -33,6 +33,7 @@ public class OverlayDao extends BaseDao<OverlayDto>
 		}
 
 		c.close();
+		close();
 
 		return overlays;
 	}
@@ -49,6 +50,7 @@ public class OverlayDao extends BaseDao<OverlayDto>
 		}
 
 		c.close();
+		close();
 
 		return overlays;
 	}

@@ -3,8 +3,6 @@ package ep1.usp.restaurant;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,9 +18,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import ep1.usp.R;
+import ep1.usp.Loading.LoadingGetMsg;
 import ep1.usp.access.db.RestaurantCommentDao;
 import ep1.usp.access.db.RestaurantsDao;
 import ep1.usp.lib.DateAndTime;
+import ep1.usp.lib.ShowDialog;
 
 public class Restaurant extends Activity
 {
@@ -56,10 +56,9 @@ public class Restaurant extends Activity
 					showDialog(getApplicationContext().getString(R.string.msgErrorTitle), getApplicationContext().getString(R.string.msgErrorMsg));
 					break;
 				case 1:
-					refreshAdapterRestaurants();
 					break;
 				case 2:
-					showDialog("OK", "Comentario enviado com sucesso!");
+					showDialog(getString(R.string.msgSucess), "Comentario enviado com sucesso!");
 					if (dialogAddComment != null)
 					{
 						dialogAddComment.hide();
@@ -71,7 +70,7 @@ public class Restaurant extends Activity
 					RestaurantStatus();
 					break;
 				case 4:
-					showDialog("Erro", "Comentario nao pode ser nulo.");
+					showDialog(getString(R.string.msgErrorTitle), "Comentario nao pode ser nulo.");
 					break;
 			}
 		}
@@ -116,7 +115,7 @@ public class Restaurant extends Activity
 	private void refreshMsg()
 	{
 		LoadingGetMsg load = new LoadingGetMsg(this, restaurantId);
-		load.Show();
+		load.show();
 	}
 
 	private void RestaurantStatus()
@@ -127,7 +126,7 @@ public class Restaurant extends Activity
 
 	private void showAddComment()
 	{
-		dialogAddComment = new RestaurantAddComment(this);
+		dialogAddComment = new RestaurantAddComment(this, restaurantId);
 		dialogAddComment.setContentView(R.layout.restaurant_add_msg);
 		dialogAddComment.setTitle("Adicionar Comentario");
 		dialogAddComment.init();
@@ -162,7 +161,7 @@ public class Restaurant extends Activity
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3)
 			{
 				int restaurantPosition = getSpnRestaurants().getSelectedItemPosition();
-				restaurantId = restaurantsDao.getIdByName(getAdapterRestaurant().getItem(restaurantPosition));
+				restaurantId = restaurantPosition + 1;
 				refreshMsg();
 			}
 
@@ -203,18 +202,19 @@ public class Restaurant extends Activity
 		}
 	}
 
-	public void fillSpinners()
-	{
-		refreshAdapterRestaurants();
-		getSpnRestaurants().setAdapter(getAdapterRestaurant());
-	}
-
 	public ArrayAdapter<String> getAdapterRestaurant()
 	{
 		if (mAdapterRestaurant == null)
 		{
-			mAdapterRestaurant = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
-			mAdapterRestaurant.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			try
+			{
+				String[] items = getResources().getStringArray(R.array.restaurant_names);				
+				mAdapterRestaurant =  new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+				mAdapterRestaurant.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			}
+			catch (Exception e)
+			{
+			}
 		}
 		return mAdapterRestaurant;
 	}
@@ -265,7 +265,17 @@ public class Restaurant extends Activity
 	public Spinner getSpnRestaurants()
 	{
 		if (spnRestaurants == null)
-			spnRestaurants = (Spinner) findViewById(R.id.restaurant_ids);
+		{
+			try
+			{
+				spnRestaurants = (Spinner) findViewById(R.id.restaurant_ids);
+				spnRestaurants.setAdapter(getAdapterRestaurant());			
+			}
+			catch (Exception e)
+			{
+				
+			}
+		}
 		return spnRestaurants;
 
 	}
@@ -284,40 +294,12 @@ public class Restaurant extends Activity
 		setContentView(R.layout.restaurant);
 
 		bindElements();
-		fillSpinners();
-	}
-
-	public void refreshAdapterRestaurants()
-	{
-		ArrayList<String> values = getRestaurantsDao().getNames();
-
-		if (values.size() == 0 && tryNumber < 5)
-		{
-			tryNumber++;
-			refreshRestaurants();
-			return;
-		}
-
-		tryNumber = 0;
-		getAdapterRestaurant().clear();
-		for (String s : values)
-			getAdapterRestaurant().add(s);
-		getAdapterRestaurant().notifyDataSetChanged();
-	}
-
-	public void refreshRestaurants()
-	{
-		LoadingRestaurants load = new LoadingRestaurants(this);
-		load.Show();
+		getSpnRestaurants();
 	}
 
 	public void showDialog(String title, String message)
 	{
-		Builder alert = new AlertDialog.Builder(this);
-		alert.setTitle(title);
-		alert.setMessage(message);
-		alert.setNeutralButton("OK", null);
-		alert.show();
+		ShowDialog.show(title, message, this);
 	}
 
 }

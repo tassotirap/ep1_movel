@@ -30,7 +30,7 @@ public class MapsMenuTest {
 
 	@Test
 	public void onRefreshOverlayClick() throws Exception {
-		maps.getMapsMenusButtons().getBtnRefresh().performClick();			
+		maps.getMapsMenusButtons().getBtnRefresh().performClick();	
 	}
 	
 	@Test

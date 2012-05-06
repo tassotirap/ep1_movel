@@ -1,14 +1,14 @@
 package ep1.usp.maps;
 
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
 import com.google.android.maps.MapActivity;
+
 import ep1.usp.R;
 import ep1.usp.access.db.OverlayDao;
+import ep1.usp.lib.ShowDialog;
 import ep1.usp.maps.Overlay.MyOverlays;
 
 public class Maps extends MapActivity
@@ -27,9 +27,9 @@ public class Maps extends MapActivity
 		{
 			super.handleMessage(msg);
 			if (msg.what == 0)
-				showDialog(getApplicationContext().getString(R.string.msgErrorTitle), getApplicationContext().getString(R.string.msgErrorMsg));
+				showDialog(getString(R.string.msgErrorTitle), getString(R.string.msgErrorMsg));
 			else
-				showDialog("Sucesso", "Ponto adicionado com sucesso!");
+				showDialog(getString(R.string.msgSucess), getString(R.string.msgSucessAddPoint));
 		}
 	};
 
@@ -91,11 +91,6 @@ public class Maps extends MapActivity
 
 	public void showDialog(String title, String message)
 	{
-		Builder alert = new AlertDialog.Builder(this);
-		alert.setTitle(title);
-		alert.setMessage(message);
-		alert.setNeutralButton("OK", null);
-		AlertDialog dialog = alert.create();
-		dialog.show();
+		ShowDialog.show(title, message, this);
 	}
 }

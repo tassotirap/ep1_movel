@@ -8,5 +8,7 @@
 	<string name="msgSucess">Sucesso</string>
 	<string name="msgLocalSend">Local enviado com sucesso</string>
 	<string name="msgOutUSP">Local fora da USP</string>
+	<string name="msgSucessAddPoint">Ponto adicionado com sucesso!</string>
+	
 	
 </resources>

@@ -5,6 +5,7 @@ import android.view.View;
 import com.google.android.maps.GeoPoint;
 
 import ep1.usp.R;
+import ep1.usp.Loading.LoadingOverlays;
 
 public class MapsMenu
 {
@@ -48,7 +49,7 @@ public class MapsMenu
 	private void onRefreshOverlayClick()
 	{
 		LoadingOverlays loading = new LoadingOverlays(mActivity);
-		loading.Show();
+		loading.show();
 	}
 
 	private void onRestaurantClick()

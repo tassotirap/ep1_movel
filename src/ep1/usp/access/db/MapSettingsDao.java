@@ -75,6 +75,7 @@ public class MapSettingsDao extends DatabaseHelper
 				return i == 1;
 			}
 			c.close();
+			close();
 			return false;
 		}
 		catch (Exception e)

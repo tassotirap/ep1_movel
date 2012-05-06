@@ -4,8 +4,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -18,7 +16,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import ep1.usp.R;
+import ep1.usp.Loading.LoadingGetGate;
+import ep1.usp.Loading.LoadingSendGate;
 import ep1.usp.access.db.GatesDao;
+import ep1.usp.lib.ShowDialog;
 
 public class Gate extends Activity implements LocationListener
 {
@@ -91,7 +92,7 @@ public class Gate extends Activity implements LocationListener
 	private void loadGates()
 	{
 		LoadingGetGate loadingGetGates = new LoadingGetGate(this);
-		loadingGetGates.Show();
+		loadingGetGates.show();
 	}
 
 	private void refreshDistance(Location location)
@@ -141,7 +142,7 @@ public class Gate extends Activity implements LocationListener
 					dist = dist3;
 				}
 				LoadingSendGate sendGate = new LoadingSendGate(this, gateId, dist);
-				sendGate.Show();
+				sendGate.show();
 			}
 			else
 			{
@@ -155,13 +156,13 @@ public class Gate extends Activity implements LocationListener
 
 	private void startListening()
 	{
-		myManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+		getMyManager().requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 	}
 
 	private void stopListening()
 	{
-		if (myManager != null)
-			myManager.removeUpdates(this);
+		if (getMyManager() != null)
+			getMyManager().removeUpdates(this);
 	}
 
 	private void writeDistance(TextView text, double dist)
@@ -337,11 +338,11 @@ public class Gate extends Activity implements LocationListener
 
 	public void showDialog(String title, String message)
 	{
-		Builder alert = new AlertDialog.Builder(this);
-		alert.setTitle(title);
-		alert.setMessage(message);
-		alert.setNeutralButton("OK", null);
-		alert.show();
+		ShowDialog.show(title, message, this);
 	}
 
+	public LocationManager getMyManager()
+	{
+		return myManager;
+	}
 }

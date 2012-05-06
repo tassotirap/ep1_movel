@@ -37,6 +37,7 @@ public class RestaurantCommentDao extends BaseDao<MessageDto>
 		}
 
 		c.close();
+		close();
 
 		return msg;
 	}

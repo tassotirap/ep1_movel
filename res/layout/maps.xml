@@ -96,7 +96,7 @@
         android:id="@+id/mapview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:apiKey="0y9kaLBmZWpFdHI1vIY9sr6wSud5uFJZ2OyyRsA"
+        android:apiKey="0y9kaLBmZWpGqA0qGttO57VQcnnyaaYNoMZkSzw"
         android:clickable="true" />
 
 </LinearLayout>

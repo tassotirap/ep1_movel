@@ -21,6 +21,8 @@ public class GatesDao extends BaseDao<GateDto>
 	{
 		ArrayList<GateDto> gates = new ArrayList<GateDto>();
 
+		try
+		{
 		SQLiteDatabase db = getWritableDatabase();
 		Cursor c = db.query(TABLE_NAME, COLUMNS, null, null, null, null, null);
 
@@ -30,7 +32,15 @@ public class GatesDao extends BaseDao<GateDto>
 		}
 
 		c.close();
-		db.close();
+		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			close();
+		}
 
 		return gates;
 	}

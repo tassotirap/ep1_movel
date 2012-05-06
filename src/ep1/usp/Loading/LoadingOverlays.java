@@ -1,23 +1,21 @@
-package ep1.usp.maps;
+package ep1.usp.Loading;
 
 import java.util.ArrayList;
 
 import android.app.ProgressDialog;
 import ep1.usp.R;
 import ep1.usp.access.JSON.ParseJSON;
+import ep1.usp.maps.Maps;
 import ep1.usp.maps.Overlay.OverlayDto;
 
-public class LoadingOverlays
+public class LoadingOverlays extends Loading<Maps>
 {
-	private ProgressDialog progressDialog;
-	private Maps mActivity;
-
 	public LoadingOverlays(Maps mActivity)
 	{
-		this.mActivity = mActivity;
+		super(mActivity);
 	}
 
-	public void Show()
+	public void show()
 	{
 		progressDialog = ProgressDialog.show(mActivity, mActivity.getString(R.string.msgLoadingTitle), mActivity.getString(R.string.msgLoadingMsg), true, false);
 		Runnable runnable = new Runnable()
@@ -55,8 +53,6 @@ public class LoadingOverlays
 			}
 		};
 
-		Thread t = new Thread(runnable);
-		t.start();
+		mActivity.handler.post(runnable);
 	}
-
 }

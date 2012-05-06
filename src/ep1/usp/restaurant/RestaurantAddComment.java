@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import ep1.usp.R;
+import ep1.usp.Loading.LoadingSendMsg;
 
 public class RestaurantAddComment extends Dialog
 {
@@ -15,7 +16,7 @@ public class RestaurantAddComment extends Dialog
 	private TextView txtComment = null;
 
 	private Button btnSend = null;
-	protected ArrayAdapter<CharSequence> mAdapterStatus;
+	protected ArrayAdapter<String> mAdapterStatus;
 
 	private Restaurant mActivity;
 	public int restaurantId;
@@ -23,20 +24,19 @@ public class RestaurantAddComment extends Dialog
 	public String comment;
 	int statusId;
 
-	public RestaurantAddComment(Restaurant mActivity)
+	public RestaurantAddComment(Restaurant mActivity, int restaurantId)
 	{
 		super(mActivity);
 		this.mActivity = mActivity;
+		this.restaurantId = restaurantId;
 	}
 
 	private void AddMessageClick()
 	{
-		int restaurantPosition = mActivity.getSpnRestaurants().getSelectedItemPosition();
-		restaurantId = mActivity.getRestaurantsDao().getIdByName(mActivity.getAdapterRestaurant().getItem(restaurantPosition));
 		comment = getTxtComment().getText().toString();
 		statusId = getSpnStatus().getSelectedItemPosition() + 1;
 		LoadingSendMsg loading = new LoadingSendMsg(mActivity, restaurantId, comment, statusId);
-		loading.Show();
+		loading.show();
 	}
 
 	private void fillSpinner()
@@ -64,11 +64,12 @@ public class RestaurantAddComment extends Dialog
 		});
 	}
 
-	public ArrayAdapter<CharSequence> getAdapterStatus()
+	public ArrayAdapter<String> getAdapterStatus()
 	{
 		if (mAdapterStatus == null)
 		{
-			mAdapterStatus = ArrayAdapter.createFromResource(mActivity, R.array.restaurant_status, android.R.layout.simple_spinner_item);
+			String[] items = mActivity.getResources().getStringArray(R.array.restaurant_status);				
+			mAdapterStatus =  new ArrayAdapter<String>(mActivity, android.R.layout.simple_spinner_item, items);
 			mAdapterStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		}
 		mAdapterStatus.notifyDataSetChanged();

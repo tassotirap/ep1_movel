@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import ep1.usp.R;
+import ep1.usp.Loading.LoadingAddOverlay;
 
 public class MapsAddOverlay extends Dialog
 {
@@ -49,7 +50,7 @@ public class MapsAddOverlay extends Dialog
 			if (latitude != 0 && longitude != 0 && selectedType != -1)
 			{
 				LoadingAddOverlay loading = new LoadingAddOverlay(mActivity, latitude, longitude, txtName.getText().toString(), selectedType, this);
-				loading.Show();
+				loading.show();
 			}
 			else
 			{

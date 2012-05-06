@@ -56,7 +56,7 @@ abstract class DatabaseHelper extends SQLiteOpenHelper
 
 			contentValues.put("type", 3);
 			contentValues.put("name", "restaurant");
-			contentValues.put("enable", "0");
+			contentValues.put("enable", "1");
 			bd.insertOrThrow("MAP_CONFIG_VIEW", null, contentValues);
 
 			contentValues.put("type", 4);

@@ -34,6 +34,7 @@ public class SettingsDao extends BaseDao<Object>
 		}
 
 		c.close();
+		close();
 
 		return geoPoint;
 	}
