@@ -40,6 +40,7 @@ public class LoadingSendGate extends Loading<Gate>
 			}
 		};
 
-		mActivity.handler.post(runnable);
+		thread = new Thread(runnable);
+		thread.start();
 	}
 }

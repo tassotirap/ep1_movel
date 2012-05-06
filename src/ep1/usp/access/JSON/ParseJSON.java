@@ -182,6 +182,7 @@ public class ParseJSON
 
 		try
 		{
+			name = URLEncoder.encode(name, "UTF-8");
 			String url = URL + "SetOverlay?latitude=" + latitude + "&longitude=" + longitude + "&name=" + name + "&type=" + type;
 
 			new GetHttp(url);

@@ -42,7 +42,8 @@ public class LoadingSendMsg extends Loading<Restaurant>
 			}
 		};
 
-		mActivity.handler.post(runnable);
+		thread = new Thread(runnable);
+		thread.start();
 	}
 
 }

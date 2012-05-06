@@ -6,6 +6,7 @@ public abstract class Loading<T>
 {
 	protected ProgressDialog progressDialog;
 	protected T mActivity;
+	protected Thread thread;
 	
 	public Loading(T mActivity)
 	{
@@ -13,4 +14,9 @@ public abstract class Loading<T>
 	}
 	
 	public abstract void show();
+
+	public Thread getThread()
+	{
+		return thread;
+	}
 }

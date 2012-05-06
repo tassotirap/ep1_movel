@@ -45,7 +45,8 @@ public class LoadingGetGate extends Loading<Gate>
 			}
 		};
 
-		mActivity.handler.post(runnable);
+		thread = new Thread(runnable);
+		thread.start();
 	}
 
 }

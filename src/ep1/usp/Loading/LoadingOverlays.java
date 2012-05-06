@@ -53,6 +53,7 @@ public class LoadingOverlays extends Loading<Maps>
 			}
 		};
 
-		mActivity.handler.post(runnable);
+		thread = new Thread(runnable);
+		thread.start();
 	}
 }
