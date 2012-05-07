@@ -57,22 +57,6 @@ public class RestaurantsDao extends BaseDao<RestaurantDto>
 		return restaurants;
 	}
 
-	public int getIdByName(String name)
-	{
-		SQLiteDatabase db = getWritableDatabase();
-		Cursor c = db.query(TABLE_NAME, new String[] { COLUMNS[0] }, COLUMNS[1] + "=?", new String[] { name }, null, null, null);
-
-		while (c.moveToNext())
-		{
-			int id = c.getInt(0);
-			c.close();
-			return id;
-		}
-		c.close();
-		db.close();
-		return -1;
-	}
-
 	public int getStatusById(int id)
 	{
 		Cursor c = getWritableDatabase().query(TABLE_NAME, new String[] { COLUMNS[2] }, COLUMNS[0] + "=?", new String[] { String.valueOf(id) }, null, null, null);

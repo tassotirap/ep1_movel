@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import ep1.usp.R;
 import ep1.usp.access.JSON.ParseJSON;
@@ -47,7 +46,8 @@ public class LoadingGetMsg extends Loading<Restaurant>
 				}
 				finally
 				{
-					progressDialog.dismiss();
+					if(progressDialog != null)
+						progressDialog.dismiss();
 				}
 			}
 		};

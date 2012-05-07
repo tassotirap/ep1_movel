@@ -151,7 +151,7 @@ public class Gate extends Activity implements LocationListener
 		}
 		else
 			showDialog(getString(R.string.msgErrorTitle), getString(R.string.msgLocalErrorMsg));
-			
+
 	}
 
 	private void startListening()
@@ -245,6 +245,11 @@ public class Gate extends Activity implements LocationListener
 		if (img3 == null)
 			img3 = (ImageView) findViewById(R.id.gate_imgGate3);
 		return img3;
+	}
+
+	public LocationManager getMyManager()
+	{
+		return myManager;
 	}
 
 	public TextView getTxtDistance1()
@@ -341,8 +346,16 @@ public class Gate extends Activity implements LocationListener
 		ShowDialog.show(title, message, this);
 	}
 
-	public LocationManager getMyManager()
+	
+	public int getLatitude()
 	{
-		return myManager;
+		return latitude;
 	}
+
+
+	public int getLongitude()
+	{
+		return longitude;
+	}
+
 }

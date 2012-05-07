@@ -48,7 +48,8 @@ public class LoadingOverlays extends Loading<Maps>
 				}
 				finally
 				{
-					progressDialog.dismiss();
+					if(progressDialog != null)
+						progressDialog.dismiss();
 				}
 			}
 		};

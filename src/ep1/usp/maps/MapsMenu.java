@@ -48,6 +48,8 @@ public class MapsMenu
 
 	private void onRefreshOverlayClick()
 	{
+		hideRoute1();
+		hideRoute2();
 		LoadingOverlays loading = new LoadingOverlays(mActivity);
 		loading.show();
 	}
@@ -74,32 +76,56 @@ public class MapsMenu
 	{
 		if (mActivity.getMapsMenusButtons().getShowRoute1())
 		{
-			mActivity.getMapsMenusButtons().setShowRoute1(false);
-			mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute1());
+			hideRoute1();
 		}
 		else
 		{
-			mActivity.getMapsMenusButtons().setShowRoute1(true);
-			mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute1());
+			showRoute1();
 		}
 
-		mActivity.getMapsMenusButtons().getMapSettingsDao().setRoute1Enable(mActivity.getMapsMenusButtons().getShowRoute1());
+		
+	}
+
+	private void showRoute1()
+	{
+		mActivity.getMapsMenusButtons().setShowRoute1(true);
+		mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute1());
+		mActivity.getMapsMenusButtons().getMapSettingsDao().setRoute1Enable(true);
+	}
+
+	private void hideRoute1()
+	{
+		mActivity.getMapsMenusButtons().setShowRoute1(false);
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute1());
+		mActivity.getMapsMenusButtons().getMapSettingsDao().setRoute1Enable(false);
 	}
 
 	private void onRoute2Click()
 	{
 		if (mActivity.getMapsMenusButtons().getShowRoute2())
 		{
-			mActivity.getMapsMenusButtons().setShowRoute2(false);
-			mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute2());
+			hideRoute2();
 		}
 		else
 		{
-			mActivity.getMapsMenusButtons().setShowRoute2(true);
-			mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute2());
+			showRoute2();
 		}
 
-		mActivity.getMapsMenusButtons().getMapSettingsDao().setRoute2Enable(mActivity.getMapsMenusButtons().getShowRoute2());
+		
+	}
+
+	private void showRoute2()
+	{
+		mActivity.getMapsMenusButtons().setShowRoute2(true);
+		mActivity.getMapsSettings().addMapOverlayFirst(mActivity.getMyOverlays().getRoute2());
+		mActivity.getMapsMenusButtons().getMapSettingsDao().setRoute2Enable(true);
+	}
+
+	private void hideRoute2()
+	{
+		mActivity.getMapsMenusButtons().setShowRoute2(false);
+		mActivity.getMapsSettings().removeMapOverlay(mActivity.getMyOverlays().getRoute2());
+		mActivity.getMapsMenusButtons().getMapSettingsDao().setRoute2Enable(false);
 	}
 
 	private void onUniversityClick()

@@ -40,7 +40,8 @@ public class LoadingGetGate extends Loading<Gate>
 				}
 				finally
 				{
-					progressDialog.dismiss();
+					if(progressDialog != null)
+						progressDialog.dismiss();
 				}
 			}
 		};
