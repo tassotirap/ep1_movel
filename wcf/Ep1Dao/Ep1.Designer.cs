@@ -18,14 +18,12 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
+[assembly: EdmRelationshipAttribute("Ep1Model", "fk_gate", "gate", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Ep1Dao.gate), "gate_posts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.gate_posts), true)]
 [assembly: EdmRelationshipAttribute("Ep1Model", "fk_gate_status", "gate_status", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Ep1Dao.gate_status), "gate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.gate), true)]
-[assembly: EdmRelationshipAttribute("Ep1Model", "item_fk", "item_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Ep1Dao.item_type), "item", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.item), true)]
 [assembly: EdmRelationshipAttribute("Ep1Model", "fk_overlay_type", "overlay_type", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Ep1Dao.overlay_type), "overlay", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.overlay), true)]
 [assembly: EdmRelationshipAttribute("Ep1Model", "fk_restaurant_status", "restaurants_status", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Ep1Dao.restaurants_status), "restaurant", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.restaurant), true)]
 [assembly: EdmRelationshipAttribute("Ep1Model", "fk_restaurants", "restaurant", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Ep1Dao.restaurant), "restaurants_posts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.restaurants_posts), true)]
 [assembly: EdmRelationshipAttribute("Ep1Model", "fk_restaurants_status", "restaurants_status", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Ep1Dao.restaurants_status), "restaurants_posts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.restaurants_posts), true)]
-[assembly: EdmRelationshipAttribute("Ep1Model", "menu_item", "menu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.menu), "item", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.item))]
-[assembly: EdmRelationshipAttribute("Ep1Model", "fk_gate", "gate", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Ep1Dao.gate), "gate_posts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Ep1Dao.gate_posts), true)]
 
 #endregion
 
@@ -96,6 +94,22 @@ namespace Ep1Dao
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<gate_posts> gate_posts
+        {
+            get
+            {
+                if ((_gate_posts == null))
+                {
+                    _gate_posts = base.CreateObjectSet<gate_posts>("gate_posts");
+                }
+                return _gate_posts;
+            }
+        }
+        private ObjectSet<gate_posts> _gate_posts;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<gate_status> gate_status
         {
             get
@@ -108,54 +122,6 @@ namespace Ep1Dao
             }
         }
         private ObjectSet<gate_status> _gate_status;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<item> items
-        {
-            get
-            {
-                if ((_items == null))
-                {
-                    _items = base.CreateObjectSet<item>("items");
-                }
-                return _items;
-            }
-        }
-        private ObjectSet<item> _items;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<item_type> item_type
-        {
-            get
-            {
-                if ((_item_type == null))
-                {
-                    _item_type = base.CreateObjectSet<item_type>("item_type");
-                }
-                return _item_type;
-            }
-        }
-        private ObjectSet<item_type> _item_type;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<menu> menus
-        {
-            get
-            {
-                if ((_menus == null))
-                {
-                    _menus = base.CreateObjectSet<menu>("menus");
-                }
-                return _menus;
-            }
-        }
-        private ObjectSet<menu> _menus;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -252,22 +218,6 @@ namespace Ep1Dao
             }
         }
         private ObjectSet<setting> _settings;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<gate_posts> gate_posts
-        {
-            get
-            {
-                if ((_gate_posts == null))
-                {
-                    _gate_posts = base.CreateObjectSet<gate_posts>("gate_posts");
-                }
-                return _gate_posts;
-            }
-        }
-        private ObjectSet<gate_posts> _gate_posts;
 
         #endregion
         #region AddTo Methods
@@ -281,35 +231,19 @@ namespace Ep1Dao
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the gate_posts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTogate_posts(gate_posts gate_posts)
+        {
+            base.AddObject("gate_posts", gate_posts);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the gate_status EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTogate_status(gate_status gate_status)
         {
             base.AddObject("gate_status", gate_status);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the items EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToitems(item item)
-        {
-            base.AddObject("items", item);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the item_type EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToitem_type(item_type item_type)
-        {
-            base.AddObject("item_type", item_type);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the menus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTomenus(menu menu)
-        {
-            base.AddObject("menus", menu);
         }
     
         /// <summary>
@@ -358,14 +292,6 @@ namespace Ep1Dao
         public void AddTosettings(setting setting)
         {
             base.AddObject("settings", setting);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the gate_posts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTogate_posts(gate_posts gate_posts)
-        {
-            base.AddObject("gate_posts", gate_posts);
         }
 
         #endregion
@@ -541,6 +467,28 @@ namespace Ep1Dao
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Ep1Model", "fk_gate", "gate_posts")]
+        public EntityCollection<gate_posts> gate_posts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<gate_posts>("Ep1Model.fk_gate", "gate_posts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<gate_posts>("Ep1Model.fk_gate", "gate_posts", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Ep1Model", "fk_gate_status", "gate_status")]
         public gate_status gate_status
         {
@@ -569,28 +517,6 @@ namespace Ep1Dao
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<gate_status>("Ep1Model.fk_gate_status", "gate_status", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Ep1Model", "fk_gate", "gate_posts")]
-        public EntityCollection<gate_posts> gate_posts
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<gate_posts>("Ep1Model.fk_gate", "gate_posts");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<gate_posts>("Ep1Model.fk_gate", "gate_posts", value);
                 }
             }
         }
@@ -726,6 +652,30 @@ namespace Ep1Dao
         private global::System.DateTime _date;
         partial void OndateChanging(global::System.DateTime value);
         partial void OndateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ip
+        {
+            get
+            {
+                return _ip;
+            }
+            set
+            {
+                OnipChanging(value);
+                ReportPropertyChanging("ip");
+                _ip = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ip");
+                OnipChanged();
+            }
+        }
+        private global::System.String _ip;
+        partial void OnipChanging(global::System.String value);
+        partial void OnipChanged();
 
         #endregion
     
@@ -871,362 +821,6 @@ namespace Ep1Dao
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<gate>("Ep1Model.fk_gate_status", "gate", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Ep1Model", Name="item")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class item : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new item object.
-        /// </summary>
-        /// <param name="id">Initial value of the id property.</param>
-        /// <param name="name">Initial value of the name property.</param>
-        /// <param name="type">Initial value of the type property.</param>
-        public static item Createitem(global::System.Int32 id, global::System.String name, global::System.Int32 type)
-        {
-            item item = new item();
-            item.id = id;
-            item.name = name;
-            item.type = type;
-            return item;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                OnnameChanging(value);
-                ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("name");
-                OnnameChanged();
-            }
-        }
-        private global::System.String _name;
-        partial void OnnameChanging(global::System.String value);
-        partial void OnnameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 type
-        {
-            get
-            {
-                return _type;
-            }
-            set
-            {
-                OntypeChanging(value);
-                ReportPropertyChanging("type");
-                _type = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("type");
-                OntypeChanged();
-            }
-        }
-        private global::System.Int32 _type;
-        partial void OntypeChanging(global::System.Int32 value);
-        partial void OntypeChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Ep1Model", "item_fk", "item_type")]
-        public item_type item_type
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item_type>("Ep1Model.item_fk", "item_type").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item_type>("Ep1Model.item_fk", "item_type").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<item_type> item_typeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<item_type>("Ep1Model.item_fk", "item_type");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<item_type>("Ep1Model.item_fk", "item_type", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Ep1Model", "menu_item", "menu")]
-        public EntityCollection<menu> menus
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<menu>("Ep1Model.menu_item", "menu");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<menu>("Ep1Model.menu_item", "menu", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Ep1Model", Name="item_type")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class item_type : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new item_type object.
-        /// </summary>
-        /// <param name="id">Initial value of the id property.</param>
-        /// <param name="name">Initial value of the name property.</param>
-        public static item_type Createitem_type(global::System.Int32 id, global::System.String name)
-        {
-            item_type item_type = new item_type();
-            item_type.id = id;
-            item_type.name = name;
-            return item_type;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                OnnameChanging(value);
-                ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("name");
-                OnnameChanged();
-            }
-        }
-        private global::System.String _name;
-        partial void OnnameChanging(global::System.String value);
-        partial void OnnameChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Ep1Model", "item_fk", "item")]
-        public EntityCollection<item> items
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<item>("Ep1Model.item_fk", "item");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<item>("Ep1Model.item_fk", "item", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Ep1Model", Name="menu")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class menu : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new menu object.
-        /// </summary>
-        /// <param name="id">Initial value of the id property.</param>
-        public static menu Createmenu(global::System.Int32 id)
-        {
-            menu menu = new menu();
-            menu.id = id;
-            return menu;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Ep1Model", "menu_item", "item")]
-        public EntityCollection<item> items
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<item>("Ep1Model.menu_item", "item");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<item>("Ep1Model.menu_item", "item", value);
                 }
             }
         }
@@ -1414,6 +1008,30 @@ namespace Ep1Dao
         private global::System.Boolean _enable;
         partial void OnenableChanging(global::System.Boolean value);
         partial void OnenableChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ip
+        {
+            get
+            {
+                return _ip;
+            }
+            set
+            {
+                OnipChanging(value);
+                ReportPropertyChanging("ip");
+                _ip = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ip");
+                OnipChanged();
+            }
+        }
+        private global::System.String _ip;
+        partial void OnipChanging(global::System.String value);
+        partial void OnipChanged();
 
         #endregion
     
@@ -1936,6 +1554,30 @@ namespace Ep1Dao
         private global::System.DateTime _date;
         partial void OndateChanging(global::System.DateTime value);
         partial void OndateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ip
+        {
+            get
+            {
+                return _ip;
+            }
+            set
+            {
+                OnipChanging(value);
+                ReportPropertyChanging("ip");
+                _ip = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ip");
+                OnipChanged();
+            }
+        }
+        private global::System.String _ip;
+        partial void OnipChanging(global::System.String value);
+        partial void OnipChanged();
 
         #endregion
     

@@ -12,6 +12,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="gate_posts">
+      <EntityTypeMapping TypeName="Ep1Model.gate_posts">
+        <MappingFragment StoreEntitySet="gate_posts">
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="gate_id" ColumnName="gate_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="gate_status">
       <EntityTypeMapping TypeName="Ep1Model.gate_status">
         <MappingFragment StoreEntitySet="gate_status">
@@ -20,33 +31,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="items">
-      <EntityTypeMapping TypeName="Ep1Model.item">
-        <MappingFragment StoreEntitySet="item">
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="item_type">
-      <EntityTypeMapping TypeName="Ep1Model.item_type">
-        <MappingFragment StoreEntitySet="item_type">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="menus">
-      <EntityTypeMapping TypeName="Ep1Model.menu">
-        <MappingFragment StoreEntitySet="menu">
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="overlays">
       <EntityTypeMapping TypeName="Ep1Model.overlay">
         <MappingFragment StoreEntitySet="overlay">
+          <ScalarProperty Name="ip" ColumnName="ip" />
           <ScalarProperty Name="enable" ColumnName="enable" />
           <ScalarProperty Name="type_id" ColumnName="type_id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -78,6 +66,7 @@
     <EntitySetMapping Name="restaurants_posts">
       <EntityTypeMapping TypeName="Ep1Model.restaurants_posts">
         <MappingFragment StoreEntitySet="restaurants_posts">
+          <ScalarProperty Name="ip" ColumnName="ip" />
           <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="comment" ColumnName="comment" />
           <ScalarProperty Name="status_id" ColumnName="status_id" />
@@ -105,24 +94,6 @@
           <ScalarProperty Name="usp_gate1_latitude" ColumnName="usp_gate1_latitude" />
           <ScalarProperty Name="usp_longitude" ColumnName="usp_longitude" />
           <ScalarProperty Name="usp_latitude" ColumnName="usp_latitude" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="menu_item" TypeName="Ep1Model.menu_item" StoreEntitySet="menu_item">
-      <EndProperty Name="item">
-        <ScalarProperty Name="id" ColumnName="item_id" />
-      </EndProperty>
-      <EndProperty Name="menu">
-        <ScalarProperty Name="id" ColumnName="menu_id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <EntitySetMapping Name="gate_posts">
-      <EntityTypeMapping TypeName="Ep1Model.gate_posts">
-        <MappingFragment StoreEntitySet="gate_posts">
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="distance" ColumnName="distance" />
-          <ScalarProperty Name="gate_id" ColumnName="gate_id" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

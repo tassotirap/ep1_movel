@@ -22,12 +22,20 @@ namespace Ep1Dao
 
         public List<restaurants_posts> getComment(int restaurantId, int qtde)
         {
-            var post = (from p in contexto.restaurants_posts
-                        where p.restaurant_id == restaurantId
-                        orderby p.date descending
-                        select p).Take(qtde).ToList();
-
-            return post;
+            try
+            {
+                var post = (from p in contexto.restaurants_posts
+                            where p.restaurant_id == restaurantId
+                            orderby p.date descending
+                            select p).Take(qtde).ToList();
+                return post;
+            }
+            catch (Exception e)
+            {
+                throw e;
+                return null;
+            }
+            
         }
 
         public List<restaurants_posts> getComment(int restaurantId, DateTime dtIni, DateTime dtFim)

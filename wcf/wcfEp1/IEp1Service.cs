@@ -25,7 +25,7 @@ namespace wcfEp1
         #region Gates
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
-        List<Gate> GetGates();
+        List<Gate> GetGates(int min);
 
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
@@ -41,7 +41,7 @@ namespace wcfEp1
 
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
-        Restaurant GetRestaurant(int restaurantId);
+        Restaurant GetRestaurant(int restaurantId, int min);
 
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
