@@ -83,7 +83,6 @@ namespace wcfEp1Test
             int longitude1 = -46713035; // TODO: Initialize to an appropriate value
             int latitude2 = -23556732; // TODO: Initialize to an appropriate value
             int longitude2 = -46720632; // TODO: Initialize to an appropriate value
-            target.CalcularDistancia(latitude1, longitude1, latitude2, longitude2);
             Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
     }

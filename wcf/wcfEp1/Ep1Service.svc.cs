@@ -8,6 +8,7 @@ using System.Text;
 using Ep1Dao;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.ServiceModel.Channels;
 
 namespace wcfEp1
 {
@@ -64,12 +65,18 @@ namespace wcfEp1
 
         public void SetOverlay(int latitude, int longitude, string name, int type)
         {
+
+            OperationContext context = OperationContext.Current;
+            MessageProperties messageProperties = context.IncomingMessageProperties;
+            RemoteEndpointMessageProperty endpointProperty = messageProperties[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+
             overlay ol = new overlay();
             ol.latitude = latitude;
             ol.longitude = longitude;
             ol.name = name;
             ol.type_id = type;
             ol.enable = false;
+            ol.ip = endpointProperty.Address;
 
             overlayDao.setOverlay(ol);
         }
@@ -82,11 +89,16 @@ namespace wcfEp1
         {
             try
             {
+                OperationContext context = OperationContext.Current;
+                MessageProperties messageProperties = context.IncomingMessageProperties;
+                RemoteEndpointMessageProperty endpointProperty = messageProperties[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+
                 gate_posts gate_post = new gate_posts
                 {
                     date = DateTime.Now,
                     gate_id = gateId,
                     distance = distance,
+                    ip = endpointProperty.Address
                 };
                 gatesDao.saveGatePost(gate_post);
             }
@@ -96,11 +108,11 @@ namespace wcfEp1
             }
         }
 
-        public List<Gate> GetGates()
+        public List<Gate> GetGates(int min)
         {
             try
             {
-                DateTime dtIni = DateTime.Now.AddMinutes(-10);
+                DateTime dtIni = DateTime.Now.AddMinutes(-min);
                 List<gate> gates = gatesDao.getGates();
                 List<Gate> lstGates = new List<Gate>();
 
@@ -174,17 +186,17 @@ namespace wcfEp1
             return restaurantsDto;
         }
 
-        public Restaurant GetRestaurant(int restaurantId)
+        public Restaurant GetRestaurant(int restaurantId, int min)
         {
             restaurant restaurante = restaurantDao.getRestaurant(restaurantId);
 
             DateTime dtFim = DateTime.Now;
-            DateTime dtIni = dtFim.AddMinutes(-15);
+            DateTime dtIni = dtFim.AddMinutes(-min);
 
             int status = 1;
 
             var posts = restaurantDao.getComment(restaurantId, dtIni, dtFim);
-            if (posts.Count > 5)
+            if (posts.Count >= 5)
             {
                 status = (int)posts.Average(t => t.status_id);
             }
@@ -207,11 +219,16 @@ namespace wcfEp1
 
         public void SetRestaurantComment(int restaurantId, string comment, int status)
         {
+            OperationContext context = OperationContext.Current;
+            MessageProperties messageProperties = context.IncomingMessageProperties;
+            RemoteEndpointMessageProperty endpointProperty = messageProperties[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+
             restaurants_posts post = new restaurants_posts();
             post.restaurant_id = restaurantId;
             post.comment = comment;
             post.status_id = status;
             post.date = DateTime.Now;
+            post.ip = endpointProperty.Address;
             restaurantDao.setComment(post);
         }
 

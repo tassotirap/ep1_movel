@@ -4,10 +4,6 @@
     <EntitySet Name="gate" EntityType="Ep1Model.Store.gate" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="gate_posts" EntityType="Ep1Model.Store.gate_posts" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="gate_status" EntityType="Ep1Model.Store.gate_status" store:Type="Tables" Schema="tassotirap" />
-    <EntitySet Name="item" EntityType="Ep1Model.Store.item" store:Type="Tables" Schema="tassotirap" />
-    <EntitySet Name="item_type" EntityType="Ep1Model.Store.item_type" store:Type="Tables" Schema="tassotirap" />
-    <EntitySet Name="menu" EntityType="Ep1Model.Store.menu" store:Type="Tables" Schema="tassotirap" />
-    <EntitySet Name="menu_item" EntityType="Ep1Model.Store.menu_item" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="overlay" EntityType="Ep1Model.Store.overlay" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="overlay_type" EntityType="Ep1Model.Store.overlay_type" store:Type="Tables" Schema="tassotirap" />
     <EntitySet Name="restaurants" EntityType="Ep1Model.Store.restaurants" store:Type="Tables" Schema="tassotirap" />
@@ -49,18 +45,6 @@
       <End Role="restaurants_status" EntitySet="restaurants_status" />
       <End Role="restaurants_posts" EntitySet="restaurants_posts" />
     </AssociationSet>
-    <AssociationSet Name="item_fk" Association="Ep1Model.Store.item_fk">
-      <End Role="item_type" EntitySet="item_type" />
-      <End Role="item" EntitySet="item" />
-    </AssociationSet>
-    <AssociationSet Name="menu_item1" Association="Ep1Model.Store.menu_item1">
-      <End Role="menu" EntitySet="menu" />
-      <End Role="menu_item" EntitySet="menu_item" />
-    </AssociationSet>
-    <AssociationSet Name="menu_item2" Association="Ep1Model.Store.menu_item2">
-      <End Role="item" EntitySet="item" />
-      <End Role="menu_item" EntitySet="menu_item" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="gate">
     <Key>
@@ -80,6 +64,7 @@
     <Property Name="gate_id" Type="int" Nullable="false" />
     <Property Name="distance" Type="double" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="ip" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="gate_status">
     <Key>
@@ -87,35 +72,6 @@
     </Key>
     <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="item">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="type" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="item_type">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="varchar" Nullable="false" MaxLength="150" />
-  </EntityType>
-  <EntityType Name="menu">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-  </EntityType>
-  <EntityType Name="menu_item">
-    <Key>
-      <PropertyRef Name="menu_id" />
-      <PropertyRef Name="item_id" />
-    </Key>
-    <Property Name="menu_id" Type="int" Nullable="false" />
-    <Property Name="item_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="overlay">
     <Key>
@@ -127,6 +83,7 @@
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="150" />
     <Property Name="type_id" Type="int" Nullable="false" />
     <Property Name="enable" Type="bool" Nullable="false" />
+    <Property Name="ip" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="overlay_type">
     <Key>
@@ -154,6 +111,7 @@
     <Property Name="status_id" Type="int" Nullable="false" />
     <Property Name="comment" Type="varchar" MaxLength="200" />
     <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="ip" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="restaurants_status">
     <Key>
@@ -254,42 +212,6 @@
       </Principal>
       <Dependent Role="restaurants_posts">
         <PropertyRef Name="status_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="item_fk">
-    <End Role="item_type" Type="Ep1Model.Store.item_type" Multiplicity="1" />
-    <End Role="item" Type="Ep1Model.Store.item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="item_type">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="item">
-        <PropertyRef Name="type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="menu_item1">
-    <End Role="menu" Type="Ep1Model.Store.menu" Multiplicity="1" />
-    <End Role="menu_item" Type="Ep1Model.Store.menu_item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="menu">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="menu_item">
-        <PropertyRef Name="menu_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="menu_item2">
-    <End Role="item" Type="Ep1Model.Store.item" Multiplicity="1" />
-    <End Role="menu_item" Type="Ep1Model.Store.menu_item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="item">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="menu_item">
-        <PropertyRef Name="item_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
